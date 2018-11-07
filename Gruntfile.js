@@ -508,13 +508,13 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-//    'newer:jshint',
-//    'newer:jscs',
+    'newer:jshint',
+    'newer:jscs',
     'test',
     'build'
   ]);
 
-  require('load-grunt-tasks')(grunt);
+/*  require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
       eslint: {
@@ -522,5 +522,5 @@ module.exports = function (grunt) {
       }
   });
 
-  grunt.registerTask('lint', ['eslint']);
+  grunt.registerTask('lint', ['eslint']); */
 };
