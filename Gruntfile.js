@@ -518,7 +518,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
       eslint: {
-          target: ['app/**.js']
+          target: ['app/*.js']
       }
   });
 
