@@ -25,6 +25,9 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  // Require Browser Sync
+  require('grunt-browser-sync')(grunt);
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -64,7 +67,17 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
-      }
+      },
+      files: 'app/styles/**/*.scss',
+      tasks: ['sass']
+    },
+
+    sass: {
+        dev: {
+            files: {
+                'app/css/main.css': 'app/styles/main.scss'
+            }
+        }
     },
 
     // The actual grunt server settings
@@ -458,11 +471,26 @@ module.exports = function (grunt) {
       }
     },
 
-    // ESLinter
-    eslint: {
-      target: ['app/scripts/**/*.js']
+    browserSync: {
+        dev: {
+            bsFiles: {
+                src : [
+                    'app/styles/*.scss',
+                    'app/index.html',
+                    'app/views/*.html'
+                ]
+            },
+            options: {
+                watchTask: true,
+                server: './app'
+            }
+        }
     }
   });
+
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browser-sync');
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -513,8 +541,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'newer:jscs',
-    'build'
+    'serve'
   ]);
+
+  grunt.registerTask('bsync', ['browserSync', 'watch'])
 };
