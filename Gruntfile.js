@@ -472,19 +472,19 @@ module.exports = function (grunt) {
     },
 
     browserSync: {
-        dev: {
-            bsFiles: {
-                src : [
-                    'app/styles/*.scss',
-                    'app/index.html',
-                    'app/views/*.html'
-                ]
-            },
-            options: {
-                watchTask: true,
-                server: './app'
-            }
-        }
+      dev: {
+          bsFiles: {
+              src : [
+                  'app/styles/*.scss',
+                  'app/index.html',
+                  'app/views/*.html'
+              ]
+          },
+          options: {
+              watchTask: true,
+              server: './app'
+          }
+      }
     }
   });
 
@@ -544,5 +544,5 @@ module.exports = function (grunt) {
     'serve'
   ]);
 
-  grunt.registerTask('bsync', ['browserSync', 'watch'])
+  grunt.registerTask('bsync', ['browserSync', 'watch']);
 };
