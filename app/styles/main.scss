@@ -1,7 +1,28 @@
+html {
+  height: 95%;
+}
+
 body {
   background-color: #FEF8E5;
+  height: 100%;
+}
+
+.nav {
+  height: 10%;
 }
 
 .nav-btn {
   border: solid;
+  border-color: #FFFCEC;
+  width: 30%;
+  height: 90%;
+  display: inline-block;
+  background-image: linear-gradient(#FFE3AD, #F2BE5B);
+  border-radius: 10%;
+  font-size: large;
+}
+
+.view {
+  border: solid;
+  height: 90%;
 }
