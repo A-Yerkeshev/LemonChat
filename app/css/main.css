@@ -2,7 +2,7 @@ html {
   height: 95%; }
 
 body {
-  background-color: #FEF8E5;
+  background-color: #FFF774;
   height: 100%; }
 
 .nav {
@@ -10,13 +10,15 @@ body {
 
 .nav-btn {
   border: solid;
-  border-color: #FFFCEC;
+  border-color: #FFF1A1;
   width: 30%;
   height: 90%;
   display: inline-block;
-  background-image: linear-gradient(#FFE3AD, #F2BE5B);
+  background-image: linear-gradient(#FFF557, #FFAF17);
   border-radius: 10%;
-  font-size: large; }
+  font-size: large;
+  font-weight: bold;
+  color: #F04E00; }
 
 .view {
   border: solid;
