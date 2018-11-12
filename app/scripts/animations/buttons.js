@@ -5,5 +5,6 @@ anime({
   borderRadius: '30%',
   width: '20%',
   height: '90%',
+  color: '#F08200',
   duration: 3000
 });

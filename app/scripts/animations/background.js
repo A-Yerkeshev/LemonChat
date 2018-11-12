@@ -4,9 +4,9 @@
 
     circle.classList.add('circle');
 
-    var size = (Math.random()*10).toFixed();
-    var posx = (Math.random() * window.innerWidth).toFixed();
-    var posy = (Math.random() * window.innerHeight).toFixed();
+    var size = (Math.random()*30+10).toFixed();
+    var posx = (Math.random() * window.innerWidth - size * 2).toFixed();
+    var posy = (Math.random() * window.innerHeight - size * 2).toFixed();
 
     circle.style.width = size + '%';
     circle.style.height = size + '%';
@@ -15,9 +15,17 @@
 
     document.body.appendChild(circle);
 
+    anime({
+      targets: circle,
+      width: size * 2 + '%',
+      height: size * 2 + '%',
+      duration: 10000,
+ //     easing: 'easeOutBack'
+    })
+
     setTimeout(function() {
       document.body.removeChild(circle)
-    }, 5000)
-  }, 1000)
+    }, 10000)
+  }, 5000)
 })();
 
