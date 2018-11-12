@@ -21,7 +21,14 @@ body {
   color: #F08200; }
 
 .view {
-  border: solid;
-  height: 90%; }
+  background-color: #FFF5A5;
+  border-radius: 5%;
+  height: 90%;
+  width: 70%; }
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: red; }
 
 /*# sourceMappingURL=main.css.map */
