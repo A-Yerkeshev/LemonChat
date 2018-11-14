@@ -19,7 +19,7 @@ body {
   height: 10%;
   display: inline-block;
   background-image: linear-gradient(#FFF557, #FFAF17);
-  border-radius: 90%;
+  border-radius: 10px;
   font-size: large;
   font-weight: bold;
   color: #FFF774;
@@ -27,7 +27,7 @@ body {
 
 .view {
   background-color: #FFF5A5;
-  border-radius: 5%;
+  border-radius: 20px;
   height: 90%;
   width: 70%;
   opacity: 0.7;
@@ -45,4 +45,17 @@ body {
   border-radius: 50%;
   background-color: #FFF774;
   z-index: -1;
+}
+
+.chat-field {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 25%;
+  width: 98%;
+  background-color: #FFF9D9;
+  border: ridge;
+  border-width: 7px;
+  border-color: #FFAF60;
+  border-radius: 20px;
 }

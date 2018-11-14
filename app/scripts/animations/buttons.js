@@ -3,7 +3,7 @@ var navBtns = document.getElementsByClassName('nav-btn');
 // Set appearance animation
 anime({
   targets: navBtns,
-  borderRadius: '30%',
+  borderRadius: '20px',
   width: '20%',
   height: '90%',
   color: '#F08200',
