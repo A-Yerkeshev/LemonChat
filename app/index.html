@@ -21,12 +21,17 @@
 
     <!-- Add your site or application content here -->
     <div class="nav">
-      <button class="nav-btn">One</button>
-      <button class="nav-btn">Two</button>
-      <button class="nav-btn">Three</button>
+      <button class="nav-btn button">One</button>
+      <button class="nav-btn button">Two</button>
+      <button class="nav-btn button">Three</button>
     </div>
     <div ng-view class="view"></div>
-    <div class="chat-field"></div>
+    <form class="chat-field">
+      <textarea class="text-area">
+        Sample message
+      </textarea>
+      <input type="submit" class="submit-btn button">
+    </form>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>

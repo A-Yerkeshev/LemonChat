@@ -10,22 +10,32 @@ body {
   height: 10%; }
 
 .nav-btn {
-  border: solid;
-  border-color: #FFF1A1;
   width: 1%;
   height: 10%;
-  display: inline-block;
+  display: inline-block; }
+
+.submit-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px; }
+
+.button {
+  border: solid;
+  border-color: #FFF1A1;
+  width: 10%;
+  height: 20%;
   background-image: linear-gradient(#FFF557, #FFAF17);
   border-radius: 10px;
-  font-size: large;
   font-weight: bold;
-  color: #FFF774; }
+  font-size: large;
+  color: #F08200; }
 
 .view {
   background-color: #FFF5A5;
   border-radius: 20px;
   height: 90%;
-  width: 70%;
+  width: 90%;
+  margin-left: 5%;
   opacity: 0.7; }
 
 .circle {
@@ -50,6 +60,19 @@ body {
   border: ridge;
   border-width: 7px;
   border-color: #FFAF60;
-  border-radius: 20px; }
+  border-radius: 20px;
+  opacity: 0.9; }
+
+.text-area {
+  font-family: "Verdana", sans-serif;
+  font-size: 18px;
+  width: 98%;
+  background-color: #FFF9D9;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  resize: none;
+  color: #E47100;
+  text-shadow: 1px 1px 1px #FFF000; }
 
 /*# sourceMappingURL=main.css.map */
