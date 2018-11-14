@@ -10,7 +10,8 @@ anime({
   duration: 3000
 });
 
-(function animateOnPoint() {
+// Animate buttons on hover
+(function animateOnHover() {
   Array.from(navBtns).forEach(function(button) {
     button.addEventListener('mouseover', function() {
       anime({
