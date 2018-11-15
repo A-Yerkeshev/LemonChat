@@ -1,8 +1,9 @@
-function createChatBlock(text, view) {
+function createChatBlock(text, chat) {
   var block = document.createElement('div');
 
   block.classList.add('chat-block');
-  block.innerHtml = text;
+  block.innerText = text;
 
-  view.appendChild(block);
+  chat.appendChild(block);
+  console.log(chat)
 }
