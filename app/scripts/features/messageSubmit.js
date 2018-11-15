@@ -1,4 +1,4 @@
-ngAfterViewInit() {function submitMessage() {
+(function submitMessage() {
   var textArea = document.getElementsByClassName('text-area')[0];
   var button = document.getElementsByClassName('sub-btn')[0];
   var chat = document.getElementsByClassName('chat')[0];
@@ -10,5 +10,4 @@ ngAfterViewInit() {function submitMessage() {
     createChatBlock(text, chat);
   })
 
-  console.log(chat)
-}};
+})();

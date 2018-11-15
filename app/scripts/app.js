@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc overview
- * @name chatApp
+ * @name LemonChat
  * @description
- * # chatApp
+ * # LemonChat
  *
  * Main module of the application.
  */
@@ -21,8 +21,7 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/chat.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'MessagesController',
       })
       .otherwise({
         redirectTo: '/'
