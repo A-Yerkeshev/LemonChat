@@ -26,7 +26,7 @@ body {
   border-radius: 10px;
   font-weight: bold;
   font-size: large;
-  color: #F08200;
+  color: #ED6602;
   outline: none;
   cursor: pointer; }
 
@@ -61,7 +61,8 @@ body {
   border-width: 7px;
   border-color: #FFAF60;
   border-radius: 20px;
-  opacity: 0.5; }
+  opacity: 0.5;
+  box-shadow: inset 0 0 20px #FFC835; }
 
 .text-area {
   width: 85%;
