@@ -78,7 +78,7 @@ body {
   cursor: default;
   margin-left: 1%; }
 
-.chat-block {
+.message {
   background-color: blue;
   width: 100px;
   height: 50px; }
