@@ -26,9 +26,9 @@
       <button class="nav-btn button">Three</button>
     </div>
     <div ng-view class="view"></div>
-    <form class="chat-field">
+    <form ng-controller="MessagesController" class="chat-field">
       <textarea class="text-area"></textarea>
-      <input type="submit" class="sub-btn button">
+      <input type="submit" class="sub-btn button" ng-click="submit('Fourth sample message')">
     </form>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -58,13 +58,12 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/services/MessagesService.js"></script>
         <script src="scripts/controllers/MessagesController.js"></script>
         <!-- endbuild -->
     <script src="scripts/anime-master/anime.min.js"></script>
     <script src="scripts/animations/buttons.js"></script>
     <script src="scripts/animations/chatField.js"></script>
     <script src="scripts/animations/background.js"></script>
-    <script src="scripts/features/messageSubmit.js"></script>
-    <script src="scripts/features/createChatBlock.js"></script>
 </body>
 </html>
