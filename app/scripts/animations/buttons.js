@@ -17,7 +17,7 @@ function animateButtonOnHover(button) {
       duration: 1000
     })
   });
-}
+};
 
 (function animateButtons() {
   var navBtns = document.getElementsByClassName('nav-btn');

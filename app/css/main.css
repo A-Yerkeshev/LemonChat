@@ -22,8 +22,6 @@ body {
 .button {
   border: solid;
   border-color: #FFF1A1;
-  width: 10%;
-  height: 20%;
   background-image: linear-gradient(#FFF557, #FFAF17);
   border-radius: 10px;
   font-weight: bold;
@@ -68,7 +66,7 @@ body {
 .text-area {
   font-family: "Verdana", sans-serif;
   font-size: 18px;
-  width: 98%;
+  width: 85%;
   height: 100%;
   background-color: transparent;
   border: none;
@@ -77,7 +75,8 @@ body {
   resize: none;
   color: #E47100;
   text-shadow: 1px 1px 1px #FFF000;
-  cursor: default; }
+  cursor: default;
+  margin-left: 1%; }
 
 ::-webkit-scrollbar {
   width: 15px; }
