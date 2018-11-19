@@ -27,8 +27,8 @@
     </div>
     <div ng-view class="view"></div>
     <form ng-controller="MessagesController" class="chat-field">
-      <textarea class="text-area"></textarea>
-      <input type="submit" class="sub-btn button" ng-click="submit('Fourth sample message')">
+      <textarea class="text-area" ng-model="text"></textarea>
+      <input type="submit" class="sub-btn button" ng-click="submit(text)">
     </form>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
