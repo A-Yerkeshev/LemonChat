@@ -9,7 +9,7 @@
     innerCircle.classList.add('inner-circle');
 
     // Initialize random size and position
-    var size = Math.random()*30+20;
+    var size = Math.random()*100;
     var posx = Math.random() * window.innerWidth;
     var posy = Math.random() * window.innerHeight;
 
@@ -26,19 +26,13 @@
     // Animate appearance
     anime({
       targets: circle,
-      width: size + '%',
-      height: size + '%',
-      left: (posx-window.innerWidth*size/200) + 'px',
-      top: (posy-window.innerHeight*size/200) + 'px',
+      scale: size,
       duration: 20000
     });
 
     anime({
       targets: innerCircle,
-      width: size + '%',
-      height: size + '%',
-      left: (posx-window.innerWidth*size/200) + 'px',
-      top: (posy-window.innerHeight*size/200) + 'px',
+      scale: size,
       duration: 40000
     });
 
