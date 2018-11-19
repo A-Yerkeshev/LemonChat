@@ -25,7 +25,6 @@ function animateButtonOnHover(button) {
   // Set nav buttons appearance animation
   anime({
     targets: navBtns,
-    borderRadius: '20px',
     width: '20%',
     height: '90%',
     color: '#F08200',
