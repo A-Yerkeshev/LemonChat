@@ -129,4 +129,14 @@ angular.module('LemonChat')
       addOpacityListeners(textArea, chatField);
       addOpacityListeners(subButton, chatField)
     };
+
+    // Messages animations
+    // Animate message appearance
+    this.animateMessage = function(message) {
+      console.log('animated!')
+      anime({
+        tergets: message,
+        duration: 1000
+      })
+    }
   })
