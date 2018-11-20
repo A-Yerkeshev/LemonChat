@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .service('AnimationService', function() {
+  .service('AnimationsService', function() {
 
     // Background animation
     this.animateBackground = function () {
@@ -120,7 +120,7 @@ angular.module('LemonChat')
     }
 
     // Increase opacity of chat field on focus and decrease on blur
-    this.chatOpacityOnFocus = function () {
+    this.animateChat = function () {
       var chatField = document.getElementsByClassName('chat-field')[0];
       var textArea = document.getElementsByClassName('text-area')[0];
       var subButton = document.getElementsByClassName('sub-btn')[0];
