@@ -14,14 +14,15 @@ body {
   height: 10%; }
 
 .nav-btn {
-  width: 1%;
-  height: 10%;
+  width: 1px;
+  height: 1px;
   display: inline-block; }
 
 .sub-btn {
   position: absolute;
   bottom: 10px;
-  right: 10px; }
+  right: 10px;
+  color: '#F08200'; }
 
 .button {
   border: solid;
@@ -30,7 +31,7 @@ body {
   border-radius: 1em;
   font-weight: bold;
   font-size: large;
-  color: #ED6602;
+  color: #FFEC86;
   outline: none;
   cursor: pointer; }
 
