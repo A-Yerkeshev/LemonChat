@@ -133,10 +133,12 @@ angular.module('LemonChat')
     // Messages animations
     // Animate message appearance
     this.animateMessage = function(message) {
-      console.log('animated!')
+      message.style.display = 'inline-block';
       anime({
-        tergets: message,
-        duration: 1000
+        targets: message,
+        right: '0em',
+        easing: 'linear',
+        duration: 500
       })
     }
   })
