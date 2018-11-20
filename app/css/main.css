@@ -10,6 +10,17 @@ body {
   height: 100%;
   overflow: hidden; }
 
+.button {
+  border: solid;
+  border-color: #FFF1A1;
+  background-image: linear-gradient(#FFF557, #FFAF17);
+  border-radius: 1em;
+  font-weight: bold;
+  font-size: large;
+  color: #FFF774;
+  outline: none;
+  cursor: pointer; }
+
 .nav {
   height: 10%; }
 
@@ -22,18 +33,7 @@ body {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  color: '#F08200'; }
-
-.button {
-  border: solid;
-  border-color: #FFF1A1;
-  background-image: linear-gradient(#FFF557, #FFAF17);
-  border-radius: 1em;
-  font-weight: bold;
-  font-size: large;
-  color: #FFEC86;
-  outline: none;
-  cursor: pointer; }
+  color: #F08200; }
 
 .view {
   background-color: #FFF5A5;
