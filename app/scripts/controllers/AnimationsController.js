@@ -6,11 +6,5 @@ angular.module('LemonChat')
       AnimationsService.animateButtons();
       AnimationsService.animateBackground();
       AnimationsService.animateChat();
-
-      // Animate messages loaded from MessagesService
-      var messages = document.getElementsByClassName('message');
-      Array.from(messages).forEach(function(message) {
-        AnimationsService.animateMessage(message);
-      })
     }
   })
