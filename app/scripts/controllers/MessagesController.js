@@ -5,6 +5,11 @@ angular.module('LemonChat')
 
     $scope.messages = MessagesService.messages;
 
+    $scope.testFunc = function (element) {
+      //console.log(element)
+      //AnimationsService.animateMessage(message);
+    };
+
     $scope.submit = function(message) {
       MessagesService.messages.push(message);
       textArea.value = '';
