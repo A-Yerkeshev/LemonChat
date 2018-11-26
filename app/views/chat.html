@@ -1,5 +1,5 @@
 <div ng-controller="MessagesController" class="message" ng-repeat="message in messages"
-message-directive>
+message-directive id="message-{{$index+1}}">
   {{message.text}}
   <span class="time-date">{{message.time}}</span>
 </div>
