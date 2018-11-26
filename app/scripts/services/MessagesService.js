@@ -7,11 +7,11 @@ angular.module('LemonChat')
       },
       {
         text: 'Second sample message',
-        date: new Date()
+        date: new Date(2018, 1, 13, 22, 50)
       },
       {
         text: 'First sample message',
-        date: new Date()
+        date: new Date(1953, 5, 6, 14, 21)
       },
     ]
   })

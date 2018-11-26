@@ -22,8 +22,12 @@ angular.module('LemonChat')
     $scope.displayDate = function(date) {
       var local = new Date();
       // If current day and day of message creation are same display only the time
-      if (date.getDay() == local.getDay()) {
+      if (date.toDateString() == local.toDateString()) {
         return String(date.getHours()) + ':' + String(date.getMinutes());
+      } else {
+      // In other case display full date
+        return String(date.getDate()) + '.' + String(date.getMonth()) +
+          '.' + String(date.getFullYear());
       };
     }
   })
