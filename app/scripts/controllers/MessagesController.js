@@ -4,14 +4,18 @@ angular.module('LemonChat')
 
     $scope.messages = MessagesService.messages;
 
-    $scope.submit = function(message) {
+    $scope.submit = function(text) {
+      var message = {
+        text: text,
+        time: '9:56'
+      }
       MessagesService.messages.push(message);
       textArea.value = '';
     };
 
-    $scope.enterKeypress = function(key, message) {
+    $scope.enterKeypress = function(key, text) {
       if (key.which == 13) {
-        $scope.submit(message);
+        $scope.submit(text);
       };
     };
   })
