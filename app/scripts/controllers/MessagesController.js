@@ -7,7 +7,7 @@ angular.module('LemonChat')
     $scope.submit = function(text) {
       var message = {
         text: text,
-        time: '9:56'
+        time: new Date()
       }
       MessagesService.messages.push(message);
       textArea.value = '';
