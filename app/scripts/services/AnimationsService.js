@@ -138,7 +138,7 @@ angular.module('LemonChat')
         targets: message,
         right: '0em',
         easing: 'linear',
-        duration: 500
-      })
+        duration: 200
+      });
     }
   })
