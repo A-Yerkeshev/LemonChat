@@ -1,8 +1,17 @@
 angular.module('LemonChat')
   .service('MessagesService', function() {
     this.messages = [
-      'First sample message',
-      'Second sample message',
-      'Third sample message'
+      {
+        text: 'First sample message',
+        time: '9:21'
+      },
+      {
+        text: 'Second sample message',
+        time: '16:43'
+      },
+      {
+        text: 'First sample message',
+        time: '21:56'
+      },
     ]
   })

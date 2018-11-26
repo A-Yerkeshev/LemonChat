@@ -1,4 +1,5 @@
 <div ng-controller="MessagesController" class="message" ng-repeat="message in messages"
 message-directive>
-  {{message}}
+  {{message.text}}
+  <span class="time-date">{{message.time}}</span>
 </div>

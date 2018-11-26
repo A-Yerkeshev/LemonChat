@@ -102,6 +102,12 @@ body {
   float: left;
   clear: left; }
 
+.time-date {
+  color: black;
+  text-align: right;
+  font-size: 0.6em;
+  vertical-align: top; }
+
 ::-webkit-scrollbar {
   width: 1em; }
 
