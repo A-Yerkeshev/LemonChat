@@ -7,8 +7,8 @@ angular.module('LemonChat')
     $scope.submit = function(text) {
       var message = {
         text: text,
-        time: new Date()
-      }
+        date: new Date()
+      };
       MessagesService.messages.push(message);
       textArea.value = '';
     };
@@ -18,4 +18,12 @@ angular.module('LemonChat')
         $scope.submit(text);
       };
     };
+
+    $scope.displayDate = function(date) {
+      var local = new Date();
+      // If current day and day of message creation are same display only the time
+      if (date.getDay() == local.getDay()) {
+        return String(date.getHours()) + ':' + String(date.getMinutes());
+      };
+    }
   })

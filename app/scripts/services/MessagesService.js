@@ -3,15 +3,15 @@ angular.module('LemonChat')
     this.messages = [
       {
         text: 'First sample message',
-        time: new Date(2018, 11, 26, 10, 33)
+        date: new Date()
       },
       {
         text: 'Second sample message',
-        time: new Date(2018, 11, 26, 10, 33)
+        date: new Date()
       },
       {
         text: 'First sample message',
-        time: new Date(2018, 11, 26, 10, 33)
+        date: new Date()
       },
     ]
   })
