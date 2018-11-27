@@ -27,7 +27,8 @@
     </div>
     <div ng-view class="view"></div>
     <form ng-controller="MessagesController" class="chat-field">
-      <textarea class="text-area" ng-model="text" ng-keypress="enterKeypress($event, text)"></textarea>
+      <textarea class="text-area" ng-model="text" ng-keypress=
+      "enterKeypress($event, text)"></textarea>
       <input type="submit" class="sub-btn button" ng-click="submit(text)">
     </form>
 
