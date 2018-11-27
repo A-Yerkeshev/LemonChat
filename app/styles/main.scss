@@ -42,6 +42,11 @@ body {
   color: #F08200;
 }
 
+.log-btn {
+  float: right;
+  background-image: linear-gradient(#FFFDE2, #FEEF00);
+}
+
 .view {
   background-color: #FFF5A5;
   border-radius: 2em;
@@ -127,8 +132,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #FFF774;
-    border-radius: 0.5em;
+    opacity: 1;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -137,6 +141,5 @@ body {
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: #FFF774;
-  border-radius: 0.5em;
+  opacity: 1;
 }
