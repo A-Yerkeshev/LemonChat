@@ -1,7 +1,6 @@
 angular.module('LemonChat')
   .controller('MessagesController', function($scope, MessagesService) {
     var textArea = document.getElementsByClassName('text-area')[0];
-    var chat = document.getElementsByClassName('view')[0];
 
     $scope.messages = MessagesService.messages;
 
@@ -14,9 +13,11 @@ angular.module('LemonChat')
           date: new Date()
         };
         MessagesService.messages.push(message);
-        // Clean text area and scroll to the bottom of the chat
+        // Clean text area and scroll chat down on submit
         textArea.value = '';
-      }
+        var chat = document.getElementsByClassName('view')[0];
+        chat.scrollTop = chat.scrollHeight;
+      };
     };
 
     // Submit message on enter keypress
@@ -37,5 +38,5 @@ angular.module('LemonChat')
         return String(date.getDate()) + '.' + String(date.getMonth()) +
           '.' + String(date.getFullYear());
       };
-    }
+    };
   })
