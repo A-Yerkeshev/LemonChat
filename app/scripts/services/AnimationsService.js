@@ -85,6 +85,7 @@ angular.module('LemonChat')
     };
 
     this.animateButtons = function () {
+      var buttons = document.getElementsByClassName('button');
       var navBtns = document.getElementsByClassName('nav-btn');
 
       // Set nav buttons appearance animation
@@ -96,17 +97,10 @@ angular.module('LemonChat')
         duration: 3000
       });
 
-      // Animate nav buttons on hover
-      Array.from(navBtns).forEach(function(button) {
+      // Animate buttons on hover
+      Array.from(buttons).forEach(function(button) {
         animateButtonOnHover(button);
       });
-
-      // Animate submit buttons on hover
-      var subBtn = document.getElementsByClassName('sub-btn');
-
-      Array.from(subBtn).forEach(function(button) {
-        animateButtonOnHover(button)
-      })
     };
 
     // Chat field animations
