@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .controller('UsersController', function($scope, UsersService) {
+  .controller('UsersController', function($scope, $window, UsersService) {
 
     $scope.currentUser = null;
 
@@ -11,7 +11,7 @@ angular.module('LemonChat')
             $scope.currentUser = user;
           };
         } else {
-          console.log('register first')
+          window.location.href = '/register';
         };
       })
     }

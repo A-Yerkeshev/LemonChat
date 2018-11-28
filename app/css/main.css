@@ -23,15 +23,12 @@ body {
   overflow: hidden; }
 
 .appearing {
-  color: #FFF774; }
+  color: #FFF774;
+  position: relative;
+  right: 2.5em; }
 
 .nav {
   height: 10%; }
-
-.nav-btn {
-  width: 1px;
-  height: 1px;
-  display: inline-block; }
 
 .sub-btn {
   position: absolute;
@@ -40,7 +37,9 @@ body {
 
 .log-btn {
   float: right;
-  background-image: linear-gradient(#FFFDE2, #FEEF00); }
+  line-height: 2.5em;
+  text-decoration: none;
+  text-align: center; }
 
 .reg-btn {
   text-decoration: none;
@@ -131,8 +130,7 @@ body {
   box-shadow: 0px 0px 20px;
   background-image: radial-gradient(#FFF666, #FFD800);
   color: #BC2D01;
-  overflow-x: scroll;
-  opacity: 1; }
+  overflow-x: scroll; }
 
 .login-text {
   font-weight: bold;

@@ -89,13 +89,25 @@ angular.module('LemonChat')
       var navBtns = document.getElementsByClassName('nav-btn');
 
       // Set nav buttons appearance animation
-      anime({
-        targets: navBtns,
-        width: '20%',
-        height: '90%',
-        color: '#EE6500',
-        duration: 3000
-      });
+      anime.timeline()
+        .add({
+          targets: navBtns[1],
+          color: '#EE6500',
+          right: '0em',
+          duration: 800
+        })
+        .add({
+          targets: navBtns[2],
+          color: '#EE6500',
+          right: '0em',
+          duration: 800
+        })
+        .add({
+          targets: navBtns[0],
+          color: '#EE6500',
+          right: '0em',
+          duration: 800
+        });
 
       // Animate buttons on hover
       Array.from(buttons).forEach(function(button) {

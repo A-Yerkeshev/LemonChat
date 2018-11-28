@@ -19,10 +19,13 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/login', {
         templateUrl: 'views/login.html'
       })
+      .when('/register', {
+        templateUrl: 'views/register.html'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
   });

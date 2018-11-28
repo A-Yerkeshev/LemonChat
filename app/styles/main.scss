@@ -28,16 +28,12 @@ body {
 
 .appearing {
   color: #FFF774;
+  position: relative;
+  right: 2.5em;
 }
 
 .nav {
   height: 10%;
-}
-
-.nav-btn {
-  width: 1px;
-  height: 1px;
-  display: inline-block;
 }
 
 .sub-btn {
@@ -48,7 +44,9 @@ body {
 
 .log-btn {
   float: right;
-  background-image: linear-gradient(#FFFDE2, #FEEF00);
+  line-height: 2.5em;
+  text-decoration: none;
+  text-align: center;
 }
 
 .reg-btn {
