@@ -2,9 +2,9 @@
   <h1 class="login-text">Welcome to Lemon Chat! Could you login please?</h1>
   <form class="login-form">
     <b>Username: </b><br>
-    <input class="login-input"><br>
+    <input class="login-input" ng-model="username"><br>
     <b>Password: </b><br>
-    <input class="login-input" type="password"><br>
-    <input type="submit" class="sub-btn button" value="Log in">
+    <input class="login-input" ng-model="password" type="password"><br>
+    <input type="submit" class="sub-btn button" value="Log in" ng-click="login(username, password)">
   </form>
 </div>
