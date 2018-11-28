@@ -20,8 +20,7 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/chat.html',
-        controller: 'MessagesController',
+        templateUrl: 'views/login.html'
       })
       .otherwise({
         redirectTo: '/'

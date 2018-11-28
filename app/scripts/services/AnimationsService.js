@@ -78,7 +78,7 @@ angular.module('LemonChat')
         anime({
           targets: button,
           scale: 1,
-          color: '#F08200',
+          color: '#EE6500',
           duration: 1000
         })
       });
@@ -92,7 +92,7 @@ angular.module('LemonChat')
         targets: navBtns,
         width: '20%',
         height: '90%',
-        color: '#F08200',
+        color: '#EE6500',
         duration: 3000
       });
 
@@ -101,10 +101,12 @@ angular.module('LemonChat')
         animateButtonOnHover(button);
       });
 
-      // Animate submit button on hover
-      var subBtn = document.getElementsByClassName('sub-btn')[0];
+      // Animate submit buttons on hover
+      var subBtn = document.getElementsByClassName('sub-btn');
 
-      animateButtonOnHover(subBtn)
+      Array.from(subBtn).forEach(function(button) {
+        animateButtonOnHover(button)
+      })
     };
 
     // Chat field animations
