@@ -92,21 +92,21 @@ angular.module('LemonChat')
       anime.timeline()
         .add({
           targets: navBtns[1],
-          color: '#EE6500',
           right: '0em',
-          duration: 800
+          easing: 'easeOutCubic',
+          duration: 500
         })
         .add({
           targets: navBtns[2],
-          color: '#EE6500',
           right: '0em',
-          duration: 800
+          easing: 'easeOutCubic',
+          duration: 500
         })
         .add({
           targets: navBtns[0],
-          color: '#EE6500',
           right: '0em',
-          duration: 800
+          easing: 'easeOutCubic',
+          duration: 500
         });
 
       // Animate buttons on hover
