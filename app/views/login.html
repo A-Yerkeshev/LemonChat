@@ -1,10 +1,10 @@
-<div class="login" ng-controller="UsersController">
-  <h1 class="login-text">Welcome to Lemon Chat! Can you login please?</h1>
-  <form class="login-form">
+<div class="log-page" ng-controller="UsersController">
+  <h1 class="log-text">Welcome to Lemon Chat! Can you login please?</h1>
+  <form class="log-form">
     <b>Username: </b><br>
-    <input class="login-input" ng-model="username"><br>
+    <input class="log-input" ng-model="username"><br>
     <b>Password: </b><br>
-    <input class="login-input" ng-model="password" type="password"><br>
+    <input class="log-input" ng-model="password" type="password"><br>
     Don't have account yet? Register now!
     <a class="reg-btn button" ng-href="#!register">Register</a>
     <input type="submit" class="sub-btn button" value="Log in" ng-click="login(username, password)">

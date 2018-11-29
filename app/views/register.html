@@ -1,1 +1,12 @@
-<div>Registration page</div>
+<div class="log-page" ng-controller="UsersController">
+  <h1 class="log-text">Register new account</h1>
+  <form class="log-form">
+    <b>Username: </b><br>
+    <input class="log-input" ng-model="username"><br>
+    <b>Password: </b><br>
+    <input class="log-input" ng-model="password" type="password"><br>
+    <b>Repeat password: </b><br>
+    <input class="log-input" ng-model="repPassword" type="password"><br>
+    <input type="submit" class="sub-btn button" value="Register!" ng-click="register(username, password, repPassword)">
+  </form>
+</div>
