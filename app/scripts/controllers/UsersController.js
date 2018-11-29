@@ -11,8 +11,27 @@ angular.module('LemonChat')
             $scope.currentUser = user;
           };
         } else {
-          window.location.href = '#!/register';
+          $window.location.href = '#!register';
         };
       })
+    };
+
+    // Register new user
+    $scope.register = function(username, password, repPassword) {
+      var alert = document.getElementsByClassName('log-text')[0]
+      // Do not perform any action if passwords do not match
+      if (password !== repPassword) {
+        alert.innerText = 'Passwords do not match!'
+        return
+      };
+      // Add new user
+      var newUser = {
+        name: username,
+        password: password
+      };
+      UsersService.users.push(newUser);
+      // Login newly created user
+      $scope.login(username, password);
     }
+
   })
