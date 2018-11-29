@@ -11,7 +11,7 @@ angular.module('LemonChat')
             $scope.currentUser = user;
           };
         } else {
-          window.location.href = '/register';
+          window.location.href = '#!/register';
         };
       })
     }
