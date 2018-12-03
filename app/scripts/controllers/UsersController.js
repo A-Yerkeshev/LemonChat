@@ -21,11 +21,28 @@ angular.module('LemonChat')
     // Register new user
     $scope.register = function(username, password, repPassword) {
       var alert = document.getElementsByClassName('log-text')[0];
-      // Do not perform any action if passwords do not match
-      if (password !== repPassword) {
-        alert.innerText = 'Passwords do not match!'
-        return
+      // Alert if username is empty
+      if (username === "") {
+        alert.innerText = 'Username cannot be empty';
+        return;
       };
+      // Alert is password is empty
+      if (password === "") {
+        alert.innerText = 'Password cannot be empty';
+        return;
+      };
+      // Alert if passwords do not match
+      if (password !== repPassword) {
+        alert.innerText = 'Passwords do not match!';
+        return;
+      };
+      // Alert if user already exists
+      UsersService.users.forEach(function(user) {
+        if (user.name == username) {
+          alert.innerText = 'User with this username already exists!';
+          return;
+        }
+      });
       // Add new user
       var newUser = {
         name: username,
