@@ -64,8 +64,42 @@ body {
   opacity: 0.7;
   white-space: normal;
   overflow: scroll;
+  position: absolute;
 }
 
+/* Animate view on change */
+.view.ng-enter,
+.view.ng-leave {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.view.ng-enter {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+}
+
+.view.ng-enter-active {
+    opacity: 0.7;
+}
+
+.view.ng-leave {
+    opacity: 0.7;
+}
+
+.view.ng-enter-active,
+.view.ng-leave,
+.view.ng-leave-active {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.view.ng-leave-active {
+    opacity: 0;
+}
+/* --- */
+
+/* Elements for background animation */
 .circle {
   position: absolute;
   border-radius: 50%;
@@ -83,6 +117,7 @@ body {
   padding-top: 4px;
   z-index: -1;
 }
+/* --- */
 
 .chat-field {
   position: absolute;
@@ -172,6 +207,7 @@ body {
   text-shadow: 1px 1px 1px #FFF000;
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 1em;
 }
@@ -188,3 +224,4 @@ body {
 ::-webkit-scrollbar-corner {
   opacity: 1;
 }
+/* --- */
