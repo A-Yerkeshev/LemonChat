@@ -10,6 +10,7 @@ angular.module('LemonChat')
         if (user.name == username) {
           if (user.password == password) {
             $scope.currentUser = user;
+            $window.location.href = '#!chat'
           };
         } else {
           alert.innerText = `Username or password is incorrect.
@@ -50,7 +51,8 @@ angular.module('LemonChat')
       };
       UsersService.users.push(newUser);
       // Login newly created user
-      $scope.login(username, password);
+      $scope.currentUser = newUser;
+      $window.location.href = '#!chat'
     }
 
   })

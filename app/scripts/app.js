@@ -25,6 +25,9 @@ angular
       .when('/register', {
         templateUrl: 'views/register.html'
       })
+      .when('/chat', {
+        templateUrl: 'views/chat.html'
+      })
       .otherwise({
         redirectTo: '/login'
       });

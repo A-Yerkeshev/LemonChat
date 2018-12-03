@@ -1,7 +1,7 @@
 angular.module('LemonChat')
-  .directive('messageDirective', function(AnimationsService) {
+  .directive('messageDirective', function() {
     function appear(scope, element) {
-      AnimationsService.animateMessage(element[0]);
+      scope.animateMessage(element[0]);
     };
 
     return {
