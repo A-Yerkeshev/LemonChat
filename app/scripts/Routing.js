@@ -1,25 +1,8 @@
-'use strict';
-
-/**
- * @ngdoc overview
- * @name LemonChat
- * @description
- * # LemonChat
- *
- * Main module of the application.
- */
-angular
-  .module('LemonChat', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
+angular.module('LemonChat')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/login', {
+        controller: 'AnimationsController',
         templateUrl: 'views/login.html'
       })
       .when('/register', {

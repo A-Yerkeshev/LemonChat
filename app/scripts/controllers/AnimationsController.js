@@ -130,7 +130,7 @@ angular.module('LemonChat')
 
       animateButtonOnHover(rightBtn);
       animateButtonOnHover(leftBtn);
-    }
+    };
 
     // Chat field animations
     // Declare event opacity listener
@@ -141,8 +141,8 @@ angular.module('LemonChat')
 
       elem.addEventListener('blur', function() {
         chatField.style.opacity = 0.5;
-      })
-    }
+      });
+    };
 
     // Increase opacity of chat field on focus and decrease on blur
     $scope.animateChat = function () {
@@ -172,5 +172,5 @@ angular.module('LemonChat')
       $scope.animateNavButtons();
       $scope.animateBackground();
       $scope.animateChat();
-    }
+    };
   })
