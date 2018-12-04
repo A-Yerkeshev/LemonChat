@@ -1,4 +1,6 @@
 angular.module('LemonChat')
-  .run(function() {
-    console.log('123')
+  .run(function($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function() {
+      console.log('123')
+    })
   })
