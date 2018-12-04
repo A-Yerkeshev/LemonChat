@@ -40,7 +40,12 @@ body {
   text-decoration: none;
   text-align: center; }
 
-.log-nav-btn {
+.log-right-btn {
+  position: absolute;
+  bottom: 1em;
+  right: 1em; }
+
+.log-left-btn {
   text-decoration: none;
   position: absolute;
   bottom: 1em;

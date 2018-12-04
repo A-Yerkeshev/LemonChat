@@ -84,7 +84,8 @@ angular.module('LemonChat')
       });
     };
 
-    $scope.animateButtons = function () {
+    // Animate nav buttons
+    $scope.animateNavButtons = function () {
       var buttons = document.getElementsByClassName('button');
       var navBtns = document.getElementsByClassName('nav-btn');
 
@@ -114,6 +115,22 @@ angular.module('LemonChat')
         animateButtonOnHover(button);
       });
     };
+
+    // Animate text area submit button on hover
+    $scope.animateSubmitButton = function() {
+      var subBtn = document.getElementsByClassName('sub-btn')[0];
+
+      animateButtonOnHover(subBtn);
+    };
+
+    // Animate log page buttons on hover
+    $scope.animateLogButtons = function() {
+      var rightBtn = document.getElementsByClassName('log-right-btn')[0];
+      var leftBtn = document.getElementsByClassName('log-left-btn')[0];
+
+      animateButtonOnHover(rightBtn);
+      animateButtonOnHover(leftBtn);
+    }
 
     // Chat field animations
     // Declare event opacity listener
@@ -152,7 +169,7 @@ angular.module('LemonChat')
 
     // Call animations on page load
     $window.onload = function() {
-      $scope.animateButtons();
+      $scope.animateNavButtons();
       $scope.animateBackground();
       $scope.animateChat();
     }
