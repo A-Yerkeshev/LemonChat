@@ -124,10 +124,7 @@ angular.module('LemonChat')
     };
 
     // Animate log page buttons on hover
-    $scope.animateLogButtons = function() {
-      var rightBtn = document.getElementsByClassName('log-right-btn')[0];
-      var leftBtn = document.getElementsByClassName('log-left-btn')[0];
-
+    $scope.animateLogButtons = function(rightBtn, leftBtn) {
       animateButtonOnHover(rightBtn);
       animateButtonOnHover(leftBtn);
     };
@@ -173,4 +170,11 @@ angular.module('LemonChat')
       $scope.animateBackground();
       $scope.animateChat();
     };
+
+    $scope.$on('$viewContentLoaded', function() {
+      var rightBtn = document.getElementsByClassName('log-right-btn')[0];
+      var leftBtn = document.getElementsByClassName('log-left-btn')[0];
+      $scope.animateLogButtons(rightBtn, leftBtn);
+      console.log(rightBtn)
+    })
   })
