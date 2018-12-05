@@ -172,9 +172,10 @@ angular.module('LemonChat')
     };
 
     $scope.$on('$viewContentLoaded', function() {
-      var rightBtn = document.getElementsByClassName('log-right-btn')[0];
-      var leftBtn = document.getElementsByClassName('log-left-btn')[0];
-      $scope.animateLogButtons(rightBtn, leftBtn);
-      console.log(rightBtn)
+      setTimeout(function() {
+        var rightBtn = document.getElementsByClassName('log-right-btn')[0];
+        var leftBtn = document.getElementsByClassName('log-left-btn')[0];
+        $scope.animateLogButtons(rightBtn, leftBtn);
+      }, 1000)
     })
   })

@@ -53,6 +53,6 @@ angular.module('LemonChat')
         // Login newly created user
         $scope.currentUser = newUser;
         $window.location.href = '#!chat'
-      }
-    }
+      };
+    };
   })
