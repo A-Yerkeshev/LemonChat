@@ -18,5 +18,9 @@ angular.module('LemonChat')
 
     this.getAllUsers = function() {
       return users
+    };
+
+    this.getUser = function(i) {
+      return users[i]
     }
   })
