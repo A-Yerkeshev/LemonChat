@@ -51,8 +51,7 @@ angular.module('LemonChat')
         };
         UsersService.users.push(newUser);
         // Login newly created user
-        $scope.currentUser = newUser;
-        $window.location.href = '#!chat'
+        $scope.login(username, password);
       };
     };
   })
