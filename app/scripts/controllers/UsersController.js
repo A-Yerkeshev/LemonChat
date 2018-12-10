@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .controller('UsersController', function($scope, $window, $filter, UsersService) {
+  .controller('UsersController', function($scope, $location, UsersService) {
 
     // Login user on button click
     $scope.login = function(username, password) {
@@ -9,7 +9,7 @@ angular.module('LemonChat')
         if (users[i].name == username) {
           if (users[i].password == password) {
             UsersService.setCurrentUser(users[i]);
-            $window.location.href = '#!/home';
+            $location.path('/home');
           };
           return;
         };
