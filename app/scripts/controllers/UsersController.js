@@ -6,17 +6,17 @@ angular.module('LemonChat')
     // Login user on button click
     $scope.login = function(username, password) {
       var alert = document.getElementsByClassName('log-text')[0];
-      UsersService.users.forEach(function(user) {
-        if (user.name == username) {
-          if (user.password == password) {
-            $scope.currentUser = user;
-            $window.location.href = '#!chat'
+      for (var i=0; i<UsersService.users.length; i++) {
+        if (UsersService.users[i].name == username) {
+          if (UsersService.users[i].password == password) {
+            $scope.currentUser = UsersService.users[i];
+            $window.location.href = '#!chat';
           };
-        } else {
-          alert.innerText = `Username or password is incorrect.
-            Maybe you forgot to register?`
+          return;
         };
-      })
+      };
+      alert.innerText = `Username or password is incorrect.
+        Maybe you forgot to register?`
     };
 
     // Register new user
