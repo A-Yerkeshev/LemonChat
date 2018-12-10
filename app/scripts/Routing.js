@@ -10,4 +10,5 @@ angular.module('LemonChat')
       .when('/chat', {
         templateUrl: 'views/chat.html'
       })
+      .otherwise('/login')
   });
