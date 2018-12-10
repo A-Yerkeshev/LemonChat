@@ -1,15 +1,13 @@
 angular.module('LemonChat')
   .controller('UsersController', function($scope, $window, $filter, UsersService) {
 
-    $scope.currentUser = null;
-
     // Login user on button click
     $scope.login = function(username, password) {
       var alert = document.getElementsByClassName('log-text')[0];
       for (var i=0; i<UsersService.users.length; i++) {
         if (UsersService.users[i].name == username) {
           if (UsersService.users[i].password == password) {
-            $scope.currentUser = UsersService.users[i];
+            UsersService.currentUser = UsersService.users[i];
             $window.location.href = '#!/home';
           };
           return;
