@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .service('UsersService', function() {
+  .service('UsersService', function($filter) {
     var currentUser = null;
 
     var users = [
@@ -24,6 +24,10 @@ angular.module('LemonChat')
       return users[i]
     };
 
+    this.getSameNameUser = function(username) {
+      return $filter('filter')(users, {name: username}, true)[0];
+    }
+
     this.setCurrentUser = function(newCurrentUser) {
       currentUser = newCurrentUser
     };
@@ -31,4 +35,5 @@ angular.module('LemonChat')
     this.addNewUser = function(newUser) {
       users.push(newUser)
     };
+
   })
