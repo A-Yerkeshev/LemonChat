@@ -10,7 +10,7 @@ angular.module('LemonChat')
         if (UsersService.users[i].name == username) {
           if (UsersService.users[i].password == password) {
             $scope.currentUser = UsersService.users[i];
-            $window.location.href = '#!chat';
+            $window.location.href = '#!/home';
           };
           return;
         };

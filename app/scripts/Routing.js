@@ -7,6 +7,9 @@ angular.module('LemonChat')
       .when('/register', {
         templateUrl: 'views/register.html'
       })
+      .when('/home', {
+        templateUrl: 'views/home.html'
+      })
       .when('/chat', {
         templateUrl: 'views/chat.html'
       })
