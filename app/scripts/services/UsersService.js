@@ -6,6 +6,9 @@ angular.module('LemonChat')
       {
         name: 'admin',
         password: 'lemon'
+      }, {
+        name: 'lo',
+        password: 'lo'
       }
     ];
   })

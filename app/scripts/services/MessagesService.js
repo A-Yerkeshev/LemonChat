@@ -1,6 +1,6 @@
 angular.module('LemonChat')
   .service('MessagesService', function() {
-    this.messages = [
+    var messages = [
       {
         text: 'First sample message',
         date: new Date()
@@ -13,5 +13,9 @@ angular.module('LemonChat')
         text: 'First sample message',
         date: new Date(1953, 5, 6, 14, 21)
       },
-    ]
+    ];
+
+    this.getMessages = function() {
+      return messages
+    }
   })
