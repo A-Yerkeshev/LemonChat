@@ -3,11 +3,12 @@ angular.module('LemonChat')
 
     // Login user on button click
     $scope.login = function(username, password) {
+      var users = UsersService.getAllUsers();
       var alert = document.getElementsByClassName('log-text')[0];
-      for (var i=0; i<UsersService.users.length; i++) {
-        if (UsersService.users[i].name == username) {
-          if (UsersService.users[i].password == password) {
-            UsersService.currentUser = UsersService.users[i];
+      for (var i=0; i<users.length; i++) {
+        if (users[i].name == username) {
+          if (users[i].password == password) {
+            UsersService.setCurrentUser(users[i]);
             $window.location.href = '#!/home';
           };
           return;
