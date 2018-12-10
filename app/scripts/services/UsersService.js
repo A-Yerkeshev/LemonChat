@@ -1,8 +1,8 @@
 angular.module('LemonChat')
   .service('UsersService', function() {
-    this.currentUser = null;
+    var currentUser = null;
 
-    this.users = [
+    var users = [
       {
         name: 'admin',
         password: 'lemon'
@@ -11,4 +11,12 @@ angular.module('LemonChat')
         password: 'lo'
       }
     ];
+
+    this.getCurrentUser = function() {
+      return currentUser
+    };
+
+    this.getAllUsers = function() {
+      return users
+    }
   })
