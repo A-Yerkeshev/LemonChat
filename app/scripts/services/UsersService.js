@@ -26,5 +26,9 @@ angular.module('LemonChat')
 
     this.setCurrentUser = function(newCurrentUser) {
       currentUser = newCurrentUser
-    }
+    };
+
+    this.addNewUser = function(newUser) {
+      users.push(newUser)
+    };
   })

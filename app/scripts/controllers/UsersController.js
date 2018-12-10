@@ -48,7 +48,7 @@ angular.module('LemonChat')
           name: username,
           password: password
         };
-        UsersService.users.push(newUser);
+        UsersService.addNewUser(newUser);
         // Login newly created user
         $scope.login(username, password);
       };
