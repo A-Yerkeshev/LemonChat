@@ -168,7 +168,6 @@ angular.module('LemonChat')
     $window.onload = function() {
       $scope.animateNavButtons();
       $scope.animateBackground();
-      $scope.animateChat();
     };
 
     $scope.$on('$viewContentLoaded', function() {

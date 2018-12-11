@@ -26,24 +26,11 @@
       <a class="nav-btn appearing log-btn button" ng-href="#!/login">Log in</a>
     </div>
     <div ng-view class="view"></div>
-    <div ng-controller="UsersController">
-      <form ng-controller="MessagesController" class="chat-field">
-        <textarea class="text-area" ng-model="text" ng-keypress=
-        "enterKeypress($event, text)"></textarea>
-        <input type="submit" class="sub-btn button" ng-click="submit(text)">
-      </form>
-    </div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+    <form ng-controller="MessagesController" class="chat-field">
+      <textarea class="text-area" ng-model="text" ng-keypress=
+      "enterKeypress($event, text)"></textarea>
+      <input type="submit" class="sub-btn button" ng-click="submit(text)">
+    </form>
 
     <script src="scripts/anime-master/anime.min.js"></script>
     <!-- build:js(.) scripts/vendor.js -->
