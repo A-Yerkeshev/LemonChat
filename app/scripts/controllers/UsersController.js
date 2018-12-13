@@ -25,7 +25,7 @@ angular.module('LemonChat')
     // Register new user
     $scope.register = function(username, password, repPassword) {
       var alert = document.getElementsByClassName('log-text')[0];
-      var sameNameUser = UsersService.getSameNameUser(username);
+      var sameNameUser = UsersService.getUserByName(username);
       // Alert if username is empty
       if (!username) {
         alert.innerText = 'Username cannot be empty!';
