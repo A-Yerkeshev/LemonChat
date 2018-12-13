@@ -39,8 +39,8 @@ angular.module('LemonChat')
       return $filter('filter')(users, {name: username}, true)[0]
     };
 
-    this.getConnections = function(username) {
-      return this.getUserByName(username)[connections]
+    this.getConnectionsOfCurrentUser = function() {
+      return currentUser[connections]
     };
 
     this.setCurrentUser = function(newCurrentUser) {
