@@ -5,10 +5,25 @@ angular.module('LemonChat')
     var users = [
       {
         name: 'admin',
-        password: 'lemon'
+        password: 'lemon',
+        connections: [
+          'lo',
+          'lemon'
+        ]
       }, {
         name: 'lo',
-        password: 'lo'
+        password: 'lo',
+        connections: [
+          'admin',
+          'lemon'
+        ]
+      }, {
+        name: 'lemon',
+        password: 'lemon',
+        connections: [
+          'admin',
+          'lo'
+        ]
       }
     ];
 

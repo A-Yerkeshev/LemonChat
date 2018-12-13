@@ -58,6 +58,4 @@ angular.module('LemonChat')
       };
     };
 
-    // Update value of currentUser on each page load
-
   })
