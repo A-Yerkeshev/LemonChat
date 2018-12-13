@@ -27,10 +27,6 @@ angular.module('LemonChat')
       return $filter('filter')(users, {name: username}, true)[0]
     };
 
-    this.getConversationsOfCurrentUser = function() {
-      return currentUser['conversations']
-    };
-
     this.setCurrentUser = function(newCurrentUser) {
       currentUser = newCurrentUser
     };

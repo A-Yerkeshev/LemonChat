@@ -3,7 +3,7 @@ angular.module('LemonChat')
     var conversations = [
       {
         id: 1,
-        participants: ['lo, lemon'],
+        participants: ['lo', 'lemon'],
         messages: [
           {
             author: 'lo',
@@ -17,7 +17,7 @@ angular.module('LemonChat')
         ]
       }, {
         id: 2,
-        participants: ['admin, lo'],
+        participants: ['admin', 'lo'],
         messages: [
           {
             author: 'admin',
@@ -32,13 +32,14 @@ angular.module('LemonChat')
       }
     ];
 
-    this.getConversationsOfUser = function(user) {
+    this.getConversationsOfUser = function(name) {
       var userConversations = [];
       conversations.forEach(function(conversation) {
-        if (conversation.participants.includes(user)) {
+        if (conversation.participants.includes(name)) {
           userConversations.push(conversation)
         };
       });
+      console.log(userConversations)
       return userConversations
     }
   })
