@@ -1,5 +1,15 @@
 angular.module('LemonChat')
   .controller('UsersController', function($scope, $location, UsersService) {
+
+    UsersService.setCurrentUser({
+      name: 'lemon',
+      password: 'lemon',
+      connections: [
+        'admin',
+        'lo'
+      ]
+    })
+
     // Get current user on each controller call
     $scope.currentUser = UsersService.getCurrentUser();
     // If current user is not empty return its connections
