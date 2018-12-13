@@ -1,6 +1,26 @@
 angular.module('LemonChat')
   .service('AnimationsService', function() {
 
+    // Declare function to animate elements on hover
+    function animateOnHover(element, scale, colorOver, colorOut) {
+      element.addEventListener('mouseover', function() {
+        anime({
+          targets: element,
+          scale: 1.1,
+          color: '#CB4C00',
+          duration: 1000
+        })
+      });
+      element.addEventListener('mouseout', function() {
+        anime({
+          targets: element,
+          scale: 1,
+          color: '#EE6500',
+          duration: 1000
+        })
+      });
+    };
+
     // Background animation
     this.animateBackground = function () {
       setInterval(function () {
@@ -64,26 +84,6 @@ angular.module('LemonChat')
     };
 
     // Buttons animation
-    // Declare function to animate button on hover
-    function animateButtonOnHover(button) {
-      button.addEventListener('mouseover', function() {
-          anime({
-            targets: button,
-            scale: 1.1,
-            color: '#CB4C00',
-            duration: 1000
-          })
-        });
-      button.addEventListener('mouseout', function() {
-        anime({
-          targets: button,
-          scale: 1,
-          color: '#EE6500',
-          duration: 1000
-        })
-      });
-    };
-
     // Animate nav buttons
     this.animateNavButtons = function () {
       var buttons = document.getElementsByClassName('button');
@@ -112,7 +112,7 @@ angular.module('LemonChat')
 
       // Animate buttons on hover
       Array.from(buttons).forEach(function(button) {
-        animateButtonOnHover(button);
+        animateOnHover(button, 1.1, '#CB4C00', '#EE6500');
       });
     };
 
@@ -120,13 +120,13 @@ angular.module('LemonChat')
     this.animateSubmitButton = function() {
       var subBtn = document.getElementsByClassName('sub-btn')[0];
 
-      animateButtonOnHover(subBtn);
+      animateOnHover(subBtn, 1.1, '#CB4C00', '#EE6500');
     };
 
     // Animate log page buttons on hover
     this.animateLogButtons = function(rightBtn, leftBtn) {
-      animateButtonOnHover(rightBtn);
-      animateButtonOnHover(leftBtn);
+      animateOnHover(rightBtn, 1.1, '#CB4C00', '#EE6500');
+      animateOnHover(leftBtn, 1.1, '#CB4C00', '#EE6500');
     };
 
     // Chat field animations
@@ -167,7 +167,7 @@ angular.module('LemonChat')
     // Animate conversations on hover
     this.animateConversations = function(conversations) {
       Array.from(conversations).forEach(function(conversation) {
-        animateButtonOnHover(conversation)
+        animateOnHover(conversation, 1.1, '#CB4C00', '#EE6500')
       });
     }
   })
