@@ -4,10 +4,6 @@ angular.module('LemonChat')
     UsersService.setCurrentUser({
       name: 'lemon',
       password: 'lemon',
-      conversations: [
-        'admin',
-        'lo'
-      ]
     })
 
     // Get current user on each controller call
