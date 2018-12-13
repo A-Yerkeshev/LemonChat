@@ -6,8 +6,8 @@ angular.module('LemonChat')
       element.addEventListener('mouseover', function() {
         anime({
           targets: element,
-          scale: 1.1,
-          color: '#CB4C00',
+          scale: scale,
+          color: colorOver,
           duration: 1000
         })
       });
@@ -15,7 +15,7 @@ angular.module('LemonChat')
         anime({
           targets: element,
           scale: 1,
-          color: '#EE6500',
+          color: colorOut,
           duration: 1000
         })
       });
@@ -167,7 +167,7 @@ angular.module('LemonChat')
     // Animate conversations on hover
     this.animateConversations = function(conversations) {
       Array.from(conversations).forEach(function(conversation) {
-        animateOnHover(conversation, 1.1, '#CB4C00', '#EE6500')
+        animateOnHover(conversation, 1, '#FF2A00', '#8E1400')
       });
     }
   })
