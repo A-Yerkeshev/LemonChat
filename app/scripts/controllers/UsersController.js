@@ -5,7 +5,7 @@ angular.module('LemonChat')
     UsersService.setCurrentUser({
       name: 'lo',
       password: 'lo'
-    })
+    });
 
     // Get current user on each controller call
     $scope.currentUser = UsersService.getCurrentUser();
@@ -75,4 +75,15 @@ angular.module('LemonChat')
     $scope.enterConversation = function(conversationId) {
       $location.path('/' + conversationId)
     };
+
+    // Display participants of the conversation, except user himself
+    $scope.showParticipants = function(user, conversation) {
+      var participants = [];
+      conversation.participants.forEach(function(participant) {
+        if (participant != user) {
+          participants.push(participant)
+        };
+      });
+      return participants.join(', ');
+    }
   })

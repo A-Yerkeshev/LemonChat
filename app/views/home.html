@@ -1,3 +1,4 @@
 <div ng-controller="UsersController">
-  <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversation(conversation.id)">{{conversation.participants}}</div>
+  <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversation(conversation.id)">{{showParticipants(currentUser.name, conversation)}}
+  </div>
 </div>
