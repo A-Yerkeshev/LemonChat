@@ -72,4 +72,9 @@ angular.module('LemonChat')
         $scope.login(username, password);
       };
     };
+
+    // Enter conversation on click
+    $scope.enterConversation = function(conversationId) {
+      $location.path('/' + conversationId)
+    };
   })

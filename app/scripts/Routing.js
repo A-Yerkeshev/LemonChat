@@ -10,8 +10,7 @@ angular.module('LemonChat')
       .when('/home', {
         templateUrl: 'views/home.html'
       })
-      .when('/chat', {
+      .when('/:conversationId', {
         templateUrl: 'views/chat.html'
       })
-      .otherwise('/login')
   });
