@@ -5,6 +5,7 @@ angular.module('LemonChat')
     $window.onload = function() {
       AnimationsService.animateNavButtons();
       AnimationsService.animateBackground();
+      AnimationsService.animateChat();
     };
 
     $scope.$on('$viewContentLoaded', function() {
