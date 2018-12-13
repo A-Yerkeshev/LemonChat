@@ -36,12 +36,12 @@ angular.module('LemonChat')
     };
 
     this.getUserByName = function(username) {
-      return $filter('filter')(users, {name: username}, true)[0];
+      return $filter('filter')(users, {name: username}, true)[0]
     };
 
-//    this.getConnections = function(user) {
-//
-//    }
+    this.getConnections = function(username) {
+      return this.getUserByName(username)[connections]
+    };
 
     this.setCurrentUser = function(newCurrentUser) {
       currentUser = newCurrentUser
