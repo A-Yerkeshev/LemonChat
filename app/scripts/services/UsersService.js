@@ -40,7 +40,7 @@ angular.module('LemonChat')
     };
 
     this.getConnectionsOfCurrentUser = function() {
-      return currentUser[connections]
+      return currentUser['connections']
     };
 
     this.setCurrentUser = function(newCurrentUser) {

@@ -1,6 +1,11 @@
 angular.module('LemonChat')
   .controller('UsersController', function($scope, $location, UsersService) {
+    // Get current user on each controller call
     $scope.currentUser = UsersService.getCurrentUser();
+    // If current user is not empty return its connections
+    if ($scope.currentUser) {
+      $scope.connections = UsersService.getConnectionsOfCurrentUser();
+    };
 
     // Login user on button click
     $scope.login = function(username, password) {
@@ -57,5 +62,4 @@ angular.module('LemonChat')
         $scope.login(username, password);
       };
     };
-
   })
