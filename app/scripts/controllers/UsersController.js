@@ -4,7 +4,7 @@ angular.module('LemonChat')
     UsersService.setCurrentUser({
       name: 'lemon',
       password: 'lemon',
-      connections: [
+      conversations: [
         'admin',
         'lo'
       ]
@@ -12,9 +12,9 @@ angular.module('LemonChat')
 
     // Get current user on each controller call
     $scope.currentUser = UsersService.getCurrentUser();
-    // If current user is not empty return its connections
+    // If current user is not empty return its conversations
     if ($scope.currentUser) {
-      $scope.connections = UsersService.getConnectionsOfCurrentUser();
+      $scope.conversations = UsersService.getConversationsOfCurrentUser();
     };
 
     // Login user on button click

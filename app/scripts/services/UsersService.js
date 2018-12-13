@@ -6,21 +6,21 @@ angular.module('LemonChat')
       {
         name: 'admin',
         password: 'lemon',
-        connections: [
+        conversations: [
           'lo',
           'lemon'
         ]
       }, {
         name: 'lo',
         password: 'lo',
-        connections: [
+        conversations: [
           'admin',
           'lemon'
         ]
       }, {
         name: 'lemon',
         password: 'lemon',
-        connections: [
+        conversations: [
           'admin',
           'lo'
         ]
@@ -39,8 +39,8 @@ angular.module('LemonChat')
       return $filter('filter')(users, {name: username}, true)[0]
     };
 
-    this.getConnectionsOfCurrentUser = function() {
-      return currentUser['connections']
+    this.getConversationsOfCurrentUser = function() {
+      return currentUser['conversations']
     };
 
     this.setCurrentUser = function(newCurrentUser) {
