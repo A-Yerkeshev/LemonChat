@@ -163,4 +163,11 @@ angular.module('LemonChat')
         duration: 200
       });
     };
+
+    // Animate conversations on hover
+    this.animateConversations = function(conversations) {
+      Array.from(conversations).forEach(function(conversation) {
+        animateButtonOnHover(conversation)
+      });
+    }
   })

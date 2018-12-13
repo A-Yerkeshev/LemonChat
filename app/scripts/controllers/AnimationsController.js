@@ -18,5 +18,13 @@ angular.module('LemonChat')
           AnimationsService.animateLogButtons(rightBtn, leftBtn);
         }, 1000)
       };
+
+      // Animate conversations on hover
+      if (path == '/home') {
+        setTimeout(function() {
+          var conversations = document.getElementsByClassName('conversation')
+          AnimationsService.animateConversations(conversations);
+        }, 1000)
+      };
     })
   })
