@@ -11,6 +11,6 @@ angular.module('LemonChat')
         templateUrl: 'views/home.html'
       })
       .when('/conversation-:conversationId', {
-        templateUrl: 'views/chat.html'
+        templateUrl: 'views/conversation.html'
       })
   });
