@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .service('ConversationsService', function() {
+  .service('ConversationsService', function($location) {
     var conversations = [
       {
         id: 1,
@@ -39,6 +39,11 @@ angular.module('LemonChat')
           userConversations.push(conversation)
         };
       });
-      return userConversations
-    }
+      return userConversations;
+    };
+
+        // Enter conversation on click
+    this.enterConversation = function(conversationId) {
+      $location.path('/conversation-' + conversationId)
+    };
   })

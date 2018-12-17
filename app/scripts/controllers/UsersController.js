@@ -73,7 +73,7 @@ angular.module('LemonChat')
 
     // Enter conversation on click
     $scope.enterConversation = function(conversationId) {
-      $location.path('/conversation-' + conversationId)
+      ConversationsService.enterConversation(conversationId)
     };
 
     // Display participants of the conversation, except user himself
