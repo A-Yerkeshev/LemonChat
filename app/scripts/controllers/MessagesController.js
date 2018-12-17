@@ -2,6 +2,7 @@ angular.module('LemonChat')
   .controller('MessagesController', function($scope, ConversationsService, UsersService) {
     var textArea = document.getElementsByClassName('text-area')[0];
 
+    $scope.currentUser = UsersService.getCurrentUser();
     $scope.messages = ConversationsService.getCurrentConversation().messages;
 
     // Function to submit messages

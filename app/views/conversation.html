@@ -1,6 +1,6 @@
 <div ng-controller="MessagesController">
-  <div class="message" ng-repeat="message in messages"
-  message-directive id="message-{{$index}}">
+  <div message-directive class="message" ng-repeat="message in messages" ng-style="{ float:
+    message.author == currentUser.name ? 'right' : 'left' }" id="message-{{$index}}">
     {{message.text}}
     <span class="time-date">{{displayDate(message.date)}}</span>
     <span class="author">{{message.author}}</span>
