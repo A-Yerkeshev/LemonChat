@@ -178,10 +178,12 @@ body {
 }
 
 .author {
-  color: black;
+  color: #FFF000;
+  text-shadow: 1px 1px 1px #4B0E00;
   text-align: right;
-  font-size: 0.5em;
-  vertical-align: top;
+  font-size: 0.6em;
+  font-weight: bold;
+  display: block;
 }
 
 .log-page {
