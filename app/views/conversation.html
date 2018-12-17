@@ -1,0 +1,7 @@
+<div ng-controller="MessagesController">
+  <div class="message" ng-repeat="message in messages"
+  message-directive id="message-{{$index}}">
+    {{message.text}}
+    <span class="time-date">{{displayDate(message.date)}}</span>
+  </div>
+</div>

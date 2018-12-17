@@ -1,5 +1,7 @@
 angular.module('LemonChat')
   .service('ConversationsService', function($location) {
+    var currentConversation = null;
+
     var conversations = [
       {
         id: 1,
@@ -42,8 +44,12 @@ angular.module('LemonChat')
       return userConversations;
     };
 
-        // Enter conversation on click
-    this.enterConversation = function(conversationId) {
-      $location.path('/conversation-' + conversationId)
+    this.getCurrentConversation = function() {
+      return currentConversation
+    };
+
+    this.enterConversation = function(conversation) {
+      $location.path('/conversation-' + conversation.id);
+      currentConversation = conversation;
     };
   })
