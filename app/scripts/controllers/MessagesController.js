@@ -1,19 +1,26 @@
 angular.module('LemonChat')
   .controller('MessagesController', function($scope, ConversationsService, UsersService) {
     var textArea = document.getElementsByClassName('text-area')[0];
+    var currentConvestaion = ConversationsService.getCurrentConversation();
 
     $scope.currentUser = UsersService.getCurrentUser();
-    $scope.messages = ConversationsService.getCurrentConversation().messages;
+
+    // If conversation is open, get its messages
+    if (currentConvestaion) {
+      $scope.messages = currentConvestaion.messages;
+    };
 
     // Function to submit messages
     $scope.submit = function(text) {
+      $scope.currentUser = UsersService.getCurrentUser();
       // Check if text is not whitespace only
       if (/\S/.test(textArea.value)) {
         var message = {
-          text: text,
-          date: new Date()
+          author: $scope.currentUser.name,
+          date: new Date(),
+          text: text
         };
-        MessagesService.messages.push(message);
+        ConversationsService.addMessage(message);
         // Clean text area and scroll chat down on submit
         textArea.value = '';
         var chat = document.getElementsByClassName('view')[0];

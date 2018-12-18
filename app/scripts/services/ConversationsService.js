@@ -52,4 +52,8 @@ angular.module('LemonChat')
       $location.path('/conversation-' + conversation.id);
       currentConversation = conversation;
     };
+
+    this.addMessage = function(message) {
+      currentConversation.messages.push(message)
+    }
   })
