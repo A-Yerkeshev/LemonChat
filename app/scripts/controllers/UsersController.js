@@ -19,9 +19,6 @@ angular.module('LemonChat')
           if (users[i].password == password) {
             UsersService.setCurrentUser(users[i]);
             $location.path('/home');
-            // Appear chat field
-            var chat = document.getElementsByClassName('chat-field')[0];
-            chat.style.display = 'block';
           };
           return;
         };

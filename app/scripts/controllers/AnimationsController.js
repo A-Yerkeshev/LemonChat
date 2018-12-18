@@ -1,5 +1,6 @@
 angular.module('LemonChat')
-  .controller('AnimationsController', function($scope, $window, $location, AnimationsService) {
+  .controller('AnimationsController', function($scope, $window, $location, $route,
+    AnimationsService) {
 
     // Call animations on page load
     $window.onload = function() {
@@ -25,6 +26,18 @@ angular.module('LemonChat')
           var conversations = document.getElementsByClassName('conversation')
           AnimationsService.animateConversations(conversations);
         }, 1000)
+      };
+    });
+
+    // Appear and disappear chat field depending on current path
+    $scope.$on('$routeChangeSuccess', function() {
+      // Check if current route contains conversationId param. If it does appear chat,
+      //if no - disappear it
+      var params = $route.current.params;
+      if (params.hasOwnProperty('conversationId')) {
+        AnimationsService.appearChat()
+      } else {
+        AnimationsService.disappearChat()
       };
     })
   })

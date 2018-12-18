@@ -152,6 +152,24 @@ angular.module('LemonChat')
       addOpacityListeners(subButton, chatField)
     };
 
+    //Appear and disappear chat
+    this.appearChat = function() {
+      var chatField = document.getElementsByClassName('chat-field')[0];
+      chatField.style.display = 'block';
+      anime({
+        targets: chatField,
+        bottom: '0em',
+        easing: 'easeOutCubic',
+        duration: 1000
+      })
+    };
+
+    this.disappearChat = function() {
+      var chatField = document.getElementsByClassName('chat-field')[0];
+      chatField.style.display = 'none';
+      chatField.style.bottom = '-15em';
+    };
+
     // Messages animations
     // Animate message appearance
     this.animateMessage = function(message) {
