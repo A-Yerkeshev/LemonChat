@@ -77,5 +77,19 @@ angular.module('LemonChat')
         };
       });
       return participants.join(', ');
-    }
+    };
+
+    // Protect some pages from enter without login
+    $scope.$on('$routeChangeStart', function() {
+      var currentUser = UsersService.getCurrentUser();
+      var path = $location.path();
+      console.log(path)
+      if (path == '/login' || path == '/register') {
+        return
+      } else {
+        if (!currentUser) {
+          $location.path('/login')
+        }
+      }
+    })
   })
