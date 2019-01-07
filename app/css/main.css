@@ -40,6 +40,9 @@ body {
   text-decoration: none;
   text-align: center; }
 
+.l-user {
+  display: none; }
+
 .log-right-btn {
   position: absolute;
   bottom: 1em;

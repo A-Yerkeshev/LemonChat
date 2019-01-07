@@ -1,10 +1,12 @@
 angular.module('LemonChat')
   .controller('AnimationsController', function($scope, $window, $location, $route,
-    AnimationsService) {
+    AnimationsService, UsersService) {
 
     // Call animations on page load
     $window.onload = function() {
-      AnimationsService.animateNavButtons();
+      var navBtns = document.getElementsByClassName('nav-btn');
+
+      AnimationsService.animateNavButtons(navBtns);
       AnimationsService.animateBackground();
       AnimationsService.animateChat();
     };
@@ -39,5 +41,14 @@ angular.module('LemonChat')
       } else {
         AnimationsService.disappearChat()
       };
+
+      // Show navigation buttons if user is logged in
+      var currentUser = UsersService.getCurrentUser();
+      if (currentUser) {
+        var buttons = document.getElementsByClassName('l-user');
+        Array.from(buttons).forEach(function(button) {
+          button.style.display = 'inline-block'
+        });
+      }
     })
   })

@@ -85,42 +85,38 @@ angular.module('LemonChat')
 
     // Buttons animation
     // Animate nav buttons
-    this.animateNavButtons = function () {
-      var buttons = document.getElementsByClassName('button');
-      var navBtns = document.getElementsByClassName('nav-btn');
-
+    function appearNavButtons(buttons) {
       // Set nav buttons appearance animation
       anime.timeline()
         .add({
-          targets: navBtns[1],
+          targets: buttons[0],
           right: '0em',
           easing: 'easeOutCubic',
           duration: 500
         })
         .add({
-          targets: navBtns[2],
+          targets: buttons[1],
           right: '0em',
           easing: 'easeOutCubic',
           duration: 500
         })
         .add({
-          targets: navBtns[0],
+          targets: buttons[2],
           right: '0em',
           easing: 'easeOutCubic',
           duration: 500
         });
+    };
 
+    function hoverNavButtons(buttons) {
       // Animate buttons on hover
       Array.from(buttons).forEach(function(button) {
         animateOnHover(button, 1.1, '#CB4C00', '#EE6500');
       });
-    };
-
-    // Animate text area submit button on hover
-    this.animateSubmitButton = function() {
-      var subBtn = document.getElementsByClassName('sub-btn')[0];
-
-      animateOnHover(subBtn, 1.1, '#CB4C00', '#EE6500');
+    }
+    this.animateNavButtons = function (buttons) {
+      appearNavButtons(buttons);
+      hoverNavButtons(buttons);
     };
 
     // Animate log page buttons on hover
@@ -145,11 +141,14 @@ angular.module('LemonChat')
     this.animateChat = function () {
       var chatField = document.getElementsByClassName('chat-field')[0];
       var textArea = document.getElementsByClassName('text-area')[0];
-      var subButton = document.getElementsByClassName('sub-btn')[0];
+      var subBtn = document.getElementsByClassName('sub-btn')[0];
 
       // Bind listeners to chat field elements
       addOpacityListeners(textArea, chatField);
-      addOpacityListeners(subButton, chatField)
+      addOpacityListeners(subBtn, chatField);
+
+      // Animate submit button on hover
+      animateOnHover(subBtn, 1.1, '#CB4C00', '#EE6500');
     };
 
     //Appear and disappear chat
