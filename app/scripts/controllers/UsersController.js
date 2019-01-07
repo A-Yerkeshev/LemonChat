@@ -79,21 +79,4 @@ angular.module('LemonChat')
       return participants.join(', ');
     };
 
-    // Protect some pages from enter without login
-    $scope.$on('$routeChangeStart', function() {
-      var currentUser = UsersService.getCurrentUser();
-      var path = $location.path();
-      if (path == '/login' || path == '/register') {
-        return
-      } else {
-        if (!currentUser) {
-          // Show login-redirect page first
-          $location.path('/login-redirect');
-          // After three seconds redirect to the login page
-          setTimeout(function() {
-            $location.path('/login')
-          }, 3000);
-        }
-      }
-    })
   })
