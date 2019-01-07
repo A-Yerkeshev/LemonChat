@@ -83,12 +83,16 @@ angular.module('LemonChat')
     $scope.$on('$routeChangeStart', function() {
       var currentUser = UsersService.getCurrentUser();
       var path = $location.path();
-      console.log(path)
       if (path == '/login' || path == '/register') {
         return
       } else {
         if (!currentUser) {
-          $location.path('/login')
+          // Show login-redirect page first
+          $location.path('/login-redirect');
+          // After three seconds redirect to the login page
+          setTimeout(function() {
+            $location.path('/login')
+          }, 3000);
         }
       }
     })
