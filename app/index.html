@@ -21,11 +21,11 @@
 
     <!-- Add your site or application content here -->
     <div class="nav">
-      <button class="nav-btn appearing usr-btn button">Home</button>
-      <button class="nav-btn appearing usr-btn button">Friends</button>
-      <button class="nav-btn appearing usr-btn button">Profile</button>
-      <a class="nav-btn appearing log-btn button" ng-href="#!/register">Register</a>
-      <a class="nav-btn appearing log-btn button" ng-href="#!/login">Log in</a>
+      <a class="nav-btn usr-btn button" ng-href="#!/home">Home</a>
+      <a class="nav-btn usr-btn button" ng-href="#!/contacts">Contacts</a>
+      <a class="nav-btn usr-btn button" ng-href="#!/profile">Profile</a>
+      <a class="nav-btn log-btn button" ng-href="#!/register">Register</a>
+      <a class="nav-btn log-btn button" ng-href="#!/login">Log in</a>
     </div>
     <div ng-view class="view"></div>
     <form ng-controller="MessagesController" class="chat-field">

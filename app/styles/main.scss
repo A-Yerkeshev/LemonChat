@@ -26,13 +26,16 @@ body {
   overflow: hidden;
 }
 
-.appearing {
-  position: relative;
-  right: 100%;
-}
-
 .nav {
   height: 10%;
+}
+
+.nav-btn {
+  line-height: 2.5em;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  right: 100%;
 }
 
 .sub-btn {
@@ -43,9 +46,10 @@ body {
 
 .log-btn {
   float: right;
-  line-height: 2.5em;
-  text-decoration: none;
-  text-align: center;
+}
+
+.usr-btn {
+  float: left;
 }
 
 .log-right-btn {

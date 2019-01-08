@@ -22,12 +22,15 @@ body {
   cursor: pointer;
   overflow: hidden; }
 
-.appearing {
-  position: relative;
-  right: 100%; }
-
 .nav {
   height: 10%; }
+
+.nav-btn {
+  line-height: 2.5em;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  right: 100%; }
 
 .sub-btn {
   position: absolute;
@@ -35,10 +38,10 @@ body {
   right: 1em; }
 
 .log-btn {
-  float: right;
-  line-height: 2.5em;
-  text-decoration: none;
-  text-align: center; }
+  float: right; }
+
+.usr-btn {
+  float: left; }
 
 .log-right-btn {
   position: absolute;
