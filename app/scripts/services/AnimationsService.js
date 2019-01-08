@@ -173,9 +173,9 @@ angular.module('LemonChat')
     };
 
     // Animate conversations on hover
-    this.animateConversations = function(conversations) {
-      Array.from(conversations).forEach(function(conversation) {
-        animateOnHover(conversation, 1, '#FF2A00', '#8E1400')
+    this.animateList = function(list) {
+      Array.from(list).forEach(function(item) {
+        animateOnHover(item, 1, '#FF2A00', '#8E1400')
       });
     }
   })

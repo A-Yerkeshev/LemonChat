@@ -4,10 +4,11 @@ angular.module('LemonChat')
 
     // Get current user on each controller call
     $scope.currentUser = UsersService.getCurrentUser();
-    // If current user is not empty return its conversations
+    // If current user is not empty return its conversations and friends list
     if ($scope.currentUser) {
       $scope.conversations = ConversationsService.getConversationsOfUser(
         $scope.currentUser.name);
+      $scope.friends = UsersService.getFriends($scope.currentUser.name);
     };
 
     // Login user on button click

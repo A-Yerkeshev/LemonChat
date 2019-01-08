@@ -26,7 +26,15 @@ angular.module('LemonChat')
       if (path == '/home') {
         setTimeout(function() {
           var conversations = document.getElementsByClassName('conversation')
-          AnimationsService.animateConversations(conversations);
+          AnimationsService.animateList(conversations);
+        }, 1000)
+      };
+
+      // Animate friends item on hover
+      if (path == '/friends') {
+        setTimeout(function() {
+          var friends = document.getElementsByClassName('friend')
+          AnimationsService.animateList(friends);
         }, 1000)
       };
     });
