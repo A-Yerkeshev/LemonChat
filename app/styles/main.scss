@@ -244,6 +244,9 @@ body {
   color: #8E1400;
   box-shadow: 0px 2px 5px;
   cursor: pointer;
+  display: inline-block;
+  float: left;
+  clear: left;
 }
 
 /* Scrollbar */
