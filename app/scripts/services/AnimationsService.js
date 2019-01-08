@@ -87,25 +87,16 @@ angular.module('LemonChat')
     // Animate nav buttons
     function appearNavButtons(buttons) {
       // Set nav buttons appearance animation
-      anime.timeline()
-        .add({
-          targets: buttons[0],
-          right: '0em',
-          easing: 'easeOutCubic',
-          duration: 500
-        })
-        .add({
-          targets: buttons[1],
-          right: '0em',
-          easing: 'easeOutCubic',
-          duration: 500
-        })
-        .add({
-          targets: buttons[2],
-          right: '0em',
-          easing: 'easeOutCubic',
-          duration: 500
+      var time = 500;
+      for (i=buttons.length-1; i>=0; i--) {
+        anime({
+          targets: buttons[i],
+          right: '0%',
+          easing: 'easeOutQuart',
+          duration: time
         });
+        time += 500;
+      }
     };
 
     function hoverNavButtons(buttons) {
@@ -114,7 +105,7 @@ angular.module('LemonChat')
         animateOnHover(button, 1.1, '#CB4C00', '#EE6500');
       });
     }
-    this.animateNavButtons = function (buttons) {
+    this.animateNavButtons = function(buttons) {
       appearNavButtons(buttons);
       hoverNavButtons(buttons);
     };

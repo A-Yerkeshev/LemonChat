@@ -28,7 +28,7 @@ body {
 
 .appearing {
   position: relative;
-  right: 2.5em;
+  right: 100%;
 }
 
 .nav {
@@ -46,10 +46,6 @@ body {
   line-height: 2.5em;
   text-decoration: none;
   text-align: center;
-}
-
-.l-user {
-  display: none;
 }
 
 .log-right-btn {
