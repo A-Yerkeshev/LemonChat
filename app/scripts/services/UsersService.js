@@ -5,15 +5,22 @@ angular.module('LemonChat')
     var users = [
       {
         name: 'admin',
-        password: 'lemon'
+        password: 'lemon',
+        friends: ['lo', 'lemon']
       }, {
         name: 'lo',
-        password: 'lo'
+        password: 'lo',
+        friends: ['admin', 'lemon']
       }, {
         name: 'lemon',
-        password: 'lemon'
+        password: 'lemon',
+        friends: ['lo', 'admin']
       }
     ];
+
+    function getUserByName(username) {
+      return $filter('filter')(users, {name: username}, true)[0]
+    };
 
     this.getCurrentUser = function() {
       return currentUser
@@ -24,7 +31,7 @@ angular.module('LemonChat')
     };
 
     this.getUserByName = function(username) {
-      return $filter('filter')(users, {name: username}, true)[0]
+      return getUserByName(username)
     };
 
     this.setCurrentUser = function(newCurrentUser) {
@@ -33,6 +40,11 @@ angular.module('LemonChat')
 
     this.addNewUser = function(newUser) {
       users.push(newUser)
+    };
+
+    this.getFriends = function(user) {
+      var user = getUserByName(user);
+      return user.friends
     };
 
   })
