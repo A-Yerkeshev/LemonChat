@@ -48,10 +48,21 @@ angular.module('LemonChat')
       return currentConversation
     };
 
-    this.enterConversation = function(conversation) {
+    this.enterConversationById = function(conversation) {
       $location.path('/conversation-' + conversation.id);
       currentConversation = conversation;
     };
+
+    this.enterConversationByNames = function(firstUser, secondUser) {
+      var users = [firstUser, secondUser];
+      // Check if conversation participants are only two specified users
+      for (i=0; conversations.lenght; i++) {
+        if (conversations[i].participants === users ||
+          conversations[i].participants === users.reverse()) {
+          return conversations[i]
+        }
+      }
+    }
 
     this.addMessage = function(message) {
       currentConversation.messages.push(message)

@@ -65,8 +65,12 @@ angular.module('LemonChat')
     };
 
     // Enter conversation on click
-    $scope.enterConversation = function(conversationId) {
+    $scope.enterConversationById = function(conversationId) {
       ConversationsService.enterConversation(conversationId)
+    };
+
+    $scope.enterConversationByNames = function(firstUser, secondUser) {
+      ConversationsService.enterConversation(firstUser, secondUser)
     };
 
     // Display participants of the conversation, except user himself
