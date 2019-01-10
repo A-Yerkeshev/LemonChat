@@ -66,11 +66,11 @@ angular.module('LemonChat')
 
     // Enter conversation on click
     $scope.enterConversationById = function(conversationId) {
-      ConversationsService.enterConversation(conversationId)
+      ConversationsService.enterConversationById(conversationId)
     };
 
     $scope.enterConversationByNames = function(firstUser, secondUser) {
-      ConversationsService.enterConversation(firstUser, secondUser)
+      ConversationsService.enterConversationByNames(firstUser, secondUser)
     };
 
     // Display participants of the conversation, except user himself

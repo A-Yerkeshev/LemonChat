@@ -56,10 +56,12 @@ angular.module('LemonChat')
     this.enterConversationByNames = function(firstUser, secondUser) {
       var users = [firstUser, secondUser];
       // Check if conversation participants are only two specified users
-      for (i=0; conversations.lenght; i++) {
-        if (conversations[i].participants === users ||
-          conversations[i].participants === users.reverse()) {
-          return conversations[i]
+      for (i=0; i<conversations.length; i++) {
+        if (conversations[i].participants == users ||
+          conversations[i].participants == users.reverse()) {
+          $location.path('/conversation-' + conversations[i].id);
+          currentConversation = conversations[i];
+          return;
         }
       }
     }

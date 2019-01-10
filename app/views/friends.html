@@ -1,5 +1,5 @@
 <div ng-controller="UsersController">
-  <div ng-repeat="friend in friends" class="friend" ng-click="enterConversation(currentUser.name, friend)">
+  <div ng-repeat="friend in friends" class="friend" ng-click="enterConversationByNames(currentUser.name, friend)">
     <b>{{friend}}</b>
   </div>
 </div>
