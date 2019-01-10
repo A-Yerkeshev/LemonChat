@@ -19,7 +19,7 @@ angular.module('LemonChat')
           var rightBtn = document.getElementsByClassName('log-right-btn')[0];
           var leftBtn = document.getElementsByClassName('log-left-btn')[0];
           AnimationsService.animateLogButtons(rightBtn, leftBtn);
-        }, 1000)
+        }, 500)
       };
 
       // Animate conversations on hover
@@ -27,7 +27,7 @@ angular.module('LemonChat')
         setTimeout(function() {
           var conversations = document.getElementsByClassName('conversation')
           AnimationsService.animateList(conversations);
-        }, 1000)
+        }, 500)
       };
 
       // Animate friends item on hover
@@ -35,7 +35,7 @@ angular.module('LemonChat')
         setTimeout(function() {
           var friends = document.getElementsByClassName('friend')
           AnimationsService.animateList(friends);
-        }, 1000)
+        }, 500)
       };
     });
 
