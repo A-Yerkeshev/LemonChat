@@ -48,15 +48,17 @@ angular.module('LemonChat')
       return currentConversation
     };
 
-    this.enterConversationById = function(conversation) {
+    function enterConversationById(conversation) {
       $location.path('/conversation-' + conversation.id);
       currentConversation = conversation;
     };
 
+    this.enterConversationById = function(conversation) {
+      enterConversationById(conversation)
+    };
 
-    // Declare function to check if arrays have same participants in any order
+    // Function to check if arrays have same participants in any order
     function equalParticipants(firstList, secondList) {
-      console.log(firstList, secondList)
       if (firstList.length !== secondList.length) {
         return false
       };
@@ -71,14 +73,21 @@ angular.module('LemonChat')
     this.enterConversationByNames = function(firstUser, secondUser) {
       var users = [firstUser, secondUser];
 
-      // Check if users list is equal to conversation participants
+      // Check if conversation between users already exists
       for (i=0; i<conversations.length; i++) {
         if (equalParticipants(conversations[i].participants, users)) {
-          $location.path('/conversation-' + conversations[i].id);
-          currentConversation = conversations[i];
-          break;
+          enterConversationById(conversations[i]);
+          return;
         }
       }
+      // Otherwise initialize new conversation
+      var newConversation = {
+        id: conversations.length+1,
+        participants: users,
+        messages: []
+      };
+      conversations.push(newConversation);
+      enterConversationById(newConversation);
     };
 
     this.addMessage = function(message) {
