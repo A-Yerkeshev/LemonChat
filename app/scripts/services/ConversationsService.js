@@ -53,20 +53,35 @@ angular.module('LemonChat')
       currentConversation = conversation;
     };
 
+
+    // Declare function to check if arrays have same participants in any order
+    function equalParticipants(firstList, secondList) {
+      console.log(firstList, secondList)
+      if (firstList.length !== secondList.length) {
+        return false
+      };
+      for (j=0; j<firstList.length; j++) {
+        if (secondList.includes(firstList[j]) == false) {
+          return false
+        }
+      };
+      return true
+    };
+
     this.enterConversationByNames = function(firstUser, secondUser) {
       var users = [firstUser, secondUser];
-      // Check if conversation participants are only two specified users
+
+      // Check if users list is equal to conversation participants
       for (i=0; i<conversations.length; i++) {
-        if (conversations[i].participants == users ||
-          conversations[i].participants == users.reverse()) {
+        if (equalParticipants(conversations[i].participants, users)) {
           $location.path('/conversation-' + conversations[i].id);
           currentConversation = conversations[i];
-          return;
+          break;
         }
       }
-    }
+    };
 
     this.addMessage = function(message) {
       currentConversation.messages.push(message)
-    }
+    };
   })
