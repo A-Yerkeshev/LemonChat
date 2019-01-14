@@ -1,6 +1,6 @@
 angular.module('LemonChat')
-  .controller('RoutingController', function($scope, $location, UsersService) {
-    $scope.redirect = function (path) {
+  .service('RoutingService', function($scope, $location, UsersService) {
+    this.redirect = function (path) {
       var username = UsersService.getCurrentUser().name;
       $location.path('/' + username + '/' + path);
     }

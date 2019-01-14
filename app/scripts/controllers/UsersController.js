@@ -84,4 +84,7 @@ angular.module('LemonChat')
       return participants.join(', ');
     };
 
+    // Change path when nav button clicked
+    $scope.
+
   })
