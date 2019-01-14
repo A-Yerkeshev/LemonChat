@@ -13,16 +13,16 @@ angular.module('LemonChat')
       .when('/login-redirect', {
         templateUrl: 'views/login-redirect.html'
       })
-      .when('/home', {
+      .when('/:user/home', {
         templateUrl: 'views/home.html'
       })
-      .when('/friends', {
+      .when('/:user/friends', {
         templateUrl: 'views/friends.html'
       })
-      .when('/conversation-:conversationId', {
+      .when('/:user/conversation-:conversationId', {
         templateUrl: 'views/conversation.html'
       })
-      .when('/profile-:profileName', {
+      .when('/:user/profile-:profileName', {
         templateUrl: 'views/profile.html'
       })
   });

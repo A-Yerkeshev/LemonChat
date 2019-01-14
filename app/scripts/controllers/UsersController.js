@@ -19,7 +19,7 @@ angular.module('LemonChat')
         if (users[i].name == username) {
           if (users[i].password == password) {
             UsersService.setCurrentUser(users[i]);
-            $location.path('/home');
+            $location.path('/' + username + '/home');
           };
           return;
         };
