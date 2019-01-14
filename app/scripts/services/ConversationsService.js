@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .service('ConversationsService', function($location) {
+  .service('ConversationsService', function($location, RoutingService) {
     var currentConversation = null;
 
     var conversations = [
@@ -49,7 +49,7 @@ angular.module('LemonChat')
     };
 
     function enterConversationById(conversation) {
-      $location.path('/conversation-' + conversation.id);
+      RoutingService.redirect('conversation-' + conversation.id)
       currentConversation = conversation;
     };
 
