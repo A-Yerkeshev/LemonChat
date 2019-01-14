@@ -22,7 +22,7 @@ angular.module('LemonChat')
       .when('/:user/conversation-:conversationId', {
         templateUrl: 'views/conversation.html'
       })
-      .when('/:user/profile-:profileName', {
+      .when('/:user/profile', {
         templateUrl: 'views/profile.html'
       })
   });
