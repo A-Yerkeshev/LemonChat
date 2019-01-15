@@ -56,7 +56,9 @@ angular.module('LemonChat')
       if (username && password && repPassword) {
         var newUser = {
           name: username,
-          password: password
+          password: password,
+          image: '/images/' + username + '/profile-img.png',
+          friends: []
         };
         UsersService.addNewUser(newUser);
         // Login newly created user
@@ -86,7 +88,7 @@ angular.module('LemonChat')
 
     // Display small profile images of participants
     $scope.getParticipantImage = function(user) {
-      UsersService.getUserImage(user)
+      return UsersService.getUserImage(user)
     };
 
     // Change path when nav button clicked
