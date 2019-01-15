@@ -45,9 +45,12 @@ angular.module('LemonChat')
       users.push(newUser)
     };
 
-    this.getFriends = function(user) {
-      var user = getUserByName(user);
-      return user.friends
+    this.getFriends = function(username) {
+      return getUserByName(username).friends
+    };
+
+    this.getUserImage = function(username) {
+      return getUserByName(username).image
     };
 
   })

@@ -1,4 +1,5 @@
 <div ng-controller="UsersController">
-  <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation)">{{showParticipants(currentUser.name, conversation)}}
+  <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation)">{{showParticipantsNames(currentUser.name, conversation)}}
+    <img ng-repeat="participant in conversation.participants" src={{getParticipantImage(participant)}}>
   </div>
 </div>

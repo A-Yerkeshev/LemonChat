@@ -74,14 +74,19 @@ angular.module('LemonChat')
     };
 
     // Display participants of the conversation, except user himself
-    $scope.showParticipants = function(user, conversation) {
+    $scope.showParticipantsNames = function(currentUser, conversation) {
       var participants = [];
       conversation.participants.forEach(function(participant) {
-        if (participant != user) {
+        if (participant != currentUser) {
           participants.push(participant)
         };
       });
       return participants.join(', ');
+    };
+
+    // Display small profile images of participants
+    $scope.getParticipantImage = function(user) {
+      UsersService.getUserImage(user)
     };
 
     // Change path when nav button clicked
