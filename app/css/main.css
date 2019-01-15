@@ -219,6 +219,11 @@ body {
   float: left;
   clear: left; }
 
+.profile-image {
+  border: ridge;
+  border-radius: 50%;
+  border-color: #FFF000; }
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 1em; }
