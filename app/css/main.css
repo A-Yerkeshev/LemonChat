@@ -224,6 +224,9 @@ body {
   border-radius: 50%;
   border-color: #FFF000; }
 
+.profile-name {
+  display: inline-block; }
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 1em; }
