@@ -231,6 +231,15 @@ body {
   border-color: #FFF000;
   margin: 5px; }
 
+.prof-img-panel {
+  border: solid;
+  border-color: #FFF1A1;
+  background-image: linear-gradient(#FFF557, #FFAF17);
+  border-radius: 1em;
+  display: inline-flex;
+  position: relative;
+  right: 3em; }
+
 .prof-img-min {
   border: solid;
   border-color: white;

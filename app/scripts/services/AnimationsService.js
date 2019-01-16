@@ -184,4 +184,28 @@ angular.module('LemonChat')
         })
       }, 500);
     };
+
+    // Appear profile image selection panel
+    this.appearImageSelectPanel = function() {
+      var imageBox = document.getElementsByClassName('prof-img-box')[0];
+      var panel = document.createElement('div');
+      // Images list shall be retrieved from service in the future
+      var images = ['lemon.png', 'orange.png', 'grapefruit.png'];
+
+      panel.classList.add('prof-img-panel');
+
+      images.forEach(function(image) {
+        var elem = document.createElement('img');
+        elem.classList.add('profile-image');
+        elem.setAttribute('src', '/images/' + image);
+        panel.appendChild(elem);
+      })
+
+      imageBox.appendChild(panel);
+      anime({
+        targets: panel,
+        right: '0em',
+        duration: 1000
+      })
+    }
   })

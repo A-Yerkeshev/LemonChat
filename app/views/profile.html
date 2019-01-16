@@ -1,7 +1,7 @@
 <div ng-controller="UsersController">
-  <div class="prof-img-box">
+  <div ng-controller="AnimationsController" class="prof-img-box">
     <img class="profile-image" src={{currentUser.image}}>
-    <button class="button">Change image</button>
+    <button class="button" ng-click="selectImage()">Change image</button>
   </div>
   <h1 class="profile-name">{{currentUser.name}}</h1>
 </div>
