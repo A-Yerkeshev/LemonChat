@@ -1,6 +1,6 @@
 <div ng-controller="UsersController">
-  <div ng-repeat="friend in friends" class="friend" ng-click="enterConversationByNames(currentUser.name, friend)">
-    <img src="friend.image">
+  <div ng-repeat="friend in friends" class="friend" ng-click="enterConversationByNames(currentUser.name, friend.name)">
     <b>{{friend.name}}</b>
+    <img class="prof-img-min" src={{friend.image}}>
   </div>
 </div>
