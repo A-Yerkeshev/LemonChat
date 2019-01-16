@@ -12,18 +12,12 @@ angular.module('LemonChat')
     };
 
     $scope.$on('$viewContentLoaded', function() {
-      // Animate view buttons if it is login or register page
-      var path = $location.path();
-      if (path == '/login' || path == '/register') {
-        setTimeout(function() {
-          var rightBtn = document.getElementsByClassName('log-right-btn')[0];
-          var leftBtn = document.getElementsByClassName('log-left-btn')[0];
-          AnimationsService.animateLogButtons(rightBtn, leftBtn);
-        }, 500)
-      };
+      // Add hover animation to buttons on each view load
+      AnimationsService.animateViewButtons();
 
+      var path = $location.path();
       // Animate conversations on hover
-      if (path == '/home') {
+      if (path == 'home') {
         setTimeout(function() {
           var conversations = document.getElementsByClassName('conversation')
           AnimationsService.animateList(conversations);
@@ -31,7 +25,7 @@ angular.module('LemonChat')
       };
 
       // Animate friends item on hover
-      if (path == '/friends') {
+      if (path == 'friends') {
         setTimeout(function() {
           var friends = document.getElementsByClassName('friend')
           AnimationsService.animateList(friends);
