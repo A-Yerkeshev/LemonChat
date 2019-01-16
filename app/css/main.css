@@ -223,7 +223,8 @@ body {
 .profile-image {
   border: ridge;
   border-radius: 50%;
-  border-color: #FFF000; }
+  border-color: #FFF000;
+  vertical-align: top; }
 
 .prof-img-min {
   border: solid;
@@ -231,10 +232,12 @@ body {
   border-radius: 50%;
   height: 1.5em;
   width: 1.5em;
-  float: right; }
+  float: right;
+  margin-left: 5px; }
 
 .profile-name {
-  display: inline-block; }
+  display: inline-block;
+  font-size: 3em; }
 
 /* Scrollbar */
 ::-webkit-scrollbar {

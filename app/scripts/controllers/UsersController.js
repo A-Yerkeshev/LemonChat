@@ -57,7 +57,7 @@ angular.module('LemonChat')
         var newUser = {
           name: username,
           password: password,
-          image: '/images/' + username + '/profile-img.png',
+          image: '/images/yeoman.png',
           friends: []
         };
         UsersService.addNewUser(newUser);
