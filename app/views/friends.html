@@ -1,5 +1,6 @@
 <div ng-controller="UsersController">
   <div ng-repeat="friend in friends" class="friend" ng-click="enterConversationByNames(currentUser.name, friend)">
-    <b>{{friend}}</b>
+    <img src="friend.image">
+    <b>{{friend.name}}</b>
   </div>
 </div>

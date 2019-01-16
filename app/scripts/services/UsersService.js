@@ -46,7 +46,12 @@ angular.module('LemonChat')
     };
 
     this.getFriends = function(username) {
-      return getUserByName(username).friends
+      var names = getUserByName(username).friends;
+      var friends = [];
+      names.forEach(function(name) {
+        friends.push(getUserByName(name))
+      });
+      return friends
     };
 
     this.getUserImage = function(username) {
