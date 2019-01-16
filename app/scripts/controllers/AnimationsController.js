@@ -57,6 +57,11 @@ angular.module('LemonChat')
     });
 
     $scope.selectImage = function() {
-      AnimationsService.appearImageSelectPanel()
+      // Check if panel is already open
+      var panel = document.getElementsByClassName('prof-img-panel');
+      // If no - open one
+      if (panel.length == 0) {
+        AnimationsService.appearImageSelectPanel()
+      }
     };
   })
