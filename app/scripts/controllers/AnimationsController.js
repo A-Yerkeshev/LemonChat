@@ -15,7 +15,10 @@ angular.module('LemonChat')
       // Add hover animation to buttons on each view load
       AnimationsService.animateViewButtons();
 
+      // Get the last segment of url
       var path = $location.path();
+      path = path.substr(path.lastIndexOf('/') + 1);
+
       // Animate conversations on hover
       if (path == 'home') {
         setTimeout(function() {
