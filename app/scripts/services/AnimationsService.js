@@ -110,12 +110,6 @@ angular.module('LemonChat')
       hoverNavButtons(buttons);
     };
 
-    // Animate log page buttons on hover
-    this.animateLogButtons = function(rightBtn, leftBtn) {
-      animateOnHover(rightBtn, 1.1, '#CB4C00', '#EE6500');
-      animateOnHover(leftBtn, 1.1, '#CB4C00', '#EE6500');
-    };
-
     // Chat field animations
     // Declare event opacity listener
     function addOpacityListeners(elem, chatField) {
