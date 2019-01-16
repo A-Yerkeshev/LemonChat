@@ -250,11 +250,17 @@ body {
   clear: left;
 }
 
+.prof-img-box {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .profile-image {
   border: ridge;
   border-radius: 50%;
   border-color: #FFF000;
-  vertical-align: top;
+  margin: 5px;
 }
 
 .prof-img-min {

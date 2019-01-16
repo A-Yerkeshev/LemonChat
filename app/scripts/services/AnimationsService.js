@@ -162,7 +162,7 @@ angular.module('LemonChat')
 
     // Messages animations
     // Animate message appearance
-    this.animateMessage = function(message) {
+    this.animateMessage = function (message) {
       message.style.display = 'inline-block';
       anime({
         targets: message,
@@ -174,8 +174,20 @@ angular.module('LemonChat')
 
     // Animate conversations on hover
     this.animateList = function(list) {
-      Array.from(list).forEach(function(item) {
+      Array.from(list).forEach(function (item) {
         animateOnHover(item, 1, '#FF2A00', '#8E1400')
       });
-    }
+    };
+
+    // Add hover animation to view buttons
+    this.animateViewButtons = function() {
+      setTimeout(function() {
+        var view = document.getElementsByClassName('view')[0];
+        var buttons = view.getElementsByClassName('button');
+
+        Array.from(buttons).forEach(function (button) {
+          animateOnHover(button, 1.1, '#CB4C00', '#EE6500');
+        })
+      }, 500);
+    };
   })
