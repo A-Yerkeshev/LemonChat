@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .service('AnimationsService', function() {
+  .service('AnimationsService', function($compile) {
 
     // Declare function to animate elements on hover
     function animateOnHover(element, scale, colorOver, colorOut) {
@@ -187,25 +187,64 @@ angular.module('LemonChat')
 
     // Appear profile image selection panel
     this.appearImageSelectPanel = function() {
-      var imageBox = document.getElementsByClassName('prof-img-box')[0];
-      var panel = document.createElement('div');
-      // Images list shall be retrieved from service in the future
-      var images = ['lemon.png', 'orange.png', 'grapefruit.png'];
+      // Check if panel exists
+      var panel = document.getElementsByClassName('prof-img-panel')[0];
 
-      panel.classList.add('prof-img-panel');
+      // If it does not - create it
+      if (panel == null) {
+        var imageBox = document.getElementsByClassName('prof-img-box')[0];
+        var panel = document.createElement('div');
+        // Images list shall be retrieved from service in the future
+        var images = ['lemon.png', 'orange.png', 'grapefruit.png'];
 
-      images.forEach(function(image) {
-        var elem = document.createElement('img');
-        elem.classList.add('profile-image');
-        elem.setAttribute('src', '/images/' + image);
-        panel.appendChild(elem);
-      })
+        panel.classList.add('prof-img-panel');
 
-      imageBox.appendChild(panel);
+        images.forEach(function(image) {
+          var elem = document.createElement('img');
+          elem.classList.add('profile-image');
+          elem.setAttribute('src', '/images/' + image);
+          panel.appendChild(elem);
+        });
+
+        // Add close button
+        var close = document.createElement('button');
+        close.classList.add('close');
+        close.addEventListener('click', closePanel)
+        panel.appendChild(close);
+
+        imageBox.appendChild(panel);
+        anime({
+          targets: panel,
+          right: '0%',
+          easing: 'easeOutQuart',
+          duration: 1000
+        });
+
+      // Otherwise just display it
+      } else {
+        panel.style.display = 'inline-flex';
+        anime({
+          targets: panel,
+          right: '0%',
+          easing: 'easeOutQuart',
+          duration: 1000
+        });
+      }
+    };
+
+    // Close panel function
+    function closePanel() {
+      var panel = document.getElementsByClassName('prof-img-panel')[0];
+
       anime({
         targets: panel,
-        right: '0em',
+        right: '300%',
+        easing: 'easeOutQuart',
         duration: 1000
-      })
+      });
+      setTimeout(function() {
+        panel.style.display = 'none'
+      }, 1000);
+
     }
   })

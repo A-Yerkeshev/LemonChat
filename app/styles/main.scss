@@ -270,7 +270,17 @@ body {
   border-radius: 1em;
   display: inline-flex;
   position: relative;
-  right: 3em;
+  right: 300%;
+  bottom: 4em;
+}
+
+.close {
+  border: none;
+  border-radius: 50%;
+  height: 1em;
+  width: 1em;
+  background-image: url('../images/close.png');
+  background-size: contain;
 }
 
 .prof-img-min {
