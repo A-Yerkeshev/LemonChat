@@ -274,6 +274,10 @@ body {
   bottom: 4em;
 }
 
+.prof-img-panel > .profile-image:hover {
+  box-shadow: 0 0 1em;
+}
+
 .close {
   border: none;
   border-radius: 50%;
@@ -281,6 +285,10 @@ body {
   width: 1em;
   background-image: url('../images/close.png');
   background-size: contain;
+}
+
+.close:hover {
+  box-shadow: 0 0 1em #FF0000;
 }
 
 .prof-img-min {
