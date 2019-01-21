@@ -186,20 +186,19 @@ angular.module('LemonChat')
     };
 
     // Appear profile image selection panel
-    this.appearImageSelectPanel = function() {
+    this.appearImageSelectPanel = function(scope) {
       // Check if panel exists
       var panel = document.getElementsByClassName('prof-img-panel')[0];
 
       // If it does not - create it
       if (panel == null) {
         var imageBox = document.getElementsByClassName('prof-img-box')[0];
-        var panel = document.createElement('div');
+//        var panel = document.createElement('div');
         // Images list shall be retrieved from service in the future
         var images = ['lemon.png', 'orange.png', 'grapefruit.png'];
+        var panel = angular.element('<div class="prof-img-panel"></div>')
 
-        panel.classList.add('prof-img-panel');
-
-        images.forEach(function(image) {
+/*        images.forEach(function(image) {
           var elem = document.createElement('img');
           elem.classList.add('profile-image');
           elem.setAttribute('src', '/images/' + image);
@@ -215,7 +214,10 @@ angular.module('LemonChat')
         close.addEventListener('click', closePanel)
         panel.appendChild(close);
 
-        imageBox.appendChild(panel);
+        imageBox.appendChild(panel); */
+        angular.element(imageBox).append(panel);
+        $compile(panel)(scope);
+
         anime({
           targets: panel,
           right: '0%',

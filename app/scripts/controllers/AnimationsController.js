@@ -57,6 +57,6 @@ angular.module('LemonChat')
     });
 
     $scope.selectImage = function() {
-      AnimationsService.appearImageSelectPanel()
+      AnimationsService.appearImageSelectPanel($scope)
     };
   })
