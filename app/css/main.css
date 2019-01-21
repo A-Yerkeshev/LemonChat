@@ -239,7 +239,8 @@ body {
   display: inline-flex;
   position: relative;
   right: 300%;
-  bottom: 4em; }
+  bottom: 6em;
+  box-shadow: 0 0 10em #7F3F00; }
 
 .prof-img-panel > .profile-image:hover {
   box-shadow: 0 0 1em; }

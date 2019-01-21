@@ -58,4 +58,10 @@ angular.module('LemonChat')
       return getUserByName(username).image
     };
 
+    this.changeProfileImage = function(image) {
+      var user = getUserByName(currentUser.name);
+
+      user.image = image;
+    };
+
   })

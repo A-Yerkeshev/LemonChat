@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .service('AnimationsService', function($compile) {
+  .service('AnimationsService', function($compile, UsersService) {
 
     // Declare function to animate elements on hover
     function animateOnHover(element, scale, colorOver, colorOut) {
@@ -203,6 +203,9 @@ angular.module('LemonChat')
           var elem = document.createElement('img');
           elem.classList.add('profile-image');
           elem.setAttribute('src', '/images/' + image);
+          elem.addEventListener('click', function() {
+            UsersService.changeProfileImage('/images/' + image)
+          });
           panel.appendChild(elem);
         });
 
@@ -245,6 +248,5 @@ angular.module('LemonChat')
       setTimeout(function() {
         panel.style.display = 'none'
       }, 1000);
-
-    }
+    };
   })
