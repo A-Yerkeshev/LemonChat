@@ -193,33 +193,29 @@ angular.module('LemonChat')
       // If it does not - create it
       if (panel == null) {
         var imageBox = document.getElementsByClassName('prof-img-box')[0];
-//        var panel = document.createElement('div');
+
         // Images list shall be retrieved from service in the future
         var images = ['lemon.png', 'orange.png', 'grapefruit.png'];
-        var panel = angular.element('<div class="prof-img-panel"></div>')
+        var panel = angular.element('<div class="prof-img-panel"></div>');
 
-/*        images.forEach(function(image) {
-          var elem = document.createElement('img');
-          elem.classList.add('profile-image');
-          elem.setAttribute('src', '/images/' + image);
-          elem.addEventListener('click', function() {
-            UsersService.changeProfileImage('/images/' + image)
-          });
-          panel.appendChild(elem);
+        // Create clickable element from each image in the list
+        images.forEach(function(image) {
+          var elem = angular.element('<img class="profile-image" src="/images/'
+            + image + '" ng-click="changeProfileImage(' + "'" + image + "'" + ')">')
+          panel.append($compile(elem)(scope));
         });
 
         // Add close button
-        var close = document.createElement('button');
-        close.classList.add('close');
-        close.addEventListener('click', closePanel)
-        panel.appendChild(close);
+        var close = angular.element(`<button class="close" ng-click="closePanel()">
+          </button>`);
 
-        imageBox.appendChild(panel); */
+        panel.append($compile(close)(scope));
+
+        // Append the panel
         angular.element(imageBox).append(panel);
-        $compile(panel)(scope);
 
         anime({
-          targets: panel,
+          targets: panel.get(0),
           right: '0%',
           easing: 'easeOutQuart',
           duration: 1000
@@ -238,7 +234,7 @@ angular.module('LemonChat')
     };
 
     // Close panel function
-    function closePanel() {
+    this.closePanel = function() {
       var panel = document.getElementsByClassName('prof-img-panel')[0];
 
       anime({

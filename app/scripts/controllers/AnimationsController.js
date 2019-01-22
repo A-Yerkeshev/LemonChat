@@ -59,4 +59,13 @@ angular.module('LemonChat')
     $scope.selectImage = function() {
       AnimationsService.appearImageSelectPanel($scope)
     };
+
+    $scope.changeProfileImage = function(image) {
+      console.log(image)
+      UsersService.changeProfileImage('/images/' + image)
+    };
+
+    $scope.closePanel = function() {
+      AnimationsService.closePanel()
+    };
   })
