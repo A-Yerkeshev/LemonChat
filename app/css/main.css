@@ -267,7 +267,10 @@ body {
 
 .profile-name {
   display: inline-block;
-  font-size: 3em; }
+  font-size: 3em;
+  margin: 0;
+  border-bottom: 5px double;
+  border-color: #A32000; }
 
 /* Scrollbar */
 ::-webkit-scrollbar {

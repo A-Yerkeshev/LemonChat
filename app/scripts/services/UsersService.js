@@ -7,16 +7,19 @@ angular.module('LemonChat')
         name: 'admin',
         password: 'lemon',
         image: '/images/yeoman.png',
+        about: 'The Great King of this project',
         friends: ['lo', 'lemon']
       }, {
         name: 'lo',
         password: 'lo',
         image: '/images/lemon.png',
+        about: 'Test user with short name for easy login',
         friends: ['admin', 'lemon']
       }, {
         name: 'lemon',
         password: 'lemon',
         image: '/images/yeoman.png',
+        about: 'Lemon. Just a lemon',
         friends: ['lo', 'admin']
       }
     ];
