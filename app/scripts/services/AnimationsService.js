@@ -216,7 +216,7 @@ angular.module('LemonChat')
 
         anime({
           targets: panel.get(0),
-          right: '0%',
+          left: '0%',
           easing: 'easeOutQuart',
           duration: 1000
         });
@@ -226,7 +226,7 @@ angular.module('LemonChat')
         panel.style.display = 'inline-flex';
         anime({
           targets: panel,
-          right: '0%',
+          left: '0%',
           easing: 'easeOutQuart',
           duration: 1000
         });

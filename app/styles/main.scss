@@ -269,9 +269,9 @@ body {
   background-image: linear-gradient(#FFF557, #FFAF17);
   border-radius: 1em;
   display: inline-flex;
-  position: relative;
-  right: 300%;
-  bottom: 6em;
+  position: absolute;
+  left: -100%;
+  top: 5%;
   box-shadow: 0 0 10em #7F3F00;
 }
 
