@@ -239,6 +239,7 @@ body {
   display: inline-flex;
   position: absolute;
   left: -100%;
+  top: 5%;
   box-shadow: 0 0 10em #7F3F00; }
 
 .prof-img-panel > .profile-image:hover {

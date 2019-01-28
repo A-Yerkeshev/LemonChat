@@ -61,7 +61,8 @@ angular.module('LemonChat')
     };
 
     $scope.changeProfileImage = function(image) {
-      UsersService.changeProfileImage('/images/' + image)
+      UsersService.changeProfileImage('/images/' + image);
+      AnimationsService.closePanel();
     };
 
     $scope.closePanel = function() {

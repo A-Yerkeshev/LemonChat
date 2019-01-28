@@ -239,7 +239,7 @@ angular.module('LemonChat')
 
       anime({
         targets: panel,
-        right: '300%',
+        left: '-100%',
         easing: 'easeOutQuart',
         duration: 1000
       });
