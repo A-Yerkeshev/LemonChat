@@ -223,7 +223,7 @@ body {
 .prof-img-box {
   width: 25%;
   display: inline-block;
-  vertical-align: top; }
+  position: absolute; }
 
 .profile-image {
   border: ridge;
@@ -267,10 +267,21 @@ body {
 
 .profile-name {
   display: inline-block;
-  font-size: 3em;
+  font-size: 2em;
   margin: 0;
   border-bottom: 5px double;
-  border-color: #A32000; }
+  border-color: #A32000;
+  position: relative;
+  width: 75%;
+  left: 25%; }
+
+.about {
+  border: 2px solid;
+  border-radius: 0.5em;
+  border-color: #ECB102;
+  position: relative;
+  width: 73%;
+  left: 25%; }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
