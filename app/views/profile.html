@@ -4,6 +4,9 @@
     <button class="button" ng-click="selectImage()">Change image</button>
   </div>
   <h1 class="profile-name">{{currentUser.name}}</h1>
-  <p class="about">{{currentUser.about}}</p>
+  <div>
+    <p class="about">{{currentUser.about}}</p>
+    <button class="button about-edit" ng-click="changeAboutField()">Edit</button>
+  </div>
 </div>
 

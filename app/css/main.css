@@ -280,8 +280,20 @@ body {
   border-radius: 0.5em;
   border-color: #ECB102;
   position: relative;
-  width: 73%;
-  left: 25%; }
+  padding: 1%;
+  width: 72%;
+  left: 25%;
+  background-color: #FFF5A5;
+  outline: none;
+  resize: none;
+  text-shadow: 1px 1px 1px #FFF000;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  display: block; }
+
+.about-edit {
+  float: right;
+  font-size: 0.8em; }
 
 /* Scrollbar */
 ::-webkit-scrollbar {

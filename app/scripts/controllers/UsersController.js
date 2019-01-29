@@ -1,6 +1,6 @@
 angular.module('LemonChat')
   .controller('UsersController', function($scope, $location, UsersService,
-    ConversationsService, RoutingService) {
+    ConversationsService, RoutingService, AnimationsService) {
 
     // Get current user on each controller call
     $scope.currentUser = UsersService.getCurrentUser();
@@ -94,6 +94,14 @@ angular.module('LemonChat')
     // Change path when nav button clicked
     $scope.redirect = function(path) {
       RoutingService.redirect(path)
+    };
+
+    $scope.changeAboutField = function() {
+      UsersService.changeAboutField($scope)
+    };
+
+    $scope.saveAboutChanges = function(text) {
+      UsersService.setAboutText($scope.currentUser, text)
     };
 
   })

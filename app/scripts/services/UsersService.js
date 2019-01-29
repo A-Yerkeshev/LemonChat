@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .service('UsersService', function($filter) {
+  .service('UsersService', function($filter, $compile) {
     var currentUser = null;
 
     var users = [
@@ -65,6 +65,18 @@ angular.module('LemonChat')
       var user = getUserByName(currentUser.name);
 
       user.image = image;
+    };
+
+    this.changeAboutField = function(scope) {
+      // Get about text without edit button
+      var text = $('.about').clone().children().remove().end().text();
+
+      var textarea = angular.element('<textarea class="about">' + text + '</textarea>');
+      var button = angular.element(
+        '<button class="button about-edit ng-click="saveAboutChanges()">Save</button>');
+
+      $('.about').replaceWith($compile(textarea)(scope));
+      $('.about-edit').replaceWith($compile(button)(scope));
     };
 
   })
