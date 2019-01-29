@@ -58,5 +58,18 @@
         <script src="scripts/controllers/AnimationsController.js"></script>
         <script src="scripts/directives/MessageDirective.js"></script>
         <!-- endbuild -->
+
+    <script id="about-info-template" type="text/template">
+      <div id="about-field">
+        <p class="about">{{currentUser.about}}</p>
+        <button class="button about-edit" ng-click="changeAboutField()">Edit</button>
+      </div>
+    </script>
+    <script id="about-change-template" type="text/template">
+      <div id="about-field">
+        <textarea class="about">{{currentUser.about}}</textarea>
+        <button class="button about-edit" ng-click="saveAboutChanges()">Save</button>
+      </div>
+    </script>
 </body>
 </html>

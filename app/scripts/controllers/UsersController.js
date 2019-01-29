@@ -100,8 +100,10 @@ angular.module('LemonChat')
       UsersService.changeAboutField($scope)
     };
 
-    $scope.saveAboutChanges = function(text) {
-      UsersService.setAboutText($scope.currentUser, text)
+    $scope.saveAboutChanges = function() {
+      var text = $('.about').text();
+
+      UsersService.setAboutText($scope.currentUser.name, text)
     };
 
   })

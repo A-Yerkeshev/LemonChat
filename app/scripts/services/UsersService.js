@@ -79,4 +79,10 @@ angular.module('LemonChat')
       $('.about-edit').replaceWith($compile(button)(scope));
     };
 
+    this.setAboutText = function(username, text) {
+      var user = getUserByName(username);
+
+      user.about = text;
+    };
+
   })
