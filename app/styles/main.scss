@@ -247,7 +247,7 @@ body {
   cursor: pointer;
   display: inline-block;
   float: left;
-  clear: left;
+  clear: both;
 }
 
 .prof-img-box {
@@ -273,6 +273,7 @@ body {
   left: -100%;
   top: 5%;
   box-shadow: 0 0 10em #7F3F00;
+  z-index: 1;
 }
 
 .prof-img-panel > .profile-image:hover {
@@ -334,6 +335,22 @@ body {
   float: right;
   font-size: 0.8em;
 }
+
+.find-friends {
+  background-image: linear-gradient(#FFEC04, #F97600);
+  margin: 0.5em;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  color: #F9FF88;
+  box-shadow: 0px 2px 5px;
+  cursor: pointer;
+  border: solid;
+  float: right;
+}
+
+.find-friends:hover {
+  color: #FFFFFF;
+};
 
 /* Scrollbar */
 ::-webkit-scrollbar {
