@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .controller('UsersController', function($scope, $location, UsersService,
+  .controller('UsersController', function($scope, $location, $compile, UsersService,
     ConversationsService, RoutingService, AnimationsService) {
 
     // Get current user on each controller call
@@ -97,13 +97,17 @@ angular.module('LemonChat')
     };
 
     $scope.changeAboutField = function() {
-      UsersService.changeAboutField($scope)
+      var template = $('#about-change-template').html();
+
+      $('#about-field').replaceWith($compile(template)($scope));
     };
 
     $scope.saveAboutChanges = function() {
-      var text = $('.about').text();
+      var text = $('.about').val();
+      var template = $('#about-info-template').html();
 
-      UsersService.setAboutText($scope.currentUser.name, text)
+      UsersService.setAboutText($scope.currentUser.name, text);
+      $('#about-field').replaceWith($compile(template)($scope));
     };
 
   })

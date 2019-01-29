@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .service('UsersService', function($filter, $compile) {
+  .service('UsersService', function($filter) {
     var currentUser = null;
 
     var users = [
@@ -40,14 +40,6 @@ angular.module('LemonChat')
       return getUserByName(username)
     };
 
-    this.setCurrentUser = function(newCurrentUser) {
-      currentUser = newCurrentUser
-    };
-
-    this.addNewUser = function(newUser) {
-      users.push(newUser)
-    };
-
     this.getFriends = function(username) {
       var names = getUserByName(username).friends;
       var friends = [];
@@ -61,22 +53,24 @@ angular.module('LemonChat')
       return getUserByName(username).image
     };
 
+    this.getAboutInfo = function(username) {
+      var user = getUserByName(username);
+
+      return user.about;
+    };
+
+    this.setCurrentUser = function(newCurrentUser) {
+      currentUser = newCurrentUser
+    };
+
+    this.addNewUser = function(newUser) {
+      users.push(newUser)
+    };
+
     this.changeProfileImage = function(image) {
       var user = getUserByName(currentUser.name);
 
       user.image = image;
-    };
-
-    this.changeAboutField = function(scope) {
-      // Get about text without edit button
-      var text = $('.about').clone().children().remove().end().text();
-
-      var textarea = angular.element('<textarea class="about">' + text + '</textarea>');
-      var button = angular.element(
-        '<button class="button about-edit ng-click="saveAboutChanges()">Save</button>');
-
-      $('.about').replaceWith($compile(textarea)(scope));
-      $('.about-edit').replaceWith($compile(button)(scope));
     };
 
     this.setAboutText = function(username, text) {
