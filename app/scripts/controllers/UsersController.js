@@ -118,4 +118,8 @@ angular.module('LemonChat')
     $scope.sendFriendRequest = function(user) {
       UsersService.addFriendRequest(user, $scope.currentUser)
     };
+
+    $scope.acceptRequest = function(user) {
+      UsersService.acceptRequest($scope.currentUser.name, user)
+    };
   })

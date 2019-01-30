@@ -1,9 +1,12 @@
 <div ng-controller="UsersController">
   <div class="requests">
     <h1>New friend requests</h1>
-    <div ng-repeat="user in requests" class="friend">
-      <b>{{user.name}}</b>
-      <img class="prof-img-min" src={{user.image}}>
+    <div ng-repeat="user in requests">
+      <div class="friend">
+        <b>{{user.name}}</b>
+        <img class="prof-img-min" src={{user.image}}>
+      </div>
+      <div class="friend-int accept" ng-click="acceptRequest(user.name)">Accept</div>
     </div>
   </div>
   <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation)">{{showParticipantsNames(currentUser.name, conversation)}}

@@ -377,6 +377,15 @@ body {
   background-image: url('../images/add-friend.png');
 }
 
+.accept {
+  background-image: linear-gradient(#FFF600, #FFD200);
+  padding: 0.2em;
+  border: solid;
+  border-color: #FFFFFF;
+  width: fit-content;
+  height: fit-content;
+}
+
 .requests {
   border: solid;
   overflow: hidden;
