@@ -12,15 +12,27 @@ angular.module('LemonChat')
       }, {
         name: 'lo',
         password: 'lo',
-        image: '/images/lemon.png',
+        image: '/images/yeoman.png',
         about: 'Test user with short name for easy login',
         friends: ['admin', 'lemon']
       }, {
         name: 'lemon',
         password: 'lemon',
-        image: '/images/yeoman.png',
+        image: '/images/lemon.png',
         about: 'Lemon. Just a lemon',
-        friends: ['lo', 'admin']
+        friends: ['lo', 'admin', 'orange', 'grapefruit']
+      }, {
+        name: 'orange',
+        password: 'orange',
+        image: '/images/orange.png',
+        about: 'Orange. Just a orange',
+        friends: ['lemon', 'grapefruit']
+      }, {
+        name: 'grapefruit',
+        password: 'grapefruit',
+        image: '/images/grapefruit.png',
+        about: 'Grapefruit. Just a grapefruit',
+        friends: ['lemon', 'orange']
       }
     ];
 
@@ -57,6 +69,17 @@ angular.module('LemonChat')
       var user = getUserByName(username);
 
       return user.about;
+    };
+
+    this.getUsersExceptFriends = function(currentUser) {
+      var result = [];
+      users.forEach(function(user) {
+        if (currentUser.friends.includes(user.name) == false &&
+          currentUser.name != user.name) {
+          result.push(user);
+        };
+      });
+      return result
     };
 
     this.setCurrentUser = function(newCurrentUser) {

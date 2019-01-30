@@ -1,5 +1,5 @@
 <div ng-controller="UsersController">
-  <button class="find-friends">Find new friends!</button>
+  <button class="find-friends" ng-click="redirect('friends/find')">Find new friends!</button>
   <div ng-repeat="friend in friends" class="friend" ng-click="enterConversationByNames(currentUser.name, friend.name)">
     <b>{{friend.name}}</b>
     <img class="prof-img-min" src={{friend.image}}>

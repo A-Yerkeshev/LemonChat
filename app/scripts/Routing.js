@@ -19,6 +19,9 @@ angular.module('LemonChat')
       .when('/:user/friends', {
         templateUrl: 'views/friends.html'
       })
+      .when('/:user/friends/find', {
+        templateUrl: 'views/friends-find.html'
+      })
       .when('/:user/conversation-:conversationId', {
         templateUrl: 'views/conversation.html'
       })

@@ -110,4 +110,7 @@ angular.module('LemonChat')
       $('#about-field').replaceWith($compile(template)($scope));
     };
 
+    $scope.getPotentialFriends = function() {
+      return UsersService.getUsersExceptFriends($scope.currentUser)
+    };
   })
