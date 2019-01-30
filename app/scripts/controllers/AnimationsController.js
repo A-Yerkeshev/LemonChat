@@ -28,7 +28,6 @@ angular.module('LemonChat')
       };
 
       // Animate friends item on hover
-      console.log(path)
       if (path == 'friends' || path == 'find') {
         setTimeout(function() {
           var friends = document.getElementsByClassName('friend')

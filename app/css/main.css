@@ -310,6 +310,22 @@ body {
 .find-friends:hover {
   color: #FFFFFF; }
 
+.write {
+  background-image: url("../images/write.png");
+  background-size: contain;
+  float: left;
+  height: 2em;
+  width: 2em;
+  border-radius: 0.5em;
+  box-shadow: 0px 2px 5px;
+  position: relative;
+  top: 0.5em;
+  color: #8E1400;
+  cursor: pointer; }
+
+.write:hover {
+  color: #FFFFFF; }
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 1em; }
