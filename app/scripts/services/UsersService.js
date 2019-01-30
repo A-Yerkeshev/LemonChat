@@ -123,9 +123,13 @@ angular.module('LemonChat')
     };
 
     this.addFriendRequest = function(userTo, userFrom) {
+      if (userFrom.requests.to.includes(userTo.name) == false) {
+        userFrom.requests.to.push(userTo.name);
+      };
+
       if (userTo.requests.from.includes(userFrom.name) == false) {
         userTo.requests.from.push(userFrom.name);
-      };
+      }
     };
 
   })
