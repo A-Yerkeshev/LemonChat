@@ -102,6 +102,16 @@ angular.module('LemonChat')
       return result
     };
 
+    this.getRequestsFrom = function(username) {
+      var requests = getUserByName(username).requests.from;
+      var users = [];
+
+      requests.forEach(function(name) {
+        users.push(getUserByName(name))
+      });
+      return users
+    };
+
     this.setCurrentUser = function(newCurrentUser) {
       currentUser = newCurrentUser
     };

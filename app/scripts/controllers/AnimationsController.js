@@ -22,8 +22,11 @@ angular.module('LemonChat')
       // Animate conversations on hover
       if (path == 'home') {
         setTimeout(function() {
-          var conversations = document.getElementsByClassName('conversation')
+          var conversations = document.getElementsByClassName('conversation');
+          var friends = document.getElementsByClassName('friend');
+
           AnimationsService.animateList(conversations);
+          AnimationsService.animateList(friends);
         }, 500)
       };
 
