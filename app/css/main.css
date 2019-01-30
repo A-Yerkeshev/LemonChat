@@ -310,8 +310,7 @@ body {
 .find-friends:hover {
   color: #FFFFFF; }
 
-.write {
-  background-image: url("../images/write.png");
+.friend-int {
   background-size: contain;
   float: left;
   height: 2em;
@@ -323,8 +322,14 @@ body {
   color: #8E1400;
   cursor: pointer; }
 
-.write:hover {
+.friend-int:hover {
   color: #FFFFFF; }
+
+.write {
+  background-image: url("../images/write.png"); }
+
+.add-friend {
+  background-image: url("../images/add-friend.png"); }
 
 /* Scrollbar */
 ::-webkit-scrollbar {

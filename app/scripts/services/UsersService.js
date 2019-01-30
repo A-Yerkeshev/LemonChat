@@ -8,31 +8,51 @@ angular.module('LemonChat')
         password: 'lemon',
         image: '/images/yeoman.png',
         about: 'The Great King of this project',
-        friends: ['lo', 'lemon']
+        friends: ['lo', 'lemon'],
+        requests: {
+          from: ['orange'],
+          to: []
+        }
       }, {
         name: 'lo',
         password: 'lo',
         image: '/images/yeoman.png',
         about: 'Test user with short name for easy login',
-        friends: ['admin', 'lemon']
+        friends: ['admin', 'lemon'],
+        requests: {
+          from: ['orange'],
+          to: []
+        }
       }, {
         name: 'lemon',
         password: 'lemon',
         image: '/images/lemon.png',
         about: 'Lemon. Just a lemon',
-        friends: ['lo', 'admin', 'orange', 'grapefruit']
+        friends: ['lo', 'admin', 'orange', 'grapefruit'],
+        requests: {
+          from: [],
+          to: []
+        }
       }, {
         name: 'orange',
         password: 'orange',
         image: '/images/orange.png',
         about: 'Orange. Just a orange',
-        friends: ['lemon', 'grapefruit']
+        friends: ['lemon', 'grapefruit'],
+        requests: {
+          from: [],
+          to: []
+        }
       }, {
         name: 'grapefruit',
         password: 'grapefruit',
         image: '/images/grapefruit.png',
         about: 'Grapefruit. Just a grapefruit',
-        friends: ['lemon', 'orange']
+        friends: ['lemon', 'orange'],
+        requests: {
+          from: [],
+          to: []
+        }
       }
     ];
 
@@ -100,6 +120,12 @@ angular.module('LemonChat')
       var user = getUserByName(username);
 
       user.about = text;
+    };
+
+    this.addFriendRequest = function(userTo, userFrom) {
+      if (userTo.requests.from.includes(userFrom.name) == false) {
+        userTo.requests.from.push(userFrom.name);
+      };
     };
 
   })

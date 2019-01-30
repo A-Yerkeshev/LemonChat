@@ -352,8 +352,7 @@ body {
   color: #FFFFFF;
 };
 
-.write {
-  background-image: url('../images/write.png');
+.friend-int {
   background-size: contain;
   float: left;
   height: 2em;
@@ -366,8 +365,16 @@ body {
   cursor: pointer;
 }
 
-.write:hover {
+.friend-int:hover {
   color: #FFFFFF;
+}
+
+.write {
+  background-image: url('../images/write.png');
+}
+
+.add-friend {
+  background-image: url('../images/add-friend.png');
 }
 
 /* Scrollbar */

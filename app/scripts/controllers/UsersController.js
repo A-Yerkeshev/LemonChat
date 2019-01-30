@@ -113,4 +113,8 @@ angular.module('LemonChat')
     $scope.getPotentialFriends = function() {
       return UsersService.getUsersExceptFriends($scope.currentUser)
     };
+
+    $scope.sendFriendRequest = function(user) {
+      UsersService.addFriendRequest(user, $scope.currentUser)
+    };
   })
