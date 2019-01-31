@@ -162,4 +162,12 @@ angular.module('LemonChat')
       user.friends.push(userTo);
     };
 
+    this.cancelAccept = function(userTo, userFrom) {
+      // Remove accidentally accepted friend from the friends list
+      var user = getUserByName(userTo);
+      var index = user.friends.indexOf(userFrom);
+
+      user.friends.splice(index, 1);
+    };
+
   })

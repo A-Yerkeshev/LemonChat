@@ -120,6 +120,23 @@ angular.module('LemonChat')
     };
 
     $scope.acceptRequest = function(user) {
-      UsersService.acceptRequest($scope.currentUser.name, user)
+      UsersService.acceptRequest($scope.currentUser.name, user);
+
+      // Replace accept button with cancel button
+      var button = $('#request-' + user);
+      button.attr("ng-click", "cancelAccept(" + user + ")");
+      button.text('Cancel');
+      $compile(button)($scope);
     };
+
+    $scope.cancelAccept = function(user) {
+      UsersService.cancelAccept($scope.currentUser.name, user);
+
+      // Replace cancel button back with accept button
+      var button = $('#request-' + user);
+      console.log(button)
+      button.attr("ng-click", "acceptRequest(" + user + ")");
+      button.text('Accept');
+      $compile(button)($scope);
+    }
   })
