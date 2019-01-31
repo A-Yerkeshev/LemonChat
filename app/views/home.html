@@ -1,7 +1,7 @@
 <div ng-controller="UsersController">
   <div class="requests">
     <h1>New friend requests</h1>
-    <div ng-repeat="user in requests">
+    <div ng-repeat="user in requests" id="request-{{user.name}}">
       <div class="friend">
         <b>{{user.name}}</b>
         <img class="prof-img-min" src={{user.image}}>

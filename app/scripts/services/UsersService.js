@@ -143,6 +143,7 @@ angular.module('LemonChat')
     };
 
     this.acceptRequest = function(userTo, userFrom) {
+      // Accept friend for userTo
       var user = getUserByName(userTo);
       var requests = user.requests.from;
       var index = requests.indexOf(userFrom);
@@ -151,6 +152,14 @@ angular.module('LemonChat')
       requests.splice(index, 1);
       // Add user to friends
       user.friends.push(userFrom);
+
+      // Accept friend for userFrom
+      user = getUserByName(userFrom);
+      requests = user.requests.to;
+      index = requests.indexOf(userTo);
+
+      requests.splice(index, 1);
+      user.friends.push(userTo);
     };
 
   })
