@@ -1,5 +1,5 @@
 <div ng-controller="UsersController">
-  <div class="requests">
+  <div ng-if="requests.length > 0" class="requests">
     <h1>New friend requests</h1>
     <div ng-repeat="user in requests">
       <div class="friend">
