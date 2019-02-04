@@ -119,11 +119,54 @@ angular.module('LemonChat')
       UsersService.addFriendRequest(user, $scope.currentUser)
     };
 
+    function toggleRequestButtons(set, user) {
+      if (set == 'select') {
+        // Show selection buttons
+        $('#request-' + user + ' > .new-req').show();
+        // Hide cancel button
+        $('#request-' + user + ' > .cancel').hide();
+      };
+      if (set == 'cancel') {
+        // Show cancel buttons
+        $('#request-' + user + ' > .new-req').hide();
+        // Hide selection button
+        $('#request-' + user + ' > .cancel').show();
+      }
+    };
+
+    function setNgClick(elem, func) {
+      elem.off('click');
+      elem.attr('ng-click', func);
+      $compile(elem)($scope);
+    };
+
     $scope.acceptRequest = function(user) {
       UsersService.acceptRequest($scope.currentUser.name, user);
+
+      var cancel = $('#request-' + user + ' > .cancel');
+
+      setNgClick(cancel, 'cancelAccept("' + user + '")');
+      toggleRequestButtons('cancel', user);
+    };
+
+    $scope.cancelAccept = function(user) {
+      UsersService.cancelAccept($scope.currentUser.name, user);
+
+      toggleRequestButtons('select', user);
     };
 
     $scope.declineRequest = function(user) {
       UsersService.declineRequest($scope.currentUser.name, user);
+
+      var cancel = $('#request-' + user + ' > .cancel');
+
+      setNgClick(cancel, 'cancelDecline("' + user + '")');
+      toggleRequestButtons('cancel', user);
+    };
+
+    $scope.cancelDecline = function(user) {
+      UsersService.cancelDecline($scope.currentUser.name, user);
+
+      toggleRequestButtons('select', user);
     };
   })

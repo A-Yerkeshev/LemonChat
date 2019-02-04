@@ -2,12 +2,15 @@
   <div ng-if="requests.length > 0" class="requests">
     <h1>New friend requests</h1>
     <div ng-repeat="user in requests">
-      <div class="friend">
-        <b>{{user.name}}</b>
-        <img class="prof-img-min" src={{user.image}}>
+      <div id="request-{{user.name}}">
+        <div class="friend">
+          <b>{{user.name}}</b>
+          <img class="prof-img-min" src={{user.image}}>
+        </div>
+        <div class="friend-int new-req" ng-click="acceptRequest(user.name, $event.currentTarget)">Accept</div>
+        <div class="friend-int new-req" ng-click="declineRequest(user.name, $event.currentTarget)">Decline</div>
+        <div class="friend-int new-req cancel">Cancel</div>
       </div>
-      <div class="friend-int new-req" ng-click="acceptRequest(user.name, $event.currentTarget)">Accept</div>
-      <div class="friend-int new-req" ng-click="declineRequest(user.name, $event.currentTarget)">Decline</div>
     </div>
   </div>
   <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation)">{{showParticipantsNames(currentUser.name, conversation)}}
