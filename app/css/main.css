@@ -331,13 +331,14 @@ body {
 .add-friend {
   background-image: url("../images/add-friend.png"); }
 
-.accept {
+.new-req {
   background-image: linear-gradient(#FFF600, #FFD200);
   padding: 0.2em;
   border: solid;
   border-color: #FFFFFF;
   width: fit-content;
-  height: fit-content; }
+  height: fit-content;
+  margin-left: 0.1em; }
 
 .requests {
   border: solid;

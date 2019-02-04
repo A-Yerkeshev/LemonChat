@@ -119,25 +119,11 @@ angular.module('LemonChat')
       UsersService.addFriendRequest(user, $scope.currentUser)
     };
 
-    $scope.acceptRequest = function(user, elem) {
+    $scope.acceptRequest = function(user) {
       UsersService.acceptRequest($scope.currentUser.name, user);
-
-      // Replace accept button with cancel button
-      elem = angular.element(elem);
-      elem.off('click');
-      elem.attr("ng-click", "cancelAccept('" + user + "', $event.currentTarget)");
-      elem.text('Cancel');
-      $compile(elem)($scope);
     };
 
-    $scope.cancelAccept = function(user, elem) {
-      UsersService.cancelAccept($scope.currentUser.name, user);
-
-      // Replace cancel button back with accept button
-      elem = angular.element(elem);
-      elem.off('click');
-      elem.attr("ng-click", "acceptRequest('" + user + "', $event.currentTarget)");
-      elem.text('Accept');
-      $compile(elem)($scope);
-    }
+    $scope.declineRequest = function(user) {
+      UsersService.declineRequest($scope.currentUser.name, user);
+    };
   })

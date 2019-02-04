@@ -170,4 +170,34 @@ angular.module('LemonChat')
       user.friends.splice(index, 1);
     };
 
+    this.declineRequest = function(userTo, userFrom) {
+      // Remove request for userTo
+      var user = getUserByName(userTo);
+      var requests = user.requests.from;
+      var index = requests.indexOf(userFrom);
+
+      requests.splice(index, 1);
+
+      // Remove request for userFrom
+      user = getUserByName(userFrom);
+      requests = user.requests.to;
+      index = requests.indexOf(userTo);
+
+      requests.splice(index, 1);
+    };
+
+    this.cancelDecline = function(userTo, userFrom) {
+      // Restore request for userTo
+      var user = getUserByName(userTo);
+      var requests = user.requests.from;
+
+      requests.push(userFrom);
+
+      // Restore request for userFrom
+      user = getUserByName(userFrom);
+      requests = user.requests.to;
+
+      requests.push(userTo);
+    };
+
   })
