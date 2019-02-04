@@ -6,7 +6,7 @@
         <b>{{user.name}}</b>
         <img class="prof-img-min" src={{user.image}}>
       </div>
-      <div class="friend-int accept" ng-click="acceptRequest(user.name, $event.currentTarget)">Accept {{user.name}}</div>
+      <div class="friend-int accept" ng-click="acceptRequest(user.name, $event.currentTarget)">Accept</div>
     </div>
   </div>
   <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation)">{{showParticipantsNames(currentUser.name, conversation)}}

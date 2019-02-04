@@ -126,7 +126,7 @@ angular.module('LemonChat')
       elem = angular.element(elem);
       elem.off('click');
       elem.attr("ng-click", "cancelAccept('" + user + "', $event.currentTarget)");
-      elem.text('Cancel ' + user);
+      elem.text('Cancel');
       $compile(elem)($scope);
     };
 
@@ -137,7 +137,7 @@ angular.module('LemonChat')
       elem = angular.element(elem);
       elem.off('click');
       elem.attr("ng-click", "acceptRequest('" + user + "', $event.currentTarget)");
-      elem.text('Accept ' + user);
+      elem.text('Accept');
       $compile(elem)($scope);
     }
   })
