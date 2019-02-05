@@ -1,7 +1,7 @@
 <div ng-controller="UsersController">
-  <div ng-if="requests.length > 0" class="requests">
+  <div ng-if="requestsFrom.length > 0" class="requests">
     <h1>New friend requests</h1>
-    <div ng-repeat="user in requests">
+    <div ng-repeat="user in requestsFrom">
       <div id="request-{{user.name}}">
         <div class="friend">
           <b>{{user.name}}</b>

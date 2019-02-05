@@ -96,6 +96,7 @@ angular.module('LemonChat')
       users.forEach(function(user) {
         if (currentUser.friends.includes(user.name) == false &&
           currentUser.requests.from.includes(user.name) == false &&
+          currentUser.requests.to.includes(user.name) == false &&
           currentUser.name != user.name) {
           result.push(user);
         };
@@ -105,6 +106,16 @@ angular.module('LemonChat')
 
     this.getRequestsFrom = function(username) {
       var requests = getUserByName(username).requests.from;
+      var users = [];
+
+      requests.forEach(function(name) {
+        users.push(getUserByName(name))
+      });
+      return users
+    };
+
+    this.getRequestsTo = function(username) {
+      var requests = getUserByName(username).requests.to;
       var users = [];
 
       requests.forEach(function(name) {

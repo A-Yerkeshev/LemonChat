@@ -1,5 +1,17 @@
 <div ng-controller="UsersController">
   <button class="find-friends" ng-click="redirect('friends/find')">Find new friends!</button>
+  <div class="requests">
+    <h1>You sent friend request to</h1>
+    <div ng-repeat="user in requestsTo">
+      <div id="request-{{user.name}}">
+        <div class="friend">
+          <b>{{user.name}}</b>
+          <img class="prof-img-min" src={{user.image}}>
+        </div>
+        <div class="friend-int new-req" ng-click="cancelRequest(user)">Cancel</div>
+      </div>
+    </div>
+  </div>
   <div ng-repeat="friend in friends">
     <div class="friend" ng-click="redirect(friend.name)">
       <b>{{friend.name}}</b>

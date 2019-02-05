@@ -9,7 +9,8 @@ angular.module('LemonChat')
       $scope.conversations = ConversationsService.getConversationsOfUser(
         $scope.currentUser.name);
       $scope.friends = UsersService.getFriends($scope.currentUser.name);
-      $scope.requests = UsersService.getRequestsFrom($scope.currentUser.name);
+      $scope.requestsFrom = UsersService.getRequestsFrom($scope.currentUser.name);
+      $scope.requestsTo = UsersService.getRequestsTo($scope.currentUser.name);
     };
 
     // Set profile user to null at first
@@ -136,18 +137,12 @@ angular.module('LemonChat')
 
     $scope.sendFriendRequest = function(user) {
       UsersService.addFriendRequest(user, $scope.currentUser);
-
-      // Change button
-      $('#user-' + user.name + ' > .add-friend').hide();
-      $('#user-' + user.name + ' > .cancel').show();
     };
 
     $scope.cancelRequest = function(user) {
       UsersService.removeFriendRequest(user, $scope.currentUser);
 
-      // Change button back
-      $('#user-' + user.name + ' > .cancel').hide();
-      $('#user-' + user.name + ' > .add-friend').show();
+      $('#request-' + user.name).remove();
     };
 
     function toggleRequestButtons(set, user) {
