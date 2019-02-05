@@ -1,12 +1,12 @@
 <div ng-controller="UsersController">
   <div ng-controller="AnimationsController" class="prof-img-box">
     <img class="profile-image" src={{profileUser.image}}>
-    <button class="button" ng-click="selectImage()">Change image</button>
+    <button class="button" ng-if="profileUser == currentUser" ng-click="selectImage()">Change image</button>
   </div>
   <h1 class="profile-name">{{profileUser.name}}</h1>
   <div id="about-field">
     <p class="about">{{profileUser.about}}</p>
-    <button class="button about-edit" ng-click="changeAboutField()">Edit</button>
+    <button class="button about-edit" ng-if="profileUser == currentUser" ng-click="changeAboutField()">Edit</button>
   </div>
 </div>
 
