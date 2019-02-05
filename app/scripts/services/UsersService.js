@@ -168,6 +168,15 @@ angular.module('LemonChat')
       var index = user.friends.indexOf(userFrom);
 
       user.friends.splice(index, 1);
+      // Add the request back
+      user.requests.from.push(userFrom);
+
+      // Do the same for userFrom
+      user = getUserByName(userFrom);
+      index = user.friends.indexOf(userTo);
+
+      user.friends.splice(index, 1);
+      user.requests.to.push(userTo);
     };
 
     this.declineRequest = function(userTo, userFrom) {
