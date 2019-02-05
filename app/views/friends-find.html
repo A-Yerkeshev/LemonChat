@@ -1,6 +1,6 @@
 <div ng-controller="UsersController">
   <div ng-repeat="user in getPotentialFriends()">
-    <div class="friend">
+    <div class="friend" ng-click="redirect(user.name)">
       <b>{{user.name}}</b>
       <img class="prof-img-min" src={{user.image}}>
     </div>
