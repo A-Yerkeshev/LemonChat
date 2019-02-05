@@ -135,7 +135,19 @@ angular.module('LemonChat')
     };
 
     $scope.sendFriendRequest = function(user) {
-      UsersService.addFriendRequest(user, $scope.currentUser)
+      UsersService.addFriendRequest(user, $scope.currentUser);
+
+      // Change button
+      $('#user-' + user.name + ' > .add-friend').hide();
+      $('#user-' + user.name + ' > .cancel').show();
+    };
+
+    $scope.cancelRequest = function(user) {
+      UsersService.removeFriendRequest(user, $scope.currentUser);
+
+      // Change button back
+      $('#user-' + user.name + ' > .cancel').hide();
+      $('#user-' + user.name + ' > .add-friend').show();
     };
 
     function toggleRequestButtons(set, user) {

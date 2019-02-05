@@ -142,6 +142,18 @@ angular.module('LemonChat')
       }
     };
 
+    this.removeFriendRequest = function(userTo, userFrom) {
+      var requests = userTo.requests.from;
+      var index = requests.indexOf(userFrom);
+
+      requests.splice(index, 1);
+
+      requests = userFrom.requests.to;
+      index = requests.indexOf(userTo);
+
+      requests.splice(index, 1);
+    };
+
     this.acceptRequest = function(userTo, userFrom) {
       // Accept friend for userTo
       var user = getUserByName(userTo);
