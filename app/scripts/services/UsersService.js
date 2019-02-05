@@ -91,10 +91,11 @@ angular.module('LemonChat')
       return user.about;
     };
 
-    this.getUsersExceptFriends = function(currentUser) {
+    this.getPotentialFriends = function(currentUser) {
       var result = [];
       users.forEach(function(user) {
         if (currentUser.friends.includes(user.name) == false &&
+          currentUser.requests.from.includes(user.name) == false &&
           currentUser.name != user.name) {
           result.push(user);
         };
