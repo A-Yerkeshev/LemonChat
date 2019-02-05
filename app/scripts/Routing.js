@@ -28,4 +28,7 @@ angular.module('LemonChat')
       .when('/:user/profile', {
         templateUrl: 'views/profile.html'
       })
+      .when('/:user/:userView', {
+        templateUrl: 'views/profile.html'
+      })
   });

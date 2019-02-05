@@ -12,6 +12,19 @@ angular.module('LemonChat')
       $scope.requests = UsersService.getRequestsFrom($scope.currentUser.name);
     };
 
+    // Set profile user to null at first
+    $scope.profileUser = null;
+    // If profile page is accessed by the currentUser set profileUser to currentUser
+    var path = $location.path();
+    path = path.substr(path.lastIndexOf('/') + 1);
+
+    if (path == 'profile') {
+      $scope.profileUser = $scope.currentUser
+    } else {
+      // Otherwise set it to user whose profile page is accessed
+      $scope.profileUser = UsersService.getUserByName(path)
+    };
+
     // Login user on button click
     $scope.login = function(username, password) {
       var users = UsersService.getAllUsers();
@@ -103,11 +116,11 @@ angular.module('LemonChat')
       $('#about-field').replaceWith($compile(template)($scope));
     };
 
-    $scope.saveAboutChanges = function() {
+    $scope.saveAboutChanges = function(user) {
       var text = $('.about').val();
       var template = $('#about-info-template').html();
 
-      UsersService.setAboutText($scope.currentUser.name, text);
+      UsersService.setAboutText(user.name, text);
       $('#about-field').replaceWith($compile(template)($scope));
     };
 

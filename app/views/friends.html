@@ -1,7 +1,7 @@
 <div ng-controller="UsersController">
   <button class="find-friends" ng-click="redirect('friends/find')">Find new friends!</button>
   <div ng-repeat="friend in friends">
-    <div class="friend">
+    <div class="friend" ng-click="redirect(friend.name)">
       <b>{{friend.name}}</b>
       <img class="prof-img-min" src={{friend.image}}>
     </div>
