@@ -3,7 +3,7 @@
     <h1>New friend requests</h1>
     <div ng-repeat="user in requestsFrom">
       <div id="request-{{user.name}}">
-        <div class="friend">
+        <div class="friend" ng-click="redirect(user.name)">
           <b>{{user.name}}</b>
           <img class="prof-img-min" src={{user.image}}>
         </div>
