@@ -26,6 +26,9 @@ angular.module('LemonChat')
       $scope.profileUser = UsersService.getUserByName(path)
     };
 
+    // Set necessary variables for new conversation
+    $scope.newConversationUsers = [];
+
     // Login user on button click
     $scope.login = function(username, password) {
       var users = UsersService.getAllUsers();
@@ -194,5 +197,36 @@ angular.module('LemonChat')
       UsersService.cancelDecline($scope.currentUser.name, user);
 
       toggleRequestButtons('select', user);
+    };
+
+    $scope.selectFriendForConversation = function(user) {
+      $scope.newConversationUsers.push(user);
+      // Remove friend from the list
+      $('#friend-' + user.name).hide();
+    };
+
+    $scope.removeFriendFromConversation = function(user) {
+      var index = $scope.newConversationUsers.indexOf(user);
+
+      $scope.newConversationUsers.splice(index, 1);
+      // Appear friend back in the list
+      $('#friend-' + user.name).show();
+    };
+
+    $scope.startNewConversation = function() {
+      var usernames = [$scope.currentUser.name];
+
+      $scope.newConversationUsers.forEach(function(user) {
+        usernames.push(user.name)
+      });
+
+      // First check if conversation already exists
+      if (ConversationsService.conversationExists(usernames)) {
+        $('.new-conversation > h1').text('Conversation with given users already exists!');
+      } else {
+        $scope.newConversationUsers.push($scope.currentUser);
+        ConversationsService.startNewConversation($scope.newConversationUsers);
+        $scope.newConversationUsers = [];
+      };
     };
   })

@@ -48,9 +48,13 @@ angular.module('LemonChat')
       return currentConversation
     };
 
-    function enterConversationById(conversation) {
-      RoutingService.redirect('conversation-' + conversation.id)
-      currentConversation = conversation;
+    function getConversationById(conversationId) {
+      return conversations[conversationId - 1]
+    };
+
+    function enterConversationById(conversationId) {
+      RoutingService.redirect('conversation-' + conversationId)
+      currentConversation = getConversationById(conversationId);
     };
 
     this.enterConversationById = function(conversation) {
@@ -58,7 +62,7 @@ angular.module('LemonChat')
     };
 
     // Function to check if arrays have same participants in any order
-    function equalParticipants(firstList, secondList) {
+    function sameParticipants(firstList, secondList) {
       if (firstList.length !== secondList.length) {
         return false
       };
@@ -67,7 +71,30 @@ angular.module('LemonChat')
           return false
         }
       };
-      return true
+      return true;
+    };
+
+    function conversationExists(users) {
+      for (i=0; i<conversations.length; i++) {
+        if (sameParticipants(conversations[i].participants, users)) {
+          return true
+        };
+      };
+      return false;
+    };
+
+    this.conversationExists = function(users) {
+      return conversationExists(users)
+    };
+
+    function newConversation(users) {
+      var newConversation = {
+        id: conversations.length+1,
+        participants: users,
+        messages: []
+      };
+      conversations.push(newConversation);
+      enterConversationById(newConversation.id);
     };
 
     this.enterConversationByNames = function(firstUser, secondUser) {
@@ -75,22 +102,31 @@ angular.module('LemonChat')
 
       // Check if conversation between users already exists
       for (i=0; i<conversations.length; i++) {
-        if (equalParticipants(conversations[i].participants, users)) {
+        if (conversationExists(conversations[i].participants, users)) {
           enterConversationById(conversations[i]);
           return;
         }
       }
       // Otherwise initialize new conversation
-      var newConversation = {
-        id: conversations.length+1,
-        participants: users,
-        messages: []
-      };
-      conversations.push(newConversation);
-      enterConversationById(newConversation);
+      newConversation(users);
     };
 
     this.addMessage = function(message) {
       currentConversation.messages.push(message)
     };
+
+    this.startNewConversation = function(users) {
+      var list = [];
+      users.forEach(function (user) {
+        list.push(user.name)
+      });
+      newConversation(list);
+    };
+
+    this.getConversationParticipants = function(conversationId) {
+      var conversation = getConversationById(conversationId);
+
+      return conversation.participants;
+    };
+
   })

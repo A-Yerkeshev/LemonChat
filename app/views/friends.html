@@ -1,5 +1,5 @@
 <div ng-controller="UsersController">
-  <button class="find-friends" ng-click="redirect('friends/find')">Find new friends!</button>
+  <button class="view-nav" ng-click="redirect('friends/find')">Find new friends!</button>
   <div ng-if="requestsTo.length > 0" class="requests">
     <h1>You sent friend request to</h1>
     <div ng-repeat="user in requestsTo">
