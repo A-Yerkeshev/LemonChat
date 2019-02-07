@@ -1,5 +1,6 @@
 angular.module('LemonChat')
-  .controller('MessagesController', function($scope, ConversationsService, UsersService) {
+  .controller('MessagesController', function($scope, ConversationsService, UsersService,
+    RoutingService) {
     var textArea = document.getElementsByClassName('text-area')[0];
 
     $scope.currentConversation = ConversationsService.getCurrentConversation();
@@ -45,5 +46,9 @@ angular.module('LemonChat')
 
     $scope.getParticipantImage = function(user) {
       return UsersService.getUserImage(user)
+    };
+
+    $scope.redirect = function(path) {
+      RoutingService.redirect(path)
     };
   })

@@ -1,5 +1,5 @@
 <div ng-controller="MessagesController">
-  <div class="conv-participants" ng-click="seeConversationInfo(currentConversation)">
+  <div class="conv-participants" ng-click="redirect('conversation-' + currentConversation.id + '/info')">
     <img class="prof-img-min" ng-repeat="participant in currentConversation.participants" src={{getParticipantImage(participant)}}>
   </div>
   <div message-directive class="message" ng-repeat="message in currentConversation.messages" ng-style="{ float:
