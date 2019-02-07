@@ -1,13 +1,14 @@
 angular.module('LemonChat')
   .controller('MessagesController', function($scope, ConversationsService, UsersService) {
     var textArea = document.getElementsByClassName('text-area')[0];
-    var currentConvestaion = ConversationsService.getCurrentConversation();
+    var currentConversataion = ConversationsService.getCurrentConversation();
 
     $scope.currentUser = UsersService.getCurrentUser();
 
-    // If conversation is open, get its messages
-    if (currentConvestaion) {
-      $scope.messages = currentConvestaion.messages;
+    // If conversation is open, get its messages and participants
+    if (currentConversataion) {
+      $scope.messages = currentConversataion.messages;
+      $scope.participants = currentConversataion.participants;
     };
 
     // Function to submit messages
@@ -46,5 +47,9 @@ angular.module('LemonChat')
         return String(date.getDate()) + '.' + String(date.getMonth()) +
           '.' + String(date.getFullYear());
       };
+    };
+
+    $scope.getParticipantImage = function(user) {
+      return UsersService.getUserImage(user)
     };
   })

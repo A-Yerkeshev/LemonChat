@@ -471,6 +471,16 @@ body {
   float: right;
 }
 
+.conv-participants {
+  background-image: linear-gradient(#FFF600, #FFD200);
+  border-radius: 0.5em;
+  overflow: hidden;
+  width: 100%;
+  padding: 0.2em;
+  margin: 1em;
+  width: max-content;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 1em;
