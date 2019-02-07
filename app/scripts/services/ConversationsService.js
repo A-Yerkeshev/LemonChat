@@ -7,6 +7,7 @@ angular.module('LemonChat')
         id: 1,
         participants: ['lo', 'lemon', 'admin'],
         initiator: 'admin',
+        initializedAt: new Date(2018, 1, 13, 17, 21),
         messages: [
           {
             author: 'lo',
@@ -22,6 +23,7 @@ angular.module('LemonChat')
         id: 2,
         participants: ['admin', 'lo'],
         initiator: 'admin',
+        initializedAt: new Date(2018, 5, 21, 17, 39),
         messages: [
           {
             author: 'admin',
@@ -94,6 +96,7 @@ angular.module('LemonChat')
         id: conversations.length+1,
         participants: users,
         initiator: initiator,
+        initializedAt: new Date(),
         messages: []
       };
       conversations.push(newConversation);
