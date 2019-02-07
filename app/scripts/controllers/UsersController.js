@@ -89,8 +89,8 @@ angular.module('LemonChat')
       ConversationsService.enterConversationById(conversationId)
     };
 
-    $scope.enterConversationByNames = function(firstUser, secondUser) {
-      ConversationsService.enterConversationByNames(firstUser, secondUser)
+    $scope.enterConversationByNames = function(initiator, secondUser) {
+      ConversationsService.enterConversationByNames(initiator, secondUser)
     };
 
     // Display participants of the conversation, except user himself
@@ -225,7 +225,8 @@ angular.module('LemonChat')
         $('.new-conversation > h1').text('Conversation with given users already exists!');
       } else {
         $scope.newConversationUsers.push($scope.currentUser);
-        ConversationsService.startNewConversation($scope.newConversationUsers);
+        ConversationsService.startNewConversation($scope.newConversationUsers,
+        $scope.currentUser.name);
         $scope.newConversationUsers = [];
       };
     };

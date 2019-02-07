@@ -6,6 +6,7 @@ angular.module('LemonChat')
       {
         id: 1,
         participants: ['lo', 'lemon', 'admin'],
+        initiator: 'admin',
         messages: [
           {
             author: 'lo',
@@ -20,6 +21,7 @@ angular.module('LemonChat')
       }, {
         id: 2,
         participants: ['admin', 'lo'],
+        initiator: 'admin',
         messages: [
           {
             author: 'admin',
@@ -87,18 +89,19 @@ angular.module('LemonChat')
       return conversationExists(users)
     };
 
-    function newConversation(users) {
+    function newConversation(users, initiator) {
       var newConversation = {
         id: conversations.length+1,
         participants: users,
+        initiator: initiator,
         messages: []
       };
       conversations.push(newConversation);
       enterConversationById(newConversation.id);
     };
 
-    this.enterConversationByNames = function(firstUser, secondUser) {
-      var users = [firstUser, secondUser];
+    this.enterConversationByNames = function(initiator, secondUser) {
+      var users = [initiator, secondUser];
 
       // Check if conversation between users already exists
       for (i=0; i<conversations.length; i++) {
@@ -108,19 +111,19 @@ angular.module('LemonChat')
         }
       }
       // Otherwise initialize new conversation
-      newConversation(users);
+      newConversation(users, initiator);
     };
 
     this.addMessage = function(message) {
       currentConversation.messages.push(message)
     };
 
-    this.startNewConversation = function(users) {
+    this.startNewConversation = function(users, initiator) {
       var list = [];
       users.forEach(function (user) {
         list.push(user.name)
       });
-      newConversation(list);
+      newConversation(list, initiator);
     };
 
     this.getConversationParticipants = function(conversationId) {
