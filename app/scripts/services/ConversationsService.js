@@ -75,8 +75,8 @@ angular.module('LemonChat')
     };
 
     function conversationExists(users) {
-      for (i=0; i<conversations.length; i++) {
-        if (sameParticipants(conversations[i].participants, users)) {
+      for (k=0; k<conversations.length; k++) {
+        if (sameParticipants(conversations[k].participants, users)) {
           return true
         };
       };
@@ -102,8 +102,8 @@ angular.module('LemonChat')
 
       // Check if conversation between users already exists
       for (i=0; i<conversations.length; i++) {
-        if (conversationExists(conversations[i].participants, users)) {
-          enterConversationById(conversations[i]);
+        if (sameParticipants(conversations[i].participants, users)) {
+          enterConversationById(conversations[i].id);
           return;
         }
       }
