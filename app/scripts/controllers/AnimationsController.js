@@ -1,6 +1,7 @@
 angular.module('LemonChat')
   .controller('AnimationsController', function($scope, $window, $location, $route,
     AnimationsService, UsersService) {
+    var path = null;
 
     // Call animations on page load
     $window.onload = function() {
@@ -14,10 +15,6 @@ angular.module('LemonChat')
     $scope.$on('$viewContentLoaded', function() {
       // Add hover animation to buttons on each view load
       AnimationsService.animateViewButtons();
-
-      // Get the last segment of url
-      var path = $location.path();
-      path = path.substr(path.lastIndexOf('/') + 1);
 
       // Animate conversations on hover
       if (path == 'home') {
@@ -41,10 +38,15 @@ angular.module('LemonChat')
 
     // Appear and disappear chat field depending on current path
     $scope.$on('$routeChangeSuccess', function() {
+      // Get the last segment of url
+      path = $location.path();
+      path = path.substr(path.lastIndexOf('/') + 1);
+
       // Check if current route contains conversationId param. If it does appear chat,
       //if no - disappear it
       var params = $route.current.params;
-      if (params.hasOwnProperty('conversationId')) {
+
+      if (params.hasOwnProperty('conversationId') && path !== 'info') {
         AnimationsService.appearChat()
       } else {
         AnimationsService.disappearChat()

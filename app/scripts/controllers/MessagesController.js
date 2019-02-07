@@ -49,6 +49,6 @@ angular.module('LemonChat')
     };
 
     $scope.redirect = function(path) {
-      RoutingService.redirect(path)
+      RoutingService.redirect(path);
     };
   })
