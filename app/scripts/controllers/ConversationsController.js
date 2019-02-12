@@ -2,6 +2,7 @@ angular.module('LemonChat')
   .controller('ConversationsController', function($scope, ConversationsService,
     UsersService) {
     $scope.participants = [];
+    $scope.friends = null;
     $scope.currentConversation = ConversationsService.getCurrentConversation();
     $scope.currentUser = UsersService.getCurrentUser();
 
@@ -9,6 +10,10 @@ angular.module('LemonChat')
       $scope.currentConversation.participants.forEach(function(participant) {
         $scope.participants.push(UsersService.getUserByName(participant))
       });
+    };
+
+    if ($scope.currentUser) {
+      $scope.friends = UsersService.getFriends($scope.currentUser.name);
     };
 
     $scope.formatDate = function(conversation) {
@@ -37,6 +42,18 @@ angular.module('LemonChat')
 
     $scope.showAdmins = function() {
       return $scope.currentConversation.administrators.join(', ');
+    };
+
+    $scope.invitableFriends = function() {
+      var list =[];
+
+      $scope.currentUser.friends.forEach(function(friend) {
+        if ($scope.currentConversation.participants.includes(friend) == false) {
+          list.push(UsersService.getUserByName(friend))
+        };
+      });
+
+      return list;
     };
 
   });

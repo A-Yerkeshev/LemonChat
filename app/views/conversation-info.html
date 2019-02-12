@@ -14,4 +14,17 @@
       </div>
     </div>
   </div>
+  <div class="invite-friends-panel">
+    <h1>Invite friends into conversation</h1>
+    <div ng-repeat="friend in invitableFriends()">
+      <div id="friend-{{friend.name}}">
+        <div class="friend" ng-click="redirect(friend.name)">
+          <b>{{friend.name}}</b>
+          <img class="prof-img-min" src={{friend.image}}>
+        </div>
+        <div class="friend-int add-friend" ng-click="inviteToConversation(friend.name)"></div>
+        <div class="friend-int cancel" ng-click="cancelInviteToConversation(friend.name)">Cancel</div>
+      </div>
+    </div>
+  </div>
 </div>

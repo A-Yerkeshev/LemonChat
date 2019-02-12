@@ -510,11 +510,27 @@ body {
   overflow: hidden;
   width: fit-content;
   margin: 0.5em;
+  display: inline-block;
 }
 
 .participants-panel > h1 {
   color: #FFA200;
-  margin: 0.2em;
+  margin: 0.3em;
+}
+
+.invite-friends-panel {
+  background-color: #FFF002;
+  border-radius: 1em;
+  overflow: hidden;
+  width: fit-content;
+  margin: 0.5em;
+  float: right;
+  display: inline-block;
+}
+
+.invite-friends-panel > h1 {
+  color: #EA4200;
+  margin: 0.3em;
 }
 
 /* Scrollbar */
