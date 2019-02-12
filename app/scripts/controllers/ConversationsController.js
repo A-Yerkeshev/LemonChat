@@ -22,4 +22,12 @@ angular.module('LemonChat')
       $('#participant-' + username + ' > .remove-friend').hide();
       $('#participant-' + username + ' > .cancel').show();
     };
+
+    $scope.addToConversation = function(username) {
+      ConversationsService.addToConversation($scope.currentConversation, username);
+
+      // Replace buttons back
+      $('#participant-' + username + ' > .cancel').hide();
+      $('#participant-' + username + ' > .remove-friend').show();
+    };
   });

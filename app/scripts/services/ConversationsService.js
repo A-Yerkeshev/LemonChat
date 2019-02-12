@@ -142,4 +142,8 @@ angular.module('LemonChat')
       participants.splice(index, 1);
     };
 
+    this.addToConversation = function(conversation, username) {
+      conversation.participants.push(username)
+    };
+
   })
