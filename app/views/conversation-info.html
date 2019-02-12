@@ -1,6 +1,6 @@
 <div ng-controller="ConversationsController">
   <div class="conv-info-head">Initiated by {{currentConversation.initiator}} at {{formatDate(currentConversation)}}</div>
-  <div class="friends-panel">
+  <div class="participants-panel">
     <h1>Conversation participants</h1>
     <div ng-repeat="participant in participants">
       <div id="participant-{{participant.name}}">
@@ -8,6 +8,8 @@
           <b>{{participant.name}}</b>
           <img class="prof-img-min" src={{participant.image}}>
         </div>
+        <div class="friend-int remove-friend" ng-if="participant.name !== currentUser.name" ng-click="removeFromConversation(participant.name)"></div>
+        <div class="friend-int cancel" ng-click="addToConversation(participant.name)">Cancel</div>
       </div>
     </div>
   </div>

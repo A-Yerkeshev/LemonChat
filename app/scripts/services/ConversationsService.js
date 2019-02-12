@@ -135,4 +135,11 @@ angular.module('LemonChat')
       return conversation.participants;
     };
 
+    this.removeFromConversation = function(conversation, username) {
+      var participants = conversation.participants;
+      var index = participants.indexOf(username);
+
+      participants.splice(index, 1);
+    };
+
   })

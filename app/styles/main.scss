@@ -395,6 +395,13 @@ body {
 
 .cancel {
   display: none;
+  background-image: linear-gradient(#FFF600, #FFD200);
+  padding: 0.2em;
+  border: solid;
+  border-color: #FFFFFF;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 0.1em;
 }
 
 .requests {
@@ -489,12 +496,25 @@ body {
 .conv-info-head {
   border: solid;
   border-color: #FFFCCC;
-  background-image: linear-gradient(#FFF000, #FF7800);
+  background-image: linear-gradient(#FFFCE6, #FFD800);
   border-radius: 1em;
   font-weight: bold;
   color: #C62A00;
   margin: 0.5em;
   padding: 0.3em;
+}
+
+.participants-panel {
+  background-color: #FFFEEE;
+  border-radius: 1em;
+  overflow: hidden;
+  width: fit-content;
+  margin: 0.5em;
+}
+
+.participants-panel > h1 {
+  color: #FFA200;
+  margin: 0.2em;
 }
 
 /* Scrollbar */
