@@ -2,7 +2,6 @@ angular.module('LemonChat')
   .controller('ConversationsController', function($scope, ConversationsService,
     UsersService) {
     $scope.participants = [];
-    $scope.friends = null;
     $scope.currentConversation = ConversationsService.getCurrentConversation();
     $scope.currentUser = UsersService.getCurrentUser();
 
@@ -10,10 +9,6 @@ angular.module('LemonChat')
       $scope.currentConversation.participants.forEach(function(participant) {
         $scope.participants.push(UsersService.getUserByName(participant))
       });
-    };
-
-    if ($scope.currentUser) {
-      $scope.friends = UsersService.getFriends($scope.currentUser.name);
     };
 
     $scope.formatDate = function(conversation) {
@@ -54,6 +49,23 @@ angular.module('LemonChat')
       });
 
       return list;
+    };
+
+    $scope.inviteToConversation = function(username) {
+      ConversationsService.addInvitationRequest($scope.currentConversation,
+        $scope.currentUser, username);
+
+      // Replace add button with cancel button
+      $('#friend-' + username + ' > .add-friend').hide();
+      $('#friend-' + username + ' > .cancel').show();
+    };
+
+    $scope.cancelInviteToConversation = function(username) {
+      ConversationsService.removeInvitationRequest($scope.currentConversation, username);
+
+      // Replace add button with cancel button
+      $('#friend-' + username + ' > .cancel').hide();
+      $('#friend-' + username + ' > .add-friend').show();
     };
 
   });

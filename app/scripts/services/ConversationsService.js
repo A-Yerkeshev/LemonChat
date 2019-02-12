@@ -6,8 +6,9 @@ angular.module('LemonChat')
       {
         id: 1,
         participants: ['lo', 'lemon', 'admin'],
-        initiator: 'admin',
-        administrators: ['admin'],
+        initiator: 'lo',
+        administrators: ['lo'],
+        invitationRequests: [],
         initializedAt: new Date(2018, 1, 13, 17, 21),
         messages: [
           {
@@ -26,6 +27,7 @@ angular.module('LemonChat')
         initiator: 'admin',
         administrators: ['admin'],
         initializedAt: new Date(2018, 5, 21, 17, 39),
+        invitationRequests: [],
         messages: [
           {
             author: 'admin',
@@ -100,6 +102,7 @@ angular.module('LemonChat')
         initiator: initiator,
         administrators: [initiator],
         initializedAt: new Date(),
+        invitationRequests: [],
         messages: []
       };
       conversations.push(newConversation);
@@ -155,6 +158,24 @@ angular.module('LemonChat')
       } else {
         return false
       }
+    };
+
+    this.addInvitationRequest = function(conversation, invitor, username) {
+      conversation.invitationRequests.push({
+        invitor: invitor,
+        user: username
+      })
+    };
+
+    this.removeInvitationRequest = function(conversation, username) {
+      var requests = conversation.invitationRequests;
+
+      for (i=0; i<requests.length; i++) {
+        if (requests[i].user == username) {
+          requests.splice(i, 1);
+          return
+        };
+      };
     };
 
   })
