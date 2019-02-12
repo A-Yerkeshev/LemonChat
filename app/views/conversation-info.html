@@ -1,3 +1,14 @@
 <div ng-controller="ConversationsController">
-  <div>Initiated by {{currentConversation.initiator}} at {{currentConversation.initializedAt}}</div>
+  <div class="conv-info-head">Initiated by {{currentConversation.initiator}} at {{formatDate(currentConversation)}}</div>
+  <div class="friends-panel">
+    <h1>Conversation participants</h1>
+    <div ng-repeat="participant in participants">
+      <div id="participant-{{participant.name}}">
+        <div class="friend" ng-click="redirect(participant.name)">
+          <b>{{participant.name}}</b>
+          <img class="prof-img-min" src={{participant.image}}>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
