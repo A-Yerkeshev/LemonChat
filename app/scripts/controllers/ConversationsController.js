@@ -30,4 +30,13 @@ angular.module('LemonChat')
       $('#participant-' + username + ' > .cancel').hide();
       $('#participant-' + username + ' > .remove-friend').show();
     };
+
+    $scope.isAdminOfConversation = function(username) {
+      return ConversationsService.isAdmin($scope.currentConversation, username)
+    };
+
+    $scope.showAdmins = function() {
+      return $scope.currentConversation.administrators.join(', ');
+    };
+
   });

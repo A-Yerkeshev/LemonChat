@@ -7,6 +7,7 @@ angular.module('LemonChat')
         id: 1,
         participants: ['lo', 'lemon', 'admin'],
         initiator: 'admin',
+        administrators: ['admin'],
         initializedAt: new Date(2018, 1, 13, 17, 21),
         messages: [
           {
@@ -23,6 +24,7 @@ angular.module('LemonChat')
         id: 2,
         participants: ['admin', 'lo'],
         initiator: 'admin',
+        administrators: ['admin'],
         initializedAt: new Date(2018, 5, 21, 17, 39),
         messages: [
           {
@@ -96,6 +98,7 @@ angular.module('LemonChat')
         id: conversations.length+1,
         participants: users,
         initiator: initiator,
+        administrators: [initiator],
         initializedAt: new Date(),
         messages: []
       };
@@ -144,6 +147,14 @@ angular.module('LemonChat')
 
     this.addToConversation = function(conversation, username) {
       conversation.participants.push(username)
+    };
+
+    this.isAdmin = function(conversation, username) {
+      if (conversation.administrators.includes(username)) {
+        return true
+      } else {
+        return false
+      }
     };
 
   })
