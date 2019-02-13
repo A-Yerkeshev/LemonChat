@@ -11,7 +11,7 @@
           <span class="friend-title">Invited by {{request.invitor}}</span>
         </div>
         <div class="friend-int new-req" ng-click="approveRequest(request.user, request.invitor)">Approve</div>
-        <div class="friend-int new-req" ng-click="denyRequest(request.user)">Deny</div>
+        <div class="friend-int new-req" ng-click="denyRequest(request.user, request.invitor)">Deny</div>
         <div class="friend-int cancel">Cancel</div>
       </div>
     </div>
