@@ -4,13 +4,14 @@
   <div class="invitation-requests" ng-if="isAdminOfConversation(currentUser.name) && invitationRequests.length > 0">
     <h1>Following invitations are waiting for your approval</h1>
     <div ng-repeat="request in invitationRequests">
-      <div id="request-{{request.name}}">
-        <div class="friend" ng-click="redirect(request.name)">
-          <b>{{request.name}}</b>
-          <img class="prof-img-min" src={{request.image}}>
+      <div id="request-{{request.user.name}}">
+        <div class="friend" ng-click="redirect(request.user.name)">
+          <b>{{request.user.name}}</b>
+          <img class="prof-img-min" src={{request.user.image}}><br>
+          <span class="friend-title">Invited by {{request.invitor}}</span>
         </div>
-        <div class="friend-int new-req" ng-click="approveRequest(request.name)">Send request</div>
-        <div class="friend-int cancel" ng-click="cancelApproval(request.name)">Cancel</div>
+        <div class="friend-int new-req" ng-click="approveRequest(request.user.name)">Send request</div>
+        <div class="friend-int cancel" ng-click="cancelApproval(request.user.name)">Cancel</div>
       </div>
     </div>
   </div>

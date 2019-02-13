@@ -1,6 +1,6 @@
 angular.module('LemonChat')
   .controller('ConversationsController', function($scope, ConversationsService,
-    UsersService) {
+    UsersService, RoutingService) {
     $scope.participants = [];
     $scope.invitationRequests = [];
     $scope.currentConversation = ConversationsService.getCurrentConversation();
@@ -10,9 +10,17 @@ angular.module('LemonChat')
       $scope.currentConversation.participants.forEach(function(participant) {
         $scope.participants.push(UsersService.getUserByName(participant))
       });
-      $scope.currentConversation.invitationRequests.forEach(function(user) {
-        $scope.invitationRequests.push(UsersService.getUserByName(user))
+      $scope.currentConversation.invitationRequests.forEach(function(request) {
+        $scope.invitationRequests.push({
+          invitor: request.invitor,
+          user: UsersService.getUserByName(request.user)
+        });
       });
+      console.log($scope.invitationRequests)
+    };
+
+    $scope.redirect = function(path) {
+      RoutingService.redirect(path)
     };
 
     $scope.formatDate = function(conversation) {
@@ -73,7 +81,17 @@ angular.module('LemonChat')
     };
 
     $scope.approveRequest = function(username) {
-      b
-    }
+      UsersService.sendConvInvitation(username, $scope.currentConversation);
+
+      $('#request-' + username + ' > .new-req').hide();
+      $('#request-' + username + ' > .cancel').show();
+    };
+
+    $scope.cancelApproval = function(username) {
+      UsersService.cancelConvInvitation(username, $scope.currentConversation);
+
+      $('#request-' + username + ' > .cancel').hide();
+      $('#request-' + username + ' > .new-req').show();
+    };
 
   });
