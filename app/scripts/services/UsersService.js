@@ -241,7 +241,7 @@ angular.module('LemonChat')
     this.sendConvInvitation = function(userTo, userFrom, conversationId) {
       userTo.invitations.push({
         conversationId: conversationId,
-        invitor: userFrom
+        inviter: userFrom
       })
     };
 

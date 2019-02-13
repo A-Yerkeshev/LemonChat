@@ -8,10 +8,10 @@
         <div class="friend" ng-click="redirect(request.user.name)">
           <b>{{request.user.name}}</b>
           <img class="prof-img-min" src={{request.user.image}}><br>
-          <span class="friend-title">Invited by {{request.invitor}}</span>
+          <span class="friend-title">Invited by {{request.inviter}}</span>
         </div>
-        <div class="friend-int new-req" ng-click="approveRequest(request.user, request.invitor)">Approve</div>
-        <div class="friend-int new-req" ng-click="denyRequest(request.user, request.invitor)">Deny</div>
+        <div class="friend-int new-req" ng-click="approveRequest(request.user, request.inviter)">Approve</div>
+        <div class="friend-int new-req" ng-click="denyRequest(request.user, request.inviter)">Deny</div>
         <div class="friend-int cancel">Cancel</div>
       </div>
     </div>
@@ -39,6 +39,19 @@
         </div>
         <div class="friend-int add-friend" ng-click="inviteToConversation(friend.name)"></div>
         <div class="friend-int cancel" ng-click="cancelInviteToConversation(friend.name)">Cancel</div>
+      </div>
+    </div>
+  </div>
+  <div class="invitation-requests">
+    <h1>Following users are invited into conversation</h1>
+    <div ng-repeat="approve in invitationApproves">
+      <div id="approve-{{approve.user.name}}">
+        <div class="friend" ng-click="redirect(approve.user.name)">
+          <b>{{approve.user.name}}</b>
+          <img class="prof-img-min" src={{approve.user.image}}><br>
+          <span class="friend-title">Invited by {{approve.inviter}}</span><br>
+          <span class="friend-title">Approved by {{approve.approver}}</span>
+        </div>
       </div>
     </div>
   </div>

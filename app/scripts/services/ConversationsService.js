@@ -8,13 +8,17 @@ angular.module('LemonChat')
         participants: ['lo', 'lemon', 'admin'],
         initiator: 'lo',
         administrators: ['lo'],
-        invitationRequests: [{
-          invitor: 'lemon',
-          user: 'orange'
-        }, {
-          invitor: 'lo',
-          user: 'grapefruit'
-        }],
+        invitations: {
+          requested: [{
+            inviter: 'lemon',
+            user: 'orange'
+          }],
+          approved: [{
+            inviter: 'lo',
+            approver: 'admin',
+            user: 'grapefruit'
+          }]
+        },
         initializedAt: new Date(2018, 1, 13, 17, 21),
         messages: [
           {
@@ -32,8 +36,11 @@ angular.module('LemonChat')
         participants: ['admin', 'lo'],
         initiator: 'admin',
         administrators: ['admin'],
+        invitations: {
+          requested: [],
+          approved: []
+        },
         initializedAt: new Date(2018, 5, 21, 17, 39),
-        invitationRequests: [],
         messages: [
           {
             author: 'admin',
@@ -108,7 +115,10 @@ angular.module('LemonChat')
         initiator: initiator,
         administrators: [initiator],
         initializedAt: new Date(),
-        invitationRequests: [],
+        invitations: {
+          requested: [],
+          approved: []
+        },
         messages: []
       };
       conversations.push(newConversation);
@@ -166,15 +176,34 @@ angular.module('LemonChat')
       }
     };
 
-    this.addInvitationRequest = function(conversation, invitor, username) {
-      conversation.invitationRequests.push({
-        invitor: invitor,
+    this.addInvitationRequest = function(conversation, inviter, username) {
+      conversation.invitations.requested.push({
+        inviter: inviter,
         user: username
       })
     };
 
     this.removeInvitationRequest = function(conversation, username) {
-      var requests = conversation.invitationRequests;
+      var requests = conversation.invitations.requested;
+
+      for (i=0; i<requests.length; i++) {
+        if (requests[i].user == username) {
+          requests.splice(i, 1);
+          return;
+        };
+      };
+    };
+
+    this.approveRequest = function(conversation, inviter, approver, username) {
+      conversation.invitations.approved.push({
+        inviter: inviter,
+        approver: approver,
+        user: username
+      })
+    };
+
+    this.cancelApproval = function(conversation, username) {
+      var requests = conversation.invitations.approved;
 
       for (i=0; i<requests.length; i++) {
         if (requests[i].user == username) {

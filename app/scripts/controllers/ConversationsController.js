@@ -3,6 +3,7 @@ angular.module('LemonChat')
     UsersService, RoutingService) {
     $scope.participants = [];
     $scope.invitationRequests = [];
+    $scope.invitationApproves = [];
     $scope.currentConversation = ConversationsService.getCurrentConversation();
     $scope.currentUser = UsersService.getCurrentUser();
 
@@ -10,9 +11,16 @@ angular.module('LemonChat')
       $scope.currentConversation.participants.forEach(function(participant) {
         $scope.participants.push(UsersService.getUserByName(participant))
       });
-      $scope.currentConversation.invitationRequests.forEach(function(request) {
+      $scope.currentConversation.invitations.requested.forEach(function(request) {
         $scope.invitationRequests.push({
-          invitor: request.invitor,
+          inviter: request.inviter,
+          user: UsersService.getUserByName(request.user)
+        });
+      });
+      $scope.currentConversation.invitations.approved.forEach(function(request) {
+        $scope.invitationApproves.push({
+          inviter: request.inviter,
+          approver: request.approver,
           user: UsersService.getUserByName(request.user)
         });
       });
@@ -100,35 +108,38 @@ angular.module('LemonChat')
       $('#friend-' + username + ' > .add-friend').show();
     };
 
-    $scope.approveRequest = function(user, invitor) {
+    $scope.approveRequest = function(user, inviter) {
       var cancel = $('#request-' + user.name + ' > .cancel');
 
-      UsersService.sendConvInvitation(user, invitor, $scope.currentConversation.id);
+      UsersService.sendConvInvitation(user, inviter, $scope.currentConversation.id);
+      ConversationsService.approveRequest($scope.currentConversation, inviter,
+        $scope.currentUser, user.name);
       ConversationsService.removeInvitationRequest($scope.currentConversation, user.name);
-      setNgClick(cancel, 'cancelApproval("' + user.name + '", "' + invitor + '")');
+      setNgClick(cancel, 'cancelApproval("' + user.name + '", "' + inviter + '")');
       toggleRequestButtons('cancel', user.name);
     };
 
-    $scope.denyRequest = function(user, invitor) {
+    $scope.denyRequest = function(user, inviter) {
       var cancel = $('#request-' + user.name + ' > .cancel');
 
       ConversationsService.removeInvitationRequest($scope.currentConversation, user.name);
-      setNgClick(cancel, 'cancelDeny("' + user.name + '", "' + invitor + '")');
+      setNgClick(cancel, 'cancelDeny("' + user.name + '", "' + inviter + '")');
       toggleRequestButtons('cancel', user.name);
     };
 
-    $scope.cancelApproval = function(username, invitor) {
+    $scope.cancelApproval = function(username, inviter) {
       UsersService.cancelConvInvitation(UsersService.getUserByName(username),
       $scope.currentConversation.id);
+      ConversationsService.cancelApproval($scope.currentConversation, user.name);
       ConversationsService.addInvitationRequest($scope.currentConversation,
-        invitor, username);
+        inviter, username);
 
       toggleRequestButtons('select', username);
     };
 
-    $scope.cancelDeny = function(username, invitor) {
+    $scope.cancelDeny = function(username, inviter) {
       ConversationsService.addInvitationRequest($scope.currentConversation,
-        invitor, username);
+        inviter, username);
 
       toggleRequestButtons('select', username);
     };
