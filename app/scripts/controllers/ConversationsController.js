@@ -104,7 +104,8 @@ angular.module('LemonChat')
       var cancel = $('#request-' + user.name + ' > .cancel');
 
       UsersService.sendConvInvitation(user, invitor, $scope.currentConversation.id);
-      setNgClick(cancel, 'cancelApproval("' + user.name + '")');
+      ConversationsService.removeInvitationRequest($scope.currentConversation, user.name);
+      setNgClick(cancel, 'cancelApproval("' + user.name + '", "' + invitor + '")');
       toggleRequestButtons('cancel', user.name);
     };
 
@@ -116,9 +117,11 @@ angular.module('LemonChat')
       toggleRequestButtons('cancel', user.name);
     };
 
-    $scope.cancelApproval = function(username) {
+    $scope.cancelApproval = function(username, invitor) {
       UsersService.cancelConvInvitation(UsersService.getUserByName(username),
       $scope.currentConversation.id);
+      ConversationsService.addInvitationRequest($scope.currentConversation,
+        invitor, username);
 
       toggleRequestButtons('select', username);
     };
