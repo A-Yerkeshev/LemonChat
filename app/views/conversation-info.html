@@ -10,8 +10,9 @@
           <img class="prof-img-min" src={{request.user.image}}><br>
           <span class="friend-title">Invited by {{request.invitor}}</span>
         </div>
-        <div class="friend-int new-req" ng-click="approveRequest(request.user.name)">Send request</div>
-        <div class="friend-int cancel" ng-click="cancelApproval(request.user.name)">Cancel</div>
+        <div class="friend-int new-req" ng-click="approveRequest(request.user, request.invitor)">Approve</div>
+        <div class="friend-int new-req" ng-click="denyRequest(request.user)">Deny</div>
+        <div class="friend-int cancel">Cancel</div>
       </div>
     </div>
   </div>

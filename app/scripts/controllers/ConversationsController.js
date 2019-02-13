@@ -1,5 +1,5 @@
 angular.module('LemonChat')
-  .controller('ConversationsController', function($scope, ConversationsService,
+  .controller('ConversationsController', function($scope, $compile, ConversationsService,
     UsersService, RoutingService) {
     $scope.participants = [];
     $scope.invitationRequests = [];
@@ -16,7 +16,27 @@ angular.module('LemonChat')
           user: UsersService.getUserByName(request.user)
         });
       });
-      console.log($scope.invitationRequests)
+    };
+
+    function setNgClick(elem, func) {
+      elem.off('click');
+      elem.attr('ng-click', func);
+      $compile(elem)($scope);
+    };
+
+    function toggleRequestButtons(set, user) {
+      if (set == 'select') {
+        // Show selection buttons
+        $('#request-' + user + ' > .new-req').show();
+        // Hide cancel button
+        $('#request-' + user + ' > .cancel').hide();
+      };
+      if (set == 'cancel') {
+        // Show cancel buttons
+        $('#request-' + user + ' > .new-req').hide();
+        // Hide selection button
+        $('#request-' + user + ' > .cancel').show();
+      }
     };
 
     $scope.redirect = function(path) {
@@ -80,15 +100,24 @@ angular.module('LemonChat')
       $('#friend-' + username + ' > .add-friend').show();
     };
 
-    $scope.approveRequest = function(username) {
-      UsersService.sendConvInvitation(username, $scope.currentConversation);
+    $scope.approveRequest = function(user, invitor) {
+      var cancel = $('#request-' + user.name + ' > .cancel');
 
-      $('#request-' + username + ' > .new-req').hide();
-      $('#request-' + username + ' > .cancel').show();
+      UsersService.sendConvInvitation(user, invitor, $scope.currentConversation.id);
+      setNgClick(cancel, 'cancelApproval("' + user.name + '")');
+      toggleRequestButtons('cancel', user.name);
+    };
+
+    $scope.denyRequest = function(user) {
+      ConversationsService.removeInvitationRequest($scope.currentConversation, user.name);
+
+      $('#request-' + user.name + ' > .new-req').hide();
+      $('#request-' + user.name + ' > .cancel').show();
     };
 
     $scope.cancelApproval = function(username) {
-      UsersService.cancelConvInvitation(username, $scope.currentConversation);
+      UsersService.cancelConvInvitation(UsersService.getUserByName(username),
+      $scope.currentConversation.id);
 
       $('#request-' + username + ' > .cancel').hide();
       $('#request-' + username + ' > .new-req').show();

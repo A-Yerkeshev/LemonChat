@@ -9,6 +9,7 @@ angular.module('LemonChat')
         image: '/images/yeoman.png',
         about: 'The Great King of this project',
         friends: ['lo', 'lemon'],
+        invitations: [],
         requests: {
           from: ['orange'],
           to: []
@@ -19,6 +20,7 @@ angular.module('LemonChat')
         image: '/images/yeoman.png',
         about: 'Test user with short name for easy login',
         friends: ['admin', 'lemon'],
+        invitations: [],
         requests: {
           from: ['orange'],
           to: []
@@ -29,6 +31,7 @@ angular.module('LemonChat')
         image: '/images/lemon.png',
         about: 'Lemon. Just a lemon',
         friends: ['lo', 'admin', 'orange', 'grapefruit'],
+        invitations: [],
         requests: {
           from: [],
           to: []
@@ -39,6 +42,7 @@ angular.module('LemonChat')
         image: '/images/orange.png',
         about: 'Orange. Just a orange',
         friends: ['lemon', 'grapefruit'],
+        invitations: [],
         requests: {
           from: [],
           to: []
@@ -49,6 +53,7 @@ angular.module('LemonChat')
         image: '/images/grapefruit.png',
         about: 'Grapefruit. Just a grapefruit',
         friends: ['lemon', 'orange'],
+        invitations: [],
         requests: {
           from: [],
           to: []
@@ -231,6 +236,22 @@ angular.module('LemonChat')
       requests = user.requests.to;
 
       requests.push(userTo);
+    };
+
+    this.sendConvInvitation = function(userTo, userFrom, conversationId) {
+      userTo.invitations.push({
+        conversationId: conversationId,
+        invitor: userFrom
+      })
+    };
+
+    this.cancelConvInvitation = function(userTo, conversationId) {
+      for (i=0; i<userTo.invitations.length; i++) {
+        if (userTo.invitations[i].conversationId == conversationId) {
+          userTo.invitations.splice(i, 1);
+          return;
+        }
+      }
     };
 
   })

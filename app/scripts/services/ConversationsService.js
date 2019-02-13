@@ -179,7 +179,7 @@ angular.module('LemonChat')
       for (i=0; i<requests.length; i++) {
         if (requests[i].user == username) {
           requests.splice(i, 1);
-          return
+          return;
         };
       };
     };
