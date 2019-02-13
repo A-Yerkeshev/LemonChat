@@ -543,6 +543,7 @@ body {
   border-color: #ECB102;
   border-radius: 1em;
   margin: 1em;
+  clear: both;
 }
 
 .invitation-requests > h1 {
@@ -552,6 +553,12 @@ body {
   margin: 0.5em;
   color: #872600;
   box-shadow: 0 0 0.5em;
+}
+
+.invitation-requests > span {
+  font-size: 0.8em;
+  color: #872600;
+  margin: 1em;
 }
 
 /* Scrollbar */

@@ -31,6 +31,7 @@
   </div>
   <div class="invite-friends-panel">
     <h1>Invite friends into conversation</h1>
+    <span>*Notice that invitation needs to be approved by administrator of conversation</span>
     <div ng-repeat="friend in invitableFriends()">
       <div id="friend-{{friend.name}}">
         <div class="friend" ng-click="redirect(friend.name)">
