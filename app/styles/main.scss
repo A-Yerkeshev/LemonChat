@@ -533,6 +533,23 @@ body {
   margin: 0.3em;
 }
 
+.invitation-requests {
+  overflow: hidden;
+  border: solid;
+  border-color: #ECB102;
+  border-radius: 1em;
+  margin: 1em;
+}
+
+.invitation-requests > h1 {
+  padding-left: 0.5em;
+  background-color: #FFFBE3;
+  border-radius: 1em;
+  margin: 0.5em;
+  color: #872600;
+  box-shadow: 0 0 0.5em;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 1em;

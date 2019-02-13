@@ -8,7 +8,7 @@ angular.module('LemonChat')
         participants: ['lo', 'lemon', 'admin'],
         initiator: 'lo',
         administrators: ['lo'],
-        invitationRequests: [],
+        invitationRequests: ['orange', 'grapefruit'],
         initializedAt: new Date(2018, 1, 13, 17, 21),
         messages: [
           {
@@ -27,7 +27,7 @@ angular.module('LemonChat')
         initiator: 'admin',
         administrators: ['admin'],
         initializedAt: new Date(2018, 5, 21, 17, 39),
-        invitationRequests: [],
+        invitationRequests: ['lemon'],
         messages: [
           {
             author: 'admin',

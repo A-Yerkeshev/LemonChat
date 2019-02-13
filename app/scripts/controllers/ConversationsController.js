@@ -2,12 +2,16 @@ angular.module('LemonChat')
   .controller('ConversationsController', function($scope, ConversationsService,
     UsersService) {
     $scope.participants = [];
+    $scope.invitationRequests = [];
     $scope.currentConversation = ConversationsService.getCurrentConversation();
     $scope.currentUser = UsersService.getCurrentUser();
 
     if ($scope.currentConversation) {
       $scope.currentConversation.participants.forEach(function(participant) {
         $scope.participants.push(UsersService.getUserByName(participant))
+      });
+      $scope.currentConversation.invitationRequests.forEach(function(user) {
+        $scope.invitationRequests.push(UsersService.getUserByName(user))
       });
     };
 
@@ -67,5 +71,9 @@ angular.module('LemonChat')
       $('#friend-' + username + ' > .cancel').hide();
       $('#friend-' + username + ' > .add-friend').show();
     };
+
+    $scope.approveRequest = function(username) {
+      b
+    }
 
   });

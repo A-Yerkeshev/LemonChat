@@ -1,6 +1,19 @@
 <div ng-controller="ConversationsController">
   <div class="conv-info-head">Initiated by {{currentConversation.initiator}} at {{formatDate(currentConversation)}}<br>
   Administrators: {{showAdmins()}}</div>
+  <div class="invitation-requests" ng-if="isAdminOfConversation(currentUser.name) && invitationRequests.length > 0">
+    <h1>Following invitations are waiting for your approval</h1>
+    <div ng-repeat="request in invitationRequests">
+      <div id="request-{{request.name}}">
+        <div class="friend" ng-click="redirect(request.name)">
+          <b>{{request.name}}</b>
+          <img class="prof-img-min" src={{request.image}}>
+        </div>
+        <div class="friend-int new-req" ng-click="approveRequest(request.name)">Send request</div>
+        <div class="friend-int cancel" ng-click="cancelApproval(request.name)">Cancel</div>
+      </div>
+    </div>
+  </div>
   <div class="participants-panel">
     <h1>Conversation participants</h1>
     <div ng-repeat="participant in participants">
