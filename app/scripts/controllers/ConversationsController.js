@@ -91,30 +91,41 @@ angular.module('LemonChat')
       return list;
     };
 
-    $scope.inviteToConversation = function(username) {
-      ConversationsService.addInvitationRequest($scope.currentConversation,
-        $scope.currentUser, username);
-
-      // Replace add button with cancel button
-      $('#friend-' + username + ' > .add-friend').hide();
-      $('#friend-' + username + ' > .cancel').show();
+    function approveRequest(user, inviter, approver, conversation) {
+      UsersService.sendConvInvitation(user, inviter, conversation.id);
+      ConversationsService.approveRequest(conversation, inviter,
+        approver, user.name);
+      ConversationsService.removeInvitationRequest(conversation, user.name);
     };
 
-    $scope.cancelInviteToConversation = function(username) {
-      ConversationsService.removeInvitationRequest($scope.currentConversation, username);
+    $scope.inviteToConversation = function(user) {
+      ConversationsService.addInvitationRequest($scope.currentConversation,
+        $scope.currentUser, user.name);
+
+      // If user is admin approve request automatically
+      if (ConversationsService.isAdmin($scope.currentConversation,
+        $scope.currentUser.name)) {
+        approveRequest(user, $scope.currentUser, $scope.currentUser,
+          $scope.currentConversation);
+      };
 
       // Replace add button with cancel button
-      $('#friend-' + username + ' > .cancel').hide();
-      $('#friend-' + username + ' > .add-friend').show();
+      $('#friend-' + user.name + ' > .add-friend').hide();
+      $('#friend-' + user.name + ' > .cancel').show();
+    };
+
+    $scope.cancelInviteToConversation = function(user) {
+      ConversationsService.removeInvitationRequest($scope.currentConversation, user.name);
+
+      // Replace add button with cancel button
+      $('#friend-' + user.name + ' > .cancel').hide();
+      $('#friend-' + user.name + ' > .add-friend').show();
     };
 
     $scope.approveRequest = function(user, inviter) {
       var cancel = $('#request-' + user.name + ' > .cancel');
 
-      UsersService.sendConvInvitation(user, inviter, $scope.currentConversation.id);
-      ConversationsService.approveRequest($scope.currentConversation, inviter,
-        $scope.currentUser, user.name);
-      ConversationsService.removeInvitationRequest($scope.currentConversation, user.name);
+      approveRequest(user, inviter, $scope.currentUser, $scope.currentConversation);
       setNgClick(cancel, 'cancelApproval("' + user.name + '", "' + inviter + '")');
       toggleRequestButtons('cancel', user.name);
     };
