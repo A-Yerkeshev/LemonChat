@@ -28,12 +28,10 @@ angular.module('LemonChat')
       };
 
       // Animate friends item on hover
-      if (path == 'friends' || path == 'find') {
-        setTimeout(function() {
-          var friends = document.getElementsByClassName('friend')
-          AnimationsService.animateList(friends);
-        }, 500)
-      };
+      setTimeout(function() {
+        var friends = document.getElementsByClassName('friend')
+        AnimationsService.animateList(friends);
+      }, 500)
     });
 
     // Appear and disappear chat field depending on current path

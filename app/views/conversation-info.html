@@ -1,6 +1,11 @@
 <div ng-controller="ConversationsController">
-  <div class="conv-info-head"><span ng-if="currentConversation.name !== ''">{{currentConversation.name}}</span><br>Initiated by {{currentConversation.initiator}} at {{formatDate(currentConversation)}}<br>
-  Administrators: {{showAdmins()}}</div>
+  <div class="conv-info-head">
+    <span ng-if="currentConversation.name !== ''">
+      {{currentConversation.name}}
+    </span><br>Initiated by {{currentConversation.initiator}} at {{formatDate(currentConversation)}}<br>
+    Administrators: {{showAdmins()}}
+    <div class="view-nav" ng-if="currentConversation.initiator == currentUser.name" ng-click="redirect('conversation-' + currentConversation.id + '/admins')">Manage administrators</div>
+  </div>
   <div class="invitation-requests" ng-if="isAdminOfConversation(currentUser.name) && invitationRequests.length > 0">
     <h1>Following invitations are waiting for your approval</h1>
     <div ng-repeat="request in invitationRequests">

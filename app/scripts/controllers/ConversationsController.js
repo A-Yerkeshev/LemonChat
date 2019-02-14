@@ -104,7 +104,7 @@ angular.module('LemonChat')
 
     $scope.inviteToConversation = function(user) {
       ConversationsService.addInvitationRequest($scope.currentConversation,
-        $scope.currentUser, user.name);
+        $scope.currentUser.name, user.name);
 
       // If user is admin approve request automatically
       if (ConversationsService.isAdmin($scope.currentConversation,
