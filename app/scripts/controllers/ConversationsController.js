@@ -2,6 +2,7 @@ angular.module('LemonChat')
   .controller('ConversationsController', function($scope, $compile, ConversationsService,
     UsersService, RoutingService) {
     $scope.participants = [];
+    $scope.administrators = [];
     $scope.invitationRequests = [];
     $scope.invitationApproves = [];
     $scope.currentConversation = ConversationsService.getCurrentConversation();
@@ -9,7 +10,10 @@ angular.module('LemonChat')
 
     if ($scope.currentConversation) {
       $scope.currentConversation.participants.forEach(function(participant) {
-        $scope.participants.push(UsersService.getUserByName(participant))
+        $scope.participants.push(UsersService.getUserByName(participant));
+        if ($scope.currentConversation.administrators.includes(participant)) {
+          $scope.administrators.push(UsersService.getUserByName(participant))
+        };
       });
       $scope.currentConversation.invitations.requested.forEach(function(request) {
         $scope.invitationRequests.push({
@@ -157,6 +161,18 @@ angular.module('LemonChat')
         inviter, username);
 
       toggleRequestButtons('select', username);
+    };
+
+    $scope.nonAdministrators = function() {
+      var list = [];
+
+      $scope.participants.forEach(function(participant) {
+        if ($scope.administrators.includes(participant) == false) {
+          list.push(participant)
+        };
+      });
+
+      return list;
     };
 
   });

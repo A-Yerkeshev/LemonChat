@@ -44,7 +44,7 @@ angular.module('LemonChat')
       //if no - disappear it
       var params = $route.current.params;
 
-      if (params.hasOwnProperty('conversationId') && path !== 'info') {
+      if (params.hasOwnProperty('conversationId') && path !== 'info' && path !== 'admins') {
         AnimationsService.appearChat()
       } else {
         AnimationsService.disappearChat()

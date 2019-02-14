@@ -28,6 +28,9 @@ angular.module('LemonChat')
       .when('/:user/conversation-:conversationId/info', {
         templateUrl: 'views/conversation-info.html'
       })
+      .when('/:user/conversation-:conversationId/admins', {
+        templateUrl: 'views/conversation-admins.html'
+      })
       .when('/:user/profile', {
         templateUrl: 'views/profile.html'
       })

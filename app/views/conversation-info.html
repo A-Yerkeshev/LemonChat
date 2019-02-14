@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="participants-panel">
-    <h1>Conversation participants</h1>
+    <h1>Chat participants</h1>
     <div ng-repeat="participant in participants">
       <div id="participant-{{participant.name}}">
         <div class="friend" ng-click="redirect(participant.name)">
@@ -35,8 +35,8 @@
     </div>
   </div>
   <div class="invite-friends-panel">
-    <h1>Invite friends into conversation</h1>
-    <span>*Notice that invitation needs to be approved by administrator of conversation</span>
+    <h1>Invite friends into chat</h1>
+    <span>*Notice that invitation needs to be approved by administrator of chat</span>
     <div ng-repeat="friend in invitableFriends()">
       <div id="friend-{{friend.name}}">
         <div class="friend" ng-click="redirect(friend.name)">
@@ -49,7 +49,7 @@
     </div>
   </div>
   <div class="invitation-requests">
-    <h1>Following users are invited into conversation</h1>
+    <h1>Following users are invited into chat</h1>
     <div ng-repeat="approve in invitationApproves">
       <div id="approve-{{approve.user.name}}">
         <div class="friend" ng-click="redirect(approve.user.name)">
