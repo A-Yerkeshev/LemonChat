@@ -5,6 +5,7 @@ angular.module('LemonChat')
     var conversations = [
       {
         id: 1,
+        name: 'Citrus conversation',
         participants: ['lo', 'lemon', 'admin'],
         initiator: 'lo',
         administrators: ['lo'],
@@ -33,6 +34,7 @@ angular.module('LemonChat')
         ]
       }, {
         id: 2,
+        name: '',
         participants: ['admin', 'lo'],
         initiator: 'admin',
         administrators: ['admin'],
@@ -111,6 +113,7 @@ angular.module('LemonChat')
     function newConversation(users, initiator) {
       var newConversation = {
         id: conversations.length+1,
+        name: '',
         participants: users,
         initiator: initiator,
         administrators: [initiator],

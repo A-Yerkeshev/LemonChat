@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="view-nav" ng-click="redirect('new-conversation')">Start new conversation</div>
-  <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation.id)">{{showParticipantsNames(currentUser.name, conversation)}}
+  <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation.id)"><b>{{conversation.name}}</b><br ng-if="conversation.name !== ''">{{showParticipantsNames(currentUser.name, conversation)}}
     <img class="prof-img-min" ng-repeat="participant in conversation.participants" src={{getParticipantImage(participant)}}>
   </div>
 </div>
