@@ -10,7 +10,7 @@
   </div>
   <div class="prof-friends">
     <span>Friends</span>
-    <div ng-repeat="friend in friends">
+    <div ng-repeat="friend in profileUserFriends">
       <div class="friend" ng-click="redirect(friend.name)">
         <b>{{friend.name}}</b>
         <img class="prof-img-min" src={{friend.image}}>

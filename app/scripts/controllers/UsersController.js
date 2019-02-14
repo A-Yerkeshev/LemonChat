@@ -20,10 +20,14 @@ angular.module('LemonChat')
     path = path.substr(path.lastIndexOf('/') + 1);
 
     if (path == 'profile') {
-      $scope.profileUser = $scope.currentUser
+      $scope.profileUser = $scope.currentUser;
+      $scope.profileUserFriends = $scope.friends;
     } else {
       // Otherwise set it to user whose profile page is accessed
-      $scope.profileUser = UsersService.getUserByName(path)
+      $scope.profileUser = UsersService.getUserByName(path);
+      if ($scope.profileUser !== undefined) {
+        $scope.profileUserFriends = UsersService.getFriends($scope.profileUser.name);
+      }
     };
 
     // Set necessary variables for new conversation
