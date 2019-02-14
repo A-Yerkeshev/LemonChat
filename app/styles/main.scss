@@ -573,6 +573,26 @@ body {
   margin: 1em;
 }
 
+.prof-friends {
+  overflow: hidden;
+  border: solid;
+  border-color: #ECB102;
+  border-radius: 1em;
+  margin: 1em;
+  margin-top: 3em;
+  display: inline-flex;
+}
+
+.prof-friends > span {
+  background-color: #FFFBE3;
+  border-radius: 1em;
+  margin: 0.5em;
+  color: #872600;
+  box-shadow: 0 0 0.5em #FFC000;
+  padding: 0.2em;
+  height: min-content;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 1em;
