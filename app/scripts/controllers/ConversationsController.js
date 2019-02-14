@@ -125,7 +125,7 @@ angular.module('LemonChat')
     $scope.cancelInviteToConversation = function(user) {
       ConversationsService.removeInvitationRequest($scope.currentConversation, user.name);
 
-      // Replace add button with cancel button
+      // Replace button back
       $('#friend-' + user.name + ' > .cancel').hide();
       $('#friend-' + user.name + ' > .add-friend').show();
     };
@@ -173,6 +173,26 @@ angular.module('LemonChat')
       });
 
       return list;
+    };
+
+    $scope.addToAdmins = function(username) {
+      ConversationsService.giveAdminPrivileges($scope.currentConversation, username);
+
+      $('#participant-' + username + ' > .add-friend').hide();
+      $('#participant-' + username + ' > .cancel').show();
+
+      $('#admin-' + username + ' > .cancel').hide();
+      $('#admin-' + username + ' > .remove-friend').show();
+    };
+
+    $scope.removeFromAdmins = function(username) {
+      ConversationsService.takeAdminPrivileges($scope.currentConversation, username);
+
+      $('#participant-' + username + ' > .cancel').hide();
+      $('#participant-' + username + ' > .add-friend').show();
+
+      $('#admin-' + username + ' > .remove-friend').hide();
+      $('#admin-' + username + ' > .cancel').show();
     };
 
   });

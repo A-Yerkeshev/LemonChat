@@ -8,7 +8,7 @@
             <img class="prof-img-min" src={{admin.image}}><br>
           </div>
           <div ng-if="admin.name !== currentUser.name" class="friend-int remove-friend" ng-click="removeFromAdmins(admin.name)"></div>
-          <div ng-if="admin.name !== currentUser.name" class="friend-int cancel">Cancel</div>
+          <div ng-if="admin.name !== currentUser.name" class="friend-int cancel" ng-click="addToAdmins(admin.name)">Cancel</div>
         </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
           <img class="prof-img-min" src={{participant.image}}>
         </div>
         <div class="friend-int add-friend" ng-click="addToAdmins(participant.name)"></div>
-        <div class="friend-int cancel">Cancel</div>
+        <div class="friend-int cancel" ng-click="removeFromAdmins(participant.name)">Cancel</div>
       </div>
     </div>
   </div>

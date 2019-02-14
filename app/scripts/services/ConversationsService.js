@@ -240,4 +240,14 @@ angular.module('LemonChat')
       return false;
     };
 
+    this.giveAdminPrivileges = function(conversation, username) {
+      conversation.administrators.push(username)
+    };
+
+    this.takeAdminPrivileges = function(conversation, username) {
+      var index = conversation.administrators.indexOf(username);
+
+      conversation.administrators.splice(index, 1);
+    };
+
   })
