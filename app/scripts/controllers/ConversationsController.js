@@ -105,7 +105,7 @@ angular.module('LemonChat')
       // If user is admin approve request automatically
       if (ConversationsService.isAdmin($scope.currentConversation,
         $scope.currentUser.name)) {
-        approveRequest(user, $scope.currentUser, $scope.currentUser,
+        approveRequest(user, $scope.currentUser.name, $scope.currentUser.name,
           $scope.currentConversation);
       };
 
@@ -125,7 +125,7 @@ angular.module('LemonChat')
     $scope.approveRequest = function(user, inviter) {
       var cancel = $('#request-' + user.name + ' > .cancel');
 
-      approveRequest(user, inviter, $scope.currentUser, $scope.currentConversation);
+      approveRequest(user, inviter, $scope.currentUser.name, $scope.currentConversation);
       setNgClick(cancel, 'cancelApproval("' + user.name + '", "' + inviter + '")');
       toggleRequestButtons('cancel', user.name);
     };
