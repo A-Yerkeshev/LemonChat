@@ -83,7 +83,11 @@ angular.module('LemonChat')
       var list =[];
 
       $scope.currentUser.friends.forEach(function(friend) {
-        if ($scope.currentConversation.participants.includes(friend) == false) {
+        if ($scope.currentConversation.participants.includes(friend) == false &&
+          ConversationsService.isInRequestedInvitations(
+            friend, $scope.currentConversation) == false &&
+          ConversationsService.isInApprovedInvitations(
+            friend, $scope.currentConversation) == false) {
           list.push(UsersService.getUserByName(friend))
         };
       });
