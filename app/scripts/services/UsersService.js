@@ -20,7 +20,10 @@ angular.module('LemonChat')
         image: '/images/yeoman.png',
         about: 'Test user with short name for easy login',
         friends: ['admin', 'lemon'],
-        invitations: [],
+        invitations: [{
+          conversationId: 2,
+          inviter: 'lemon'
+        }],
         requests: {
           from: ['orange'],
           to: []

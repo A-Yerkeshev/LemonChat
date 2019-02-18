@@ -35,12 +35,16 @@ angular.module('LemonChat')
       }, {
         id: 2,
         name: '',
-        participants: ['admin', 'lo'],
+        participants: ['admin', 'lemon'],
         initiator: 'admin',
         administrators: ['admin'],
         invitations: {
           requested: [],
-          approved: []
+          approved: [{
+            inviter: 'lemon',
+            approver: 'admin',
+            user: 'lo'
+          }]
         },
         initializedAt: new Date(2018, 5, 21, 17, 39),
         messages: [
@@ -248,6 +252,16 @@ angular.module('LemonChat')
       var index = conversation.administrators.indexOf(username);
 
       conversation.administrators.splice(index, 1);
+    };
+
+    this.getConvInvitations = function(invitations) {
+      var list = [];
+
+      invitations.forEach(function(invitation) {
+        list.push(getConversationById(invitation.conversationId))
+      });
+
+      return list;
     };
 
   })

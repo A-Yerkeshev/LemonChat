@@ -11,6 +11,8 @@ angular.module('LemonChat')
       $scope.friends = UsersService.getFriends($scope.currentUser.name);
       $scope.requestsFrom = UsersService.getRequestsFrom($scope.currentUser.name);
       $scope.requestsTo = UsersService.getRequestsTo($scope.currentUser.name);
+      $scope.convInvitations = ConversationsService.getConvInvitations(
+        $scope.currentUser.invitations);
     };
 
     // Set profile user to null at first

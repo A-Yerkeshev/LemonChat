@@ -1,4 +1,5 @@
 <div ng-controller="UsersController">
+  <div class="view-nav" ng-click="redirect('new-conversation')">Start new conversation</div>
   <div ng-if="requestsFrom.length > 0" class="requests">
     <h1>New friend requests</h1>
     <div ng-repeat="user in requestsFrom">
@@ -13,8 +14,18 @@
       </div>
     </div>
   </div>
-  <div class="view-nav" ng-click="redirect('new-conversation')">Start new conversation</div>
-  <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation.id)"><b>{{conversation.name}}</b><br ng-if="conversation.name !== ''">{{showParticipantsNames(currentUser.name, conversation)}}
+  <div ng-if="convInvitations.length > 0" class="requests">
+    <h1>You are invited into following chats</h1>
+    <div ng-repeat="invitation in convInvitations">
+      <div id="invitation-{{invitation.conversationId}}" class="conversation">
+        <b>{{invitation.name}}</b><br ng-if="invitation.name !== ''">
+        {{showParticipantsNames(currentUser.name, invitation)}}
+        <img class="prof-img-min" ng-repeat="participant in invitation.participants" src={{getParticipantImage(participant)}}>
+      </div>
+    </div>
+  </div>
+  <div ng-repeat="conversation in conversations" class="conversation" ng-click="enterConversationById(conversation.id)">
+    <b>{{conversation.name}}</b><br ng-if="conversation.name !== ''">{{showParticipantsNames(currentUser.name, conversation)}}
     <img class="prof-img-min" ng-repeat="participant in conversation.participants" src={{getParticipantImage(participant)}}>
   </div>
 </div>
