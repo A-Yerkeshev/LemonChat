@@ -80,7 +80,16 @@ angular.module('LemonChat')
           name: username,
           password: password,
           image: '/images/yeoman.png',
-          friends: []
+          about: '',
+          friends: ['lemon'],
+          invitations: [{
+            conversationId: 1,
+            inviter: 'lemon'
+          }],
+          requests: {
+            from: ['orange'],
+            to: []
+          }
         };
         UsersService.addNewUser(newUser);
         // Login newly created user
