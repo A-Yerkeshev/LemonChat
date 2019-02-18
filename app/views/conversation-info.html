@@ -36,7 +36,7 @@
   </div>
   <div class="invite-friends-panel">
     <h1>Invite friends into chat</h1>
-    <span>*Notice that invitation needs to be approved by administrator of chat</span>
+    <span>*Notice that invitation needs to be approved by administrator of chat</span><br>
     <div ng-repeat="friend in invitableFriends()">
       <div id="friend-{{friend.name}}">
         <div class="friend" ng-click="redirect(friend.name)">
@@ -47,8 +47,9 @@
         <div class="friend-int cancel" ng-click="cancelInviteToConversation(friend)">Cancel</div>
       </div>
     </div>
+    <b ng-if="invitableFriends().length == 0">No friends left to invite</b>
   </div>
-  <div class="invitation-requests">
+  <div class="invitation-requests" ng-if="invitationApproves.length > 0">
     <h1>Following users are invited into chat</h1>
     <div ng-repeat="approve in invitationApproves">
       <div id="approve-{{approve.user.name}}">
