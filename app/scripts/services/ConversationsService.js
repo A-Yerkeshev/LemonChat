@@ -310,4 +310,15 @@ angular.module('LemonChat')
       }
     };
 
+    this.rejectConvInvitation = function(conversation, username) {
+      removeFromApprovedRequests(conversation, username);
+    };
+
+    this.cancelRejectConvInvitation = function(
+      conversationId, inviter, approver, username) {
+      var conversation = getConversationById(conversationId);
+
+      addToApprovedRequests(conversation, inviter, approver, username);
+    };
+
   })

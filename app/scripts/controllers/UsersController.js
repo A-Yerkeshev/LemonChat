@@ -254,7 +254,7 @@ angular.module('LemonChat')
         user.name];
 
       ConversationsService.acceptConvInvitation(conversation, user.name);
-      UsersService.joinConversation(user, conversation.id);
+      UsersService.removeConvInvitation(user, conversation.id);
 
       setNgClick(cancel, 'cancelJoin(' + conversation.id + ", '" + params.join(
         "', '") + "')");
@@ -262,8 +262,36 @@ angular.module('LemonChat')
     };
 
     $scope.cancelJoin = function(conversationId, inviter, approver, username) {
+      var user = UsersService.getUserByName(username);
+
       ConversationsService.cancelAcceptConvInvitation(
         conversationId, inviter, approver, username);
+      UsersService.sendConvInvitation(user, inviter, conversationId);
+
+      toggleRequestButtons('#invitation-' + conversationId, 'select');
+    };
+
+    $scope.rejectJoin = function(conversation, user) {
+      var cancel = $('#invitation-' + conversation.id + ' > .cancel');
+      var invitation = ConversationsService.getInvitationByName(
+        conversation, user.name, 'approved');
+      var params = [invitation.inviter, invitation.approver,
+        user.name];
+
+      ConversationsService.rejectConvInvitation(conversation, user.name);
+      UsersService.removeConvInvitation(user, conversation.id);
+
+      setNgClick(cancel, 'cancelReject(' + conversation.id + ", '" + params.join(
+        "', '") + "')");
+      toggleRequestButtons('#invitation-' + conversation.id, 'cancel');
+    };
+
+    $scope.cancelReject = function(conversationId, inviter, approver, username) {
+      var user = UsersService.getUserByName(username);
+
+      ConversationsService.cancelRejectConvInvitation(
+        conversationId, inviter, approver, username);
+      UsersService.sendConvInvitation(user, inviter, conversationId);
 
       toggleRequestButtons('#invitation-' + conversationId, 'select');
     };
