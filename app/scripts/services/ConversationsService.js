@@ -164,15 +164,23 @@ angular.module('LemonChat')
       return conversation.participants;
     };
 
-    this.removeFromConversation = function(conversation, username) {
+    function removeFromConversation(conversation, username) {
       var participants = conversation.participants;
       var index = participants.indexOf(username);
 
       participants.splice(index, 1);
     };
 
-    this.addToConversation = function(conversation, username) {
+    function addToConversation(conversation, username) {
       conversation.participants.push(username)
+    };
+
+    this.removeFromConversation = function(conversation, username) {
+      removeFromConversation(conversation, username)
+    };
+
+    this.addToConversation = function(conversation, username) {
+      addToConversation(conversation, username)
     };
 
     this.isAdmin = function(conversation, username) {
@@ -201,7 +209,7 @@ angular.module('LemonChat')
       };
     };
 
-    this.approveRequest = function(conversation, inviter, approver, username) {
+    function addToApprovedRequests(conversation, inviter, approver, username) {
       conversation.invitations.approved.push({
         inviter: inviter,
         approver: approver,
@@ -209,7 +217,11 @@ angular.module('LemonChat')
       })
     };
 
-    this.cancelApproval = function(conversation, username) {
+    this.approveRequest = function(conversation, inviter, approver, username) {
+      addToApprovedRequests(conversation, inviter, approver, username)
+    };
+
+    function removeFromApprovedRequests(conversation, username) {
       var requests = conversation.invitations.approved;
 
       for (i=0; i<requests.length; i++) {
@@ -218,6 +230,10 @@ angular.module('LemonChat')
           return;
         };
       };
+    };
+
+    this.cancelApproval = function(conversation, username) {
+      removeFromApprovedRequests(conversation, username)
     };
 
     this.isInRequestedInvitations = function(username, conversation) {
@@ -262,6 +278,36 @@ angular.module('LemonChat')
       });
 
       return list;
+    };
+
+    this.acceptConvInvitation = function(conversation, username) {
+      removeFromApprovedRequests(conversation, username);
+      addToConversation(conversation, username);
+    };
+
+    this.cancelAcceptConvInvitation = function(
+      conversationId, inviter, approver, username) {
+      var conversation = getConversationById(conversationId);
+
+      addToApprovedRequests(conversation, inviter, approver, username);
+      removeFromConversation(conversation, username);
+    };
+
+    this.getInvitationByName = function(conversation, username, set) {
+      var invitations = null;
+
+      if (set == 'requested') {
+        invitations = conversation.invitations.requested
+      };
+      if (set == 'approved') {
+        invitations = conversation.invitations.approved
+      };
+
+      for (i=0; i<invitations.length; i++) {
+        if (invitations[i].user == username) {
+          return invitations[i]
+        }
+      }
     };
 
   })

@@ -257,4 +257,13 @@ angular.module('LemonChat')
       }
     };
 
+    this.joinConversation = function(user, conversationId) {
+      for (i=0; i<user.invitations.length; i++) {
+        if (user.invitations[i].conversationId == conversationId) {
+          user.invitations.splice(i, 1);
+          return;
+        }
+      }
+    };
+
   })

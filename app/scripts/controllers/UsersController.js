@@ -163,18 +163,18 @@ angular.module('LemonChat')
       $('#request-' + user.name).remove();
     };
 
-    function toggleRequestButtons(set, user) {
+    function toggleRequestButtons(id, set) {
       if (set == 'select') {
         // Show selection buttons
-        $('#request-' + user + ' > .new-req').show();
+        $(id + ' > .new-req').show();
         // Hide cancel button
-        $('#request-' + user + ' > .cancel').hide();
+        $(id + ' > .cancel').hide();
       };
       if (set == 'cancel') {
         // Show cancel buttons
-        $('#request-' + user + ' > .new-req').hide();
+        $(id + ' > .new-req').hide();
         // Hide selection button
-        $('#request-' + user + ' > .cancel').show();
+        $(id + ' > .cancel').show();
       }
     };
 
@@ -190,13 +190,13 @@ angular.module('LemonChat')
       var cancel = $('#request-' + user + ' > .cancel');
 
       setNgClick(cancel, 'cancelAccept("' + user + '")');
-      toggleRequestButtons('cancel', user);
+      toggleRequestButtons('#request-' + user, 'cancel');
     };
 
     $scope.cancelAccept = function(user) {
       UsersService.cancelAccept($scope.currentUser.name, user);
 
-      toggleRequestButtons('select', user);
+      toggleRequestButtons('#request-' + user, 'select');
     };
 
     $scope.declineRequest = function(user) {
@@ -205,13 +205,13 @@ angular.module('LemonChat')
       var cancel = $('#request-' + user + ' > .cancel');
 
       setNgClick(cancel, 'cancelDecline("' + user + '")');
-      toggleRequestButtons('cancel', user);
+      toggleRequestButtons('#request-' + user, 'cancel');
     };
 
     $scope.cancelDecline = function(user) {
       UsersService.cancelDecline($scope.currentUser.name, user);
 
-      toggleRequestButtons('select', user);
+      toggleRequestButtons('#request-' + user, 'select');
     };
 
     $scope.selectFriendForConversation = function(user) {
@@ -245,4 +245,27 @@ angular.module('LemonChat')
         $scope.newConversationUsers = [];
       };
     };
+
+    $scope.joinChat = function(conversation, user) {
+      var cancel = $('#invitation-' + conversation.id + ' > .cancel');
+      var invitation = ConversationsService.getInvitationByName(
+        conversation, user.name, 'approved');
+      var params = [invitation.inviter, invitation.approver,
+        user.name];
+
+      ConversationsService.acceptConvInvitation(conversation, user.name);
+      UsersService.joinConversation(user, conversation.id);
+
+      setNgClick(cancel, 'cancelJoin(' + conversation.id + ", '" + params.join(
+        "', '") + "')");
+      toggleRequestButtons('#invitation-' + conversation.id, 'cancel');
+    };
+
+    $scope.cancelJoin = function(conversationId, inviter, approver, username) {
+      ConversationsService.cancelAcceptConvInvitation(
+        conversationId, inviter, approver, username);
+
+      toggleRequestButtons('#invitation-' + conversationId, 'select');
+    };
+
   })
