@@ -195,4 +195,10 @@ angular.module('LemonChat')
       $('#admin-' + username + ' > .cancel').show();
     };
 
+    $scope.leaveConversation = function(username) {
+      ConversationsService.removeFromConversation(
+        $scope.currentConversation, username);
+      RoutingService.redirect('home');
+    };
+
   });
