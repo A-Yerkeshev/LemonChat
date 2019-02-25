@@ -605,6 +605,10 @@ body {
   height: min-content;
 }
 
+.logout {
+  display: none;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 1em;

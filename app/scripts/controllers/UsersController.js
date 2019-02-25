@@ -44,6 +44,8 @@ angular.module('LemonChat')
           if (users[i].password == password) {
             UsersService.setCurrentUser(users[i]);
             $location.path('/' + username + '/home');
+            // Replace log in and register buttons with log out button
+            AnimationsService.replaceLogButtons();
           };
           return;
         };

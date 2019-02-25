@@ -247,4 +247,30 @@ angular.module('LemonChat')
         panel.style.display = 'none'
       }, 1000);
     };
+
+    //Replace log in and register buttons with log out button
+    this.replaceLogButtons = function() {
+      var logins = $('.log-btn');
+      var logout = $('.logout');
+
+      anime({
+        targets: logins.get(),
+        scale: 0,
+        easing: 'easeOutQuart',
+        duration: 500
+      });
+
+      setTimeout(function() {
+        logins.hide();
+        logout.show();
+
+        anime({
+          targets: logout.get(),
+          scale: 1,
+          easing: 'easeOutQuart',
+          duration: 500
+        });
+      }, 500);
+    };
+
   })

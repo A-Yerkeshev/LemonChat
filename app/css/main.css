@@ -532,6 +532,9 @@ body {
   padding: 0.2em;
   height: min-content; }
 
+.logout {
+  display: none; }
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 1em; }
