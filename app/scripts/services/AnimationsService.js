@@ -99,6 +99,19 @@ angular.module('LemonChat')
       }
     };
 
+    function disappearButtons(buttons) {
+      var time = 500;
+      for (i=0; i<buttons.length; i++) {
+        anime({
+          targets: buttons[i],
+          right: '100%',
+          easing: 'easeOutQuart',
+          duration: time
+        });
+        time += 500;
+      }
+    };
+
     function hoverNavButtons(buttons) {
       // Animate buttons on hover
       Array.from(buttons).forEach(function(button) {
@@ -249,28 +262,57 @@ angular.module('LemonChat')
     };
 
     //Replace log in and register buttons with log out button
-    this.replaceLogButtons = function() {
+    this.replaceLogButtons = function(set) {
       var logins = $('.log-btn');
       var logout = $('.logout');
 
-      anime({
-        targets: logins.get(),
-        scale: 0,
-        easing: 'easeOutQuart',
-        duration: 500
-      });
-
-      setTimeout(function() {
-        logins.hide();
-        logout.show();
-
+      if (set == 'logout') {
         anime({
-          targets: logout.get(),
-          scale: 1,
+          targets: logins.get(),
+          scale: 0,
           easing: 'easeOutQuart',
           duration: 500
         });
-      }, 500);
+
+        setTimeout(function() {
+          logins.hide();
+          logout.show();
+
+          anime({
+            targets: logout.get(),
+            scale: 1,
+            easing: 'easeOutQuart',
+            duration: 500
+          });
+        }, 500);
+      };
+
+      if (set == 'login') {
+        anime({
+          targets: logout.get(),
+          scale: 0,
+          easing: 'easeOutQuart',
+          duration: 500
+        });
+
+        setTimeout(function() {
+          logins.show();
+          logout.hide();
+
+          anime({
+            targets: logins.get(),
+            scale: 1,
+            easing: 'easeOutQuart',
+            duration: 500
+          });
+        }, 500);
+      };
+    };
+
+    this.disappearUsrButtons = function() {
+      var buttons = $('.usr-btn').get();
+
+      disappearButtons(buttons);
     };
 
   })

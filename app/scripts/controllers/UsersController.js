@@ -45,7 +45,7 @@ angular.module('LemonChat')
             UsersService.setCurrentUser(users[i]);
             $location.path('/' + username + '/home');
             // Replace log in and register buttons with log out button
-            AnimationsService.replaceLogButtons();
+            AnimationsService.replaceLogButtons('logout');
           };
           return;
         };
@@ -99,6 +99,14 @@ angular.module('LemonChat')
         // Login newly created user
         $scope.login(username, password);
       };
+    };
+
+    // Log out function
+    $scope.logout = function() {
+      UsersService.setCurrentUser(null);
+      $scope.profileUser = null;
+
+      $location.path('/login');
     };
 
     // Enter conversation on click

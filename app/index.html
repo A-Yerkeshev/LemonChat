@@ -22,7 +22,7 @@
       <a class="nav-btn usr-btn button" ng-click="redirect('profile')">Profile</a>
       <a class="nav-btn log-btn register button" ng-href="#!/register">Register</a>
       <a class="nav-btn log-btn login button" ng-href="#!/login">Log in</a>
-      <a class="nav-btn log-btn logout button" ng-href="#!/login">Log out</a>
+      <a class="nav-btn log-btn logout button" ng-click="logout()">Log out</a>
     </div>
     <div ng-view class="view"></div>
     <form ng-controller="MessagesController" class="chat-field">

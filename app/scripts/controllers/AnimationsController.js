@@ -56,7 +56,13 @@ angular.module('LemonChat')
         var usrBtns = document.getElementsByClassName('usr-btn');
 
         AnimationsService.animateNavButtons(usrBtns);
-      }
+      };
+
+      // Change nav buttons if user logged out
+      if (path == 'login') {
+        AnimationsService.replaceLogButtons('login');
+        AnimationsService.disappearUsrButtons();
+      };
     });
 
     $scope.selectImage = function() {
