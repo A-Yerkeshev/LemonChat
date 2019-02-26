@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lemon Chat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="LemonChat" ng-controller="AnimationsController">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="nav" ng-controller="UsersController">
+      <a class="nav-btn usr-btn button" ng-click="redirect('home')">Home</a>
+      <a class="nav-btn usr-btn button" ng-click="redirect('friends')">Friends</a>
+      <a class="nav-btn usr-btn button" ng-click="redirect('profile')">Profile</a>
+      <a class="nav-btn log-btn register button" ng-href="#!/register">Register</a>
+      <a class="nav-btn log-btn login button" ng-href="#!/login">Log in</a>
+      <a class="nav-btn log-btn logout button" ng-click="logout()">Log out</a>
+    </div>
+    <div ng-view class="view"></div>
+    <form ng-controller="MessagesController" class="chat-field">
+      <textarea class="text-area" ng-model="text" ng-keypress=
+      "enterKeypress($event, text)"></textarea>
+      <input type="submit" class="sub-btn button" ng-click="submit(text)">
+    </form>
+
+    <script src="scripts/anime-master/anime.min.js"></script>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-cookies.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-touch.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/AppModule.js"></script>
+        <script src="scripts/Routing.js"></script>
+        <script src="scripts/services/UsersService.js"></script>
+        <script src="scripts/services/RoutingService.js"></script>
+        <script src="scripts/services/ConversationsService.js"></script>
+        <script src="scripts/services/MessagesService.js"></script>
+        <script src="scripts/services/AnimationsService.js"></script>
+        <script src="scripts/controllers/UsersController.js"></script>
+        <script src="scripts/controllers/MessagesController.js"></script>
+        <script src="scripts/controllers/AnimationsController.js"></script>
+        <script src="scripts/controllers/ConversationsController.js"></script>
+        <script src="scripts/directives/MessageDirective.js"></script>
+        <!-- endbuild -->
+
+    <script id="about-info-template" type="text/template">
+      <div id="about-field">
+        <p class="about">{{currentUser.about}}</p>
+        <button class="button about-edit" ng-click="changeAboutField()">Edit</button>
+      </div>
+    </script>
+    <script id="about-change-template" type="text/template">
+      <div id="about-field">
+        <textarea class="about">{{currentUser.about}}</textarea>
+        <button class="button about-edit" ng-click="saveAboutChanges(profileUser)">Save changes</button>
+        <button class="button about-edit" ng-click="cancelAboutChanges()">Cancel</button>
+      </div>
+    </script>
+</body>
+</html>
