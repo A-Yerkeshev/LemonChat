@@ -83,8 +83,8 @@ angular.module('LemonChat')
         var newUser = {
           name: username,
           password: password,
-          image: '/images/yeoman.png',
-          about: '',
+          image: '/images/unknown.png',
+          about: 'Newly registered user - ' + username,
           friends: ['lemon'],
           invitations: [{
             conversationId: 1,
