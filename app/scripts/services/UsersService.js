@@ -4,36 +4,11 @@ angular.module('LemonChat')
 
     var users = [
       {
-        name: 'admin',
-        password: 'lemon',
-        image: '/images/yeoman.png',
-        about: 'The Great King of this project',
-        friends: ['lo', 'lemon'],
-        invitations: [],
-        requests: {
-          from: ['orange'],
-          to: []
-        }
-      }, {
-        name: 'lo',
-        password: 'lo',
-        image: '/images/yeoman.png',
-        about: 'Test user with short name for easy login',
-        friends: ['admin', 'lemon'],
-        invitations: [{
-          conversationId: 2,
-          inviter: 'lemon'
-        }],
-        requests: {
-          from: ['orange'],
-          to: []
-        }
-      }, {
         name: 'lemon',
         password: 'lemon',
         image: '/images/lemon.png',
         about: 'Lemon. Just a lemon',
-        friends: ['lo', 'admin', 'orange', 'grapefruit'],
+        friends: ['orange', 'grapefruit'],
         invitations: [],
         requests: {
           from: [],

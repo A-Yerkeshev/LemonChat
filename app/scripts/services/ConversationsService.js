@@ -5,57 +5,27 @@ angular.module('LemonChat')
     var conversations = [
       {
         id: 1,
-        name: 'Citrus chat',
-        participants: ['lo', 'lemon', 'admin'],
-        initiator: 'lo',
-        administrators: ['lo'],
+        name: 'Lemon chat',
+        participants: ['lemon', 'orange'],
+        administrators: ['lemon'],
         invitations: {
-          requested: [{
-            inviter: 'lemon',
-            user: 'orange'
-          }],
+          requested: [],
           approved: [{
-            inviter: 'lo',
-            approver: 'admin',
+            inviter: 'orange',
+            approver: 'lemon',
             user: 'grapefruit'
           }]
         },
         initializedAt: new Date(2018, 1, 13, 17, 21),
         messages: [
           {
-            author: 'lo',
-            date: new Date(2018, 1, 13, 22, 50),
-            text: 'Hello, Lemon'
-          }, {
             author: 'lemon',
-            date: new Date(2018, 1, 13, 23, 3),
-            text: 'Hello, Lo'
-          }
-        ]
-      }, {
-        id: 2,
-        name: '',
-        participants: ['admin', 'lemon'],
-        initiator: 'admin',
-        administrators: ['admin'],
-        invitations: {
-          requested: [],
-          approved: [{
-            inviter: 'lemon',
-            approver: 'admin',
-            user: 'lo'
-          }]
-        },
-        initializedAt: new Date(2018, 5, 21, 17, 39),
-        messages: [
-          {
-            author: 'admin',
-            date: new Date(2018, 5, 21, 17, 40),
-            text: 'Welcome to LemonChat, Lo'
+            date: new Date(2018, 1, 13, 22, 50),
+            text: 'Hello guys, welcome to Lemon Chat'
           }, {
-            author: 'lo',
-            date: new Date(2018, 5, 22, 8, 33),
-            text: 'Thank you!'
+            author: 'orange',
+            date: new Date(2018, 1, 13, 23, 3),
+            text: 'Hi!'
           }
         ]
       }
