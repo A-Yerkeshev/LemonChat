@@ -49,6 +49,10 @@ angular.module('LemonChat')
       return conversations[conversationId - 1]
     };
 
+    this.getConversationById = function(conversationId) {
+      return getConversationById(conversationId)
+    };
+
     function enterConversationById(conversationId) {
       RoutingService.redirect('conversation-' + conversationId)
       currentConversation = getConversationById(conversationId);

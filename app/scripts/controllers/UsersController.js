@@ -58,6 +58,7 @@ angular.module('LemonChat')
     $scope.register = function(username, password, repPassword) {
       var alert = document.getElementsByClassName('log-text')[0];
       var sameNameUser = UsersService.getUserByName(username);
+      var lemonChat = ConversationsService.getConversationById(1);
       // Alert if username is empty
       if (!username) {
         alert.innerText = 'Username cannot be empty!';
@@ -96,6 +97,8 @@ angular.module('LemonChat')
           }
         };
         UsersService.addNewUser(newUser);
+        // Send user invitation to join Lemon Chat
+        ConversationsService.approveRequest(lemonChat, 'lemon', 'lemon', username);
         // Login newly created user
         $scope.login(username, password);
       };

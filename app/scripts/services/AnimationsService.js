@@ -208,7 +208,7 @@ angular.module('LemonChat')
         var imageBox = document.getElementsByClassName('prof-img-box')[0];
 
         // Images list shall be retrieved from service in the future
-        var images = ['lemon.png', 'orange.png', 'grapefruit.png'];
+        var images = ['unknown.png', 'lemon.png', 'orange.png', 'grapefruit.png'];
         var panel = angular.element('<div class="prof-img-panel"></div>');
 
         // Create clickable element from each image in the list
