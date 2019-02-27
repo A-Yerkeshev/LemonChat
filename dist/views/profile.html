@@ -1,0 +1,21 @@
+<div ng-controller="UsersController">
+  <div ng-controller="AnimationsController" class="prof-img-box">
+    <img class="profile-image" src={{profileUser.image}}>
+    <button class="button" ng-if="profileUser == currentUser" ng-click="selectImage()">Change image</button>
+  </div>
+  <h1 class="profile-name">{{profileUser.name}}</h1>
+  <div id="about-field">
+    <p class="about">{{profileUser.about}}</p>
+    <button class="button about-edit" ng-if="profileUser == currentUser" ng-click="changeAboutField()">Edit</button>
+  </div>
+  <div class="prof-friends">
+    <span>Friends</span>
+    <div ng-repeat="friend in profileUserFriends">
+      <div class="friend" ng-click="redirect(friend.name)">
+        <b>{{friend.name}}</b>
+        <img class="prof-img-min" src={{friend.image}}>
+      </div>
+    </div>
+  </div>
+</div>
+

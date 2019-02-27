@@ -1,0 +1,12 @@
+<div class="log-page" ng-controller="UsersController">
+  <h1 class="log-text">Can you login please?</h1>
+  <form class="log-form">
+    <b>Username: </b><br>
+    <input class="log-input" ng-model="username"><br>
+    <b>Password: </b><br>
+    <input class="log-input" ng-model="password" type="password"><br>
+    Don't have account yet? Register now!
+    <a class="log-left-btn button" ng-href="#!/register">Register</a>
+    <input type="submit" class="log-right-btn button" value="Log in" ng-click="login(username, password)">
+  </form>
+</div>

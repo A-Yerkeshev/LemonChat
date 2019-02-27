@@ -1,0 +1,28 @@
+<div ng-controller="ConversationsController">
+  <div class="participants-panel">
+    <h1>Administrators of chat</h1>
+    <div ng-repeat="admin in administrators">
+      <div id="admin-{{admin.name}}">
+          <div class="friend" ng-click="redirect(admin.name)">
+            <b>{{admin.name}}</b>
+            <img class="prof-img-min" src={{admin.image}}><br>
+          </div>
+          <div ng-if="admin.name !== currentUser.name" class="friend-int remove-friend" ng-click="removeFromAdmins(admin.name)"></div>
+          <div ng-if="admin.name !== currentUser.name" class="friend-int cancel" ng-click="addToAdmins(admin.name)">Cancel</div>
+        </div>
+    </div>
+  </div>
+  <div class="invite-friends-panel">
+    <h1>Chat participants</h1>
+    <div ng-repeat="participant in nonAdministrators()">
+      <div id="participant-{{participant.name}}">
+        <div class="friend" ng-click="redirect(participant.name)">
+          <b>{{participant.name}}</b>
+          <img class="prof-img-min" src={{participant.image}}>
+        </div>
+        <div class="friend-int add-friend" ng-click="addToAdmins(participant.name)"></div>
+        <div class="friend-int cancel" ng-click="removeFromAdmins(participant.name)">Cancel</div>
+      </div>
+    </div>
+  </div>
+</div>

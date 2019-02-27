@@ -1,0 +1,22 @@
+<div ng-controller="UsersController">
+  <button class="view-nav" ng-click="redirect('friends/find')">Find new friends!</button>
+  <div ng-if="requestsTo.length > 0" class="requests">
+    <h1>You sent friend request to</h1>
+    <div ng-repeat="user in requestsTo">
+      <div id="request-{{user.name}}">
+        <div class="friend" ng-click="redirect(user.name)">
+          <b>{{user.name}}</b>
+          <img class="prof-img-min" src={{user.image}}>
+        </div>
+        <div class="friend-int new-req" ng-click="cancelRequest(user)">Cancel</div>
+      </div>
+    </div>
+  </div>
+  <div ng-repeat="friend in friends">
+    <div class="friend" ng-click="redirect(friend.name)">
+      <b>{{friend.name}}</b>
+      <img class="prof-img-min" src={{friend.image}}>
+    </div>
+    <div class="friend-int write" ng-click="enterConversationByNames(currentUser.name, friend.name)"></div>
+  </div>
+</div>

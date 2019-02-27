@@ -1,0 +1,11 @@
+<div ng-controller="UsersController">
+  <div ng-repeat="user in getPotentialFriends()">
+    <div id="user-{{user.name}}">
+      <div class="friend" ng-click="redirect(user.name)">
+        <b>{{user.name}}</b>
+        <img class="prof-img-min" src={{user.image}}>
+      </div>
+      <div class="friend-int add-friend" ng-click="sendFriendRequest(user)"></div>
+    </div>
+  </div>
+</div>

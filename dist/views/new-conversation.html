@@ -1,0 +1,26 @@
+<div ng-controller="UsersController">
+  <ul class="friends-panel">
+    <h1>Select friends for conversation</h1>
+    <div ng-repeat="friend in friends">
+      <div id="friend-{{friend.name}}">
+        <div class="friend" ng-click="redirect(friend.name)">
+          <b>{{friend.name}}</b>
+          <img class="prof-img-min" src={{friend.image}}>
+        </div>
+        <div class="friend-int add-friend" ng-click="selectFriendForConversation(friend)"></div>
+      </div>
+    </div>
+    <span ng-if="friends.length == newConversationUsers.length">No friends left</span>
+  </ul>
+  <ul class="new-conversation">
+    <h1>New conversation</h1>
+    <div ng-repeat="friend in newConversationUsers">
+      <div class="friend" ng-click="redirect(friend.name)">
+        <b>{{friend.name}}</b>
+        <img class="prof-img-min" src={{friend.image}}>
+      </div>
+      <div class="friend-int remove-friend" ng-click="removeFriendFromConversation(friend)"></div>
+    </div>
+    <button class="button create-conv" ng-if="newConversationUsers.length > 0" ng-click="startNewConversation()">Start</button>
+  </ul>
+</div>

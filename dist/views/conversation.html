@@ -1,0 +1,11 @@
+<div ng-controller="MessagesController">
+  <div class="conv-participants" ng-click="redirect('conversation-' + currentConversation.id + '/info')">
+    <img class="prof-img-min" ng-repeat="participant in currentConversation.participants" src={{getParticipantImage(participant)}}>
+  </div>
+  <div message-directive class="message" ng-repeat="message in currentConversation.messages" ng-style="{ float:
+    message.author == currentUser.name ? 'right' : 'left' }" id="message-{{$index}}">
+    {{message.text}}
+    <span class="time-date">{{displayDate(message.date)}}</span>
+    <span class="author">{{message.author}}</span>
+  </div>
+</div>

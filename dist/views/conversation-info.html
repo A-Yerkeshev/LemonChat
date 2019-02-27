@@ -1,0 +1,66 @@
+<div ng-controller="ConversationsController">
+  <div class="conv-info-head">
+    <span ng-if="currentConversation.name !== ''">
+      {{currentConversation.name}}
+    </span><br>Initiated by {{currentConversation.initiator}} at {{formatDate(currentConversation)}}<br>
+    Administrators: {{showAdmins()}}
+    <div class="view-nav" ng-if="currentConversation.initiator == currentUser.name" ng-click="redirect('conversation-' + currentConversation.id + '/admins')">Manage administrators</div>
+  </div>
+  <div class="invitation-requests" ng-if="isAdminOfConversation(currentUser.name) && invitationRequests.length > 0">
+    <h1>Following invitations are waiting for your approval</h1>
+    <div ng-repeat="request in invitationRequests">
+      <div id="request-{{request.user.name}}">
+        <div class="friend" ng-click="redirect(request.user.name)">
+          <b>{{request.user.name}}</b>
+          <img class="prof-img-min" src={{request.user.image}}><br>
+          <span class="friend-title">Invited by {{request.inviter}}</span>
+        </div>
+        <div class="friend-int new-req" ng-click="approveRequest(request.user, request.inviter)">Approve</div>
+        <div class="friend-int new-req" ng-click="denyRequest(request.user, request.inviter)">Deny</div>
+        <div class="friend-int cancel">Cancel</div>
+      </div>
+    </div>
+  </div>
+  <div class="participants-panel">
+    <h1>Chat participants</h1>
+    <div ng-repeat="participant in participants">
+      <div id="participant-{{participant.name}}">
+        <div class="friend" ng-click="redirect(participant.name)">
+          <b>{{participant.name}}</b>
+          <img class="prof-img-min" src={{participant.image}}>
+        </div>
+        <div class="friend-int remove-friend" ng-if="participant.name !== currentUser.name && isAdminOfConversation(currentUser.name)" ng-click="removeFromConversation(participant.name)"></div>
+        <div class="friend-int cancel" ng-click="addToConversation(participant.name)" ng-if="isAdminOfConversation(currentUser.name)">Cancel</div>
+      </div>
+    </div>
+  </div>
+  <div class="invite-friends-panel">
+    <h1>Invite friends into chat</h1>
+    <span>*Notice that invitation needs to be approved by administrator of chat</span><br>
+    <div ng-repeat="friend in invitableFriends()">
+      <div id="friend-{{friend.name}}">
+        <div class="friend" ng-click="redirect(friend.name)">
+          <b>{{friend.name}}</b>
+          <img class="prof-img-min" src={{friend.image}}>
+        </div>
+        <div class="friend-int add-friend" ng-click="inviteToConversation(friend)"></div>
+        <div class="friend-int cancel" ng-click="cancelInviteToConversation(friend)">Cancel</div>
+      </div>
+    </div>
+    <b ng-if="invitableFriends().length == 0">No friends left to invite</b>
+  </div>
+  <div class="invitation-requests" ng-if="invitationApproves.length > 0">
+    <h1>Following users are invited into chat</h1>
+    <div ng-repeat="approve in invitationApproves">
+      <div id="approve-{{approve.user.name}}">
+        <div class="friend" ng-click="redirect(approve.user.name)">
+          <b>{{approve.user.name}}</b>
+          <img class="prof-img-min" src={{approve.user.image}}><br>
+          <span class="friend-title">Invited by {{approve.inviter}}</span><br>
+          <span class="friend-title">Approved by {{approve.approver}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="view-nav" ng-click="leaveConversation(currentUser.name)">Leave chat</div>
+</div>
