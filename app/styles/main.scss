@@ -409,6 +409,7 @@ body {
 }
 
 .requests {
+  width: 85%;
   border: solid;
   overflow: hidden;
   border-radius: 0.5em;
@@ -624,6 +625,10 @@ body {
   padding: 0.2em;
   color: #8E1400;
   box-shadow: 0px 2px 5px;
+  display: inline-block;
+}
+
+.req-item {
   display: inline-block;
 }
 
