@@ -86,13 +86,13 @@ angular.module('LemonChat')
           password: password,
           image: '/images/unknown.png',
           about: 'Newly registered user - ' + username,
-          friends: ['lemon'],
+          friends: ['Lemon'],
           invitations: [{
             conversationId: 1,
-            inviter: 'lemon'
+            inviter: 'Lemon'
           }],
           requests: {
-            from: ['orange'],
+            from: ['Orange', 'Lime'],
             to: []
           }
         };
@@ -307,6 +307,23 @@ angular.module('LemonChat')
       UsersService.sendConvInvitation(user, inviter, conversationId);
 
       toggleRequestButtons('#invitation-' + conversationId, 'select');
+    };
+
+    $scope.mutualFriends = function(friends) {
+      var mutual = [];
+      var list = [];
+
+      $scope.currentUser.friends.forEach(function(friend) {
+        if (friends.includes(friend)) {
+          mutual.push(friend)
+        }
+      });
+
+      mutual.forEach(function(friend) {
+        list.push(UsersService.getUserByName(friend))
+      });
+
+      return list
     };
 
   })

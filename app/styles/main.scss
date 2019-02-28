@@ -256,7 +256,7 @@ body {
 }
 
 .prof-img-box {
-  width: 25%;
+  width: min-content;
   display: inline-block;
   position: absolute;
 }
@@ -315,7 +315,6 @@ body {
   border-bottom: 5px double;
   border-color: #A32000;
   position: relative;
-  width: 75%;
   left: 25%;
 }
 
@@ -420,6 +419,7 @@ body {
 }
 
 .requests > h1 {
+  width: fit-content;
   margin: 0.5em;
   padding: 0.3em;
   background-image: linear-gradient(#FEED16, #FF7A17);
@@ -606,6 +606,14 @@ body {
 }
 
 .logout {
+  display: none;
+}
+
+.user-about {
+  display: none;
+}
+
+.mutual-friends {
   display: none;
 }
 

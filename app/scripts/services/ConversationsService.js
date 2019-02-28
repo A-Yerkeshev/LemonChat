@@ -6,26 +6,34 @@ angular.module('LemonChat')
       {
         id: 1,
         name: 'Lemon chat',
-        participants: ['lemon', 'orange'],
-        administrators: ['lemon'],
+        participants: ['Lemon', 'Orange', 'Grapefruit'],
+        administrators: ['Lemon'],
         invitations: {
           requested: [],
           approved: [{
-            inviter: 'orange',
-            approver: 'lemon',
-            user: 'grapefruit'
+            inviter: 'Orange',
+            approver: 'Lemon',
+            user: 'Lime'
+          }, {
+            inviter: 'Orange',
+            approver: 'Lemon',
+            user: 'Mandarin'
           }]
         },
         initializedAt: new Date(2018, 1, 13, 17, 21),
         messages: [
           {
-            author: 'lemon',
+            author: 'Lemon',
             date: new Date(2018, 1, 13, 22, 50),
             text: 'Hello guys, welcome to Lemon Chat'
           }, {
-            author: 'orange',
+            author: 'Orange',
             date: new Date(2018, 1, 13, 23, 3),
             text: 'Hi!'
+          }, {
+            author: 'Grapefruit',
+            date: new Date(2018, 1, 14, 12, 15),
+            text: 'Hello!'
           }
         ]
       }
