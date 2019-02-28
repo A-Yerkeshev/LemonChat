@@ -3,7 +3,7 @@
   <div ng-if="requestsFrom.length > 0" class="requests">
     <h1>New friend requests</h1>
     <div ng-repeat="user in requestsFrom">
-      <div id="request-{{user.name}}">
+      <div id="request-{{user.name}}" class="req-item">
         <div class="friend" ng-click="redirect(user.name)">
           <b>{{user.name}}</b>
           <img class="prof-img-min" src={{user.image}}>
@@ -17,7 +17,7 @@
   <div ng-if="convInvitations.length > 0" class="requests">
     <h1>You are invited into following chats</h1>
     <div ng-repeat="invitation in convInvitations">
-      <div id="invitation-{{invitation.id}}">
+      <div id="invitation-{{invitation.id}}" class="req-item">
         <div class="conversation">
           <b>{{invitation.name}}</b><br ng-if="invitation.name !== ''">
           {{showParticipantsNames(currentUser.name, invitation)}}
