@@ -279,6 +279,7 @@ body {
   top: 5%;
   box-shadow: 0 0 10em #7F3F00;
   z-index: 1;
+  width: max-content;
 }
 
 .prof-img-panel > .profile-image:hover {
@@ -326,7 +327,7 @@ body {
   padding: 1%;
   width: 72%;
   left: 25%;
-  background-color: #FFF5A5;
+  background: transparent;
   outline: none;
   resize: none;
   text-shadow: 1px 1px 1px #FFF000;
@@ -336,8 +337,10 @@ body {
 }
 
 .about-edit {
-  float: right;
+  position: relative;
   font-size: 0.8em;
+  left: 25%;
+  margin-left: 1em;
 }
 
 .view-nav {

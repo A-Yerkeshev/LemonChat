@@ -40,3 +40,34 @@
 .req-item {
   display: block;
 }
+
+.profile-image {
+  width: 50%;
+}
+
+.prof-img-box {
+  width: 20%;
+  margin: 1em;
+  padding: 1em;
+  background-color: #FEFCE9;
+  border-radius: 1.5em;
+  border-right: solid;
+  border-color: #FFAE00;
+}
+
+.prof-friends {
+  margin-top: 5em;
+}
+
+.profile-name {
+  font-size: 3em;
+}
+
+.about {
+  margin-top: 1%;
+  width: fit-content;
+}
+
+.about-edit {
+  font-size: 1em;
+}
