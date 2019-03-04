@@ -316,7 +316,11 @@ body {
   border-bottom: 5px double;
   border-color: #A32000;
   position: relative;
-  left: 25%;
+  background-image: linear-gradient(#FFF600, #FFD200);
+  width: 50%;
+  left: 35%;
+  text-align: center;
+  border-radius: 2em;
 }
 
 .about {
