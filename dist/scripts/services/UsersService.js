@@ -4,58 +4,55 @@ angular.module('LemonChat')
 
     var users = [
       {
-        name: 'admin',
-        password: 'lemon',
-        image: '/images/yeoman.png',
-        about: 'The Great King of this project',
-        friends: ['lo', 'lemon'],
-        invitations: [],
-        requests: {
-          from: ['orange'],
-          to: []
-        }
-      }, {
-        name: 'lo',
-        password: 'lo',
-        image: '/images/yeoman.png',
-        about: 'Test user with short name for easy login',
-        friends: ['admin', 'lemon'],
-        invitations: [{
-          conversationId: 2,
-          inviter: 'lemon'
-        }],
-        requests: {
-          from: ['orange'],
-          to: []
-        }
-      }, {
-        name: 'lemon',
+        name: 'Lemon',
         password: 'lemon',
         image: '/images/lemon.png',
         about: 'Lemon. Just a lemon',
-        friends: ['lo', 'admin', 'orange', 'grapefruit'],
+        friends: ['Orange', 'Grapefruit', 'Lime', 'Mandarin'],
         invitations: [],
         requests: {
           from: [],
           to: []
         }
       }, {
-        name: 'orange',
+        name: 'Orange',
         password: 'orange',
         image: '/images/orange.png',
         about: 'Orange. Just a orange',
-        friends: ['lemon', 'grapefruit'],
+        friends: ['Lemon', 'Grapefruit', 'Lime', 'Mandarin'],
         invitations: [],
         requests: {
           from: [],
           to: []
         }
       }, {
-        name: 'grapefruit',
+        name: 'Grapefruit',
         password: 'grapefruit',
         image: '/images/grapefruit.png',
         about: 'Grapefruit. Just a grapefruit',
-        friends: ['lemon', 'orange'],
+        friends: ['Lemon', 'Orange', 'Lime', 'Mandarin'],
+        invitations: [],
+        requests: {
+          from: [],
+          to: []
+        }
+      }, {
+        name: 'Lime',
+        password: 'lime',
+        image: '/images/lime.png',
+        about: 'Lime. Just a lime',
+        friends: ['Lemon', 'Orange', 'Grapefruit', 'Mandarin'],
+        invitations: [],
+        requests: {
+          from: [],
+          to: []
+        }
+      }, {
+        name: 'Mandarin',
+        password: 'mandarin',
+        image: '/images/orange.png',
+        about: 'Mandarin. Just a mandarin',
+        friends: ['Lemon', 'Orange', 'Grapefruit', 'Lime'],
         invitations: [],
         requests: {
           from: [],

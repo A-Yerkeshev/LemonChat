@@ -58,6 +58,7 @@ angular.module('LemonChat')
     $scope.register = function(username, password, repPassword) {
       var alert = document.getElementsByClassName('log-text')[0];
       var sameNameUser = UsersService.getUserByName(username);
+      var lemonChat = ConversationsService.getConversationById(1);
       // Alert if username is empty
       if (!username) {
         alert.innerText = 'Username cannot be empty!';
@@ -83,19 +84,21 @@ angular.module('LemonChat')
         var newUser = {
           name: username,
           password: password,
-          image: '/images/yeoman.png',
-          about: '',
-          friends: ['lemon'],
+          image: '/images/unknown.png',
+          about: 'Newly registered user - ' + username,
+          friends: ['Lemon'],
           invitations: [{
             conversationId: 1,
-            inviter: 'lemon'
+            inviter: 'Lemon'
           }],
           requests: {
-            from: ['orange'],
+            from: ['Orange', 'Lime'],
             to: []
           }
         };
         UsersService.addNewUser(newUser);
+        // Send user invitation to join Lemon Chat
+        ConversationsService.approveRequest(lemonChat, 'lemon', 'lemon', username);
         // Login newly created user
         $scope.login(username, password);
       };
@@ -304,6 +307,23 @@ angular.module('LemonChat')
       UsersService.sendConvInvitation(user, inviter, conversationId);
 
       toggleRequestButtons('#invitation-' + conversationId, 'select');
+    };
+
+    $scope.mutualFriends = function(friends) {
+      var mutual = [];
+      var list = [];
+
+      $scope.currentUser.friends.forEach(function(friend) {
+        if (friends.includes(friend)) {
+          mutual.push(friend)
+        }
+      });
+
+      mutual.forEach(function(friend) {
+        list.push(UsersService.getUserByName(friend))
+      });
+
+      return list
     };
 
   })

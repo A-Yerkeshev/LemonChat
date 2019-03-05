@@ -3,10 +3,15 @@
   <div ng-if="requestsFrom.length > 0" class="requests">
     <h1>New friend requests</h1>
     <div ng-repeat="user in requestsFrom">
-      <div id="request-{{user.name}}">
+      <div id="request-{{user.name}}" class="req-item">
         <div class="friend" ng-click="redirect(user.name)">
           <b>{{user.name}}</b>
-          <img class="prof-img-min" src={{user.image}}>
+          <img class="prof-img-min" src={{user.image}}><br>
+          <p class="user-about">{{user.about}}</p><br>
+          <b class="mutual-friends" ng-if="mutualFriends(user.friends).length > 0">Mutual friends</b><br class="mutual-friends" ng-if="mutualFriends(user.friends).length > 0">
+          <div class="mutual-friends" ng-repeat="u in mutualFriends(user.friends)">
+            <img class="prof-img-min" src={{u.image}}>
+          </div>
         </div>
         <div class="friend-int new-req" ng-click="acceptRequest(user.name)">Accept</div>
         <div class="friend-int new-req" ng-click="declineRequest(user.name)">Decline</div>
@@ -17,7 +22,7 @@
   <div ng-if="convInvitations.length > 0" class="requests">
     <h1>You are invited into following chats</h1>
     <div ng-repeat="invitation in convInvitations">
-      <div id="invitation-{{invitation.id}}">
+      <div id="invitation-{{invitation.id}}" class="req-item">
         <div class="conversation">
           <b>{{invitation.name}}</b><br ng-if="invitation.name !== ''">
           {{showParticipantsNames(currentUser.name, invitation)}}

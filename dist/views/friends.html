@@ -3,10 +3,15 @@
   <div ng-if="requestsTo.length > 0" class="requests">
     <h1>You sent friend request to</h1>
     <div ng-repeat="user in requestsTo">
-      <div id="request-{{user.name}}">
+      <div id="request-{{user.name}}" class="req-item">
         <div class="friend" ng-click="redirect(user.name)">
           <b>{{user.name}}</b>
-          <img class="prof-img-min" src={{user.image}}>
+          <img class="prof-img-min" src={{user.image}}><br>
+          <p class="user-about">{{user.about}}</p><br>
+          <b class="mutual-friends" ng-if="mutualFriends(user.friends).length > 0">Mutual friends</b><br class="mutual-friends" ng-if="mutualFriends(user.friends).length > 0">
+          <div class="mutual-friends" ng-repeat="u in mutualFriends(user.friends)">
+            <img class="prof-img-min" src={{u.image}}>
+          </div>
         </div>
         <div class="friend-int new-req" ng-click="cancelRequest(user)">Cancel</div>
       </div>
@@ -15,7 +20,12 @@
   <div ng-repeat="friend in friends">
     <div class="friend" ng-click="redirect(friend.name)">
       <b>{{friend.name}}</b>
-      <img class="prof-img-min" src={{friend.image}}>
+      <img class="prof-img-min" src={{friend.image}}><br>
+      <p class="user-about">{{friend.about}}</p><br>
+      <b class="mutual-friends" ng-if="mutualFriends(friend.friends).length > 0">Mutual friends</b><br class="mutual-friends" ng-if="mutualFriends(friend.friends).length > 0">
+      <div class="mutual-friends" ng-repeat="f in mutualFriends(friend.friends)">
+        <img class="prof-img-min" src={{f.image}}>
+      </div>
     </div>
     <div class="friend-int write" ng-click="enterConversationByNames(currentUser.name, friend.name)"></div>
   </div>

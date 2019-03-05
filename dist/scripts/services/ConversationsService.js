@@ -5,57 +5,35 @@ angular.module('LemonChat')
     var conversations = [
       {
         id: 1,
-        name: 'Citrus chat',
-        participants: ['lo', 'lemon', 'admin'],
-        initiator: 'lo',
-        administrators: ['lo'],
+        name: 'Lemon chat',
+        participants: ['Lemon', 'Orange', 'Grapefruit'],
+        administrators: ['Lemon'],
         invitations: {
-          requested: [{
-            inviter: 'lemon',
-            user: 'orange'
-          }],
+          requested: [],
           approved: [{
-            inviter: 'lo',
-            approver: 'admin',
-            user: 'grapefruit'
+            inviter: 'Orange',
+            approver: 'Lemon',
+            user: 'Lime'
+          }, {
+            inviter: 'Orange',
+            approver: 'Lemon',
+            user: 'Mandarin'
           }]
         },
         initializedAt: new Date(2018, 1, 13, 17, 21),
         messages: [
           {
-            author: 'lo',
+            author: 'Lemon',
             date: new Date(2018, 1, 13, 22, 50),
-            text: 'Hello, Lemon'
+            text: 'Hello guys, welcome to Lemon Chat'
           }, {
-            author: 'lemon',
+            author: 'Orange',
             date: new Date(2018, 1, 13, 23, 3),
-            text: 'Hello, Lo'
-          }
-        ]
-      }, {
-        id: 2,
-        name: '',
-        participants: ['admin', 'lemon'],
-        initiator: 'admin',
-        administrators: ['admin'],
-        invitations: {
-          requested: [],
-          approved: [{
-            inviter: 'lemon',
-            approver: 'admin',
-            user: 'lo'
-          }]
-        },
-        initializedAt: new Date(2018, 5, 21, 17, 39),
-        messages: [
-          {
-            author: 'admin',
-            date: new Date(2018, 5, 21, 17, 40),
-            text: 'Welcome to LemonChat, Lo'
+            text: 'Hi!'
           }, {
-            author: 'lo',
-            date: new Date(2018, 5, 22, 8, 33),
-            text: 'Thank you!'
+            author: 'Grapefruit',
+            date: new Date(2018, 1, 14, 12, 15),
+            text: 'Hello!'
           }
         ]
       }
@@ -77,6 +55,10 @@ angular.module('LemonChat')
 
     function getConversationById(conversationId) {
       return conversations[conversationId - 1]
+    };
+
+    this.getConversationById = function(conversationId) {
+      return getConversationById(conversationId)
     };
 
     function enterConversationById(conversationId) {
