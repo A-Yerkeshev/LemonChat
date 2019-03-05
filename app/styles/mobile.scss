@@ -333,6 +333,7 @@ body {
   text-shadow: 1px 1px 1px #FFF000;
   margin-top: 5%;
   margin-bottom: 1%;
+  margin-left: 1em;
   display: block;
 }
 
@@ -439,7 +440,7 @@ body {
   background-color: #FFF5A5;
   overflow: hidden;
   padding: 0px;
-  width: 45%;
+  width: max-content;
   display: inline-block;
   vertical-align: top;
   margin-left: 1em;
@@ -473,7 +474,7 @@ body {
   padding: 0px;
   height: 25em;
   margin-left: 0.3em;
-  width: 45%;
+  width: max-content;
 }
 
 .new-conversation > h1 {
