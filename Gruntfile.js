@@ -75,7 +75,9 @@ module.exports = function (grunt) {
     sass: {
         dev: {
             files: {
-                'app/css/main.css': 'app/styles/main.scss'
+                'app/css/mobile.css': 'app/styles/mobile.scss',
+                'app/css/medium.css': 'app/styles/medium.scss',
+                'app/css/large.css': 'app/styles/large.scss',
             }
         }
     },
