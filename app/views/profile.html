@@ -1,6 +1,6 @@
 <div ng-controller="UsersController">
   <div ng-controller="AnimationsController" class="prof-img-box">
-    <img class="profile-image" src={{profileUser.image}}>
+    <img class="profile-image large" src={{profileUser.image}}>
     <button class="button" ng-if="profileUser == currentUser" ng-click="selectImage()">Change image</button>
   </div>
   <h1 class="profile-name">{{profileUser.name}}</h1>

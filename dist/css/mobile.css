@@ -231,6 +231,13 @@ body {
   border-color: #FFF000;
   margin: 5px; }
 
+.medium {
+  width: 5em;
+  height: 5em; }
+
+.large {
+  width: 100%; }
+
 .prof-img-panel {
   border: solid;
   border-color: #FFF1A1;

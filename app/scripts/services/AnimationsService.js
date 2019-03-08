@@ -214,7 +214,7 @@ angular.module('LemonChat')
 
         // Create clickable element from each image in the list
         images.forEach(function(image) {
-          var elem = angular.element('<img class="profile-image" src="/images/'
+          var elem = angular.element('<img class="profile-image medium" src="/images/'
             + image + '" ng-click="changeProfileImage(' + "'" + image + "'" + ')">')
           panel.append($compile(elem)(scope));
         });
